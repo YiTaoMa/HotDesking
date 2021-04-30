@@ -34,6 +34,10 @@ public class LoginController implements Initializable {
     /* login Action method
        check if user input is the same as database.
      */
+    //This is the method link to the login button, if button clicked, it will call this method
+
+    //It's more simple to create multiple FXML and Controller. 1 FXML = 1Controller. And you can comunicate betweeen the different controller with no problems.
+    //in the scene builder left hand side, there is a controller class, you must add controller class in order to do the on click action
     public void Login(ActionEvent event){
 
         try {

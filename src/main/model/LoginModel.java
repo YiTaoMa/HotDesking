@@ -34,13 +34,14 @@ public class LoginModel {
         ResultSet resultSet=null;
         String query = "select * from employee where username = ? and password= ?";
         try {
-
+             // it means select  all from the employee table where the user name is equal to the user input or not and password
+            //if there is a match we login the user, both username and password match
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, user);
             preparedStatement.setString(2, pass);
 
             resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
+            if (resultSet.next()) { //if result set have next means there is a match of user input and database
                 return true;
             }
             else{
