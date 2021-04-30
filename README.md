@@ -1,6 +1,8 @@
 # Readme
 
-This README should be completed by the student
+Name: Yitao Ma
+Student ID: s3843689
+Course Name: Further Programming (2110) COSC2391
 
 # Packaging
 The main class is Main.java
