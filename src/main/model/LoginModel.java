@@ -32,13 +32,14 @@ public class LoginModel {
     public Boolean isLogin(String user, String pass) throws SQLException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet=null;
-        String query = "select * from employee where username = ? and password= ?";
+        String query = "select * from Employee where username = ? and password= ?";
         try {
              // it means select  all from the employee table where the user name is equal to the user input or not and password
             //if there is a match we login the user, both username and password match
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, user);
-            preparedStatement.setString(2, pass);
+            preparedStatement.setString(1, user);//set the ? for username is the user which is the parameter passed by controller
+            //this index 1,2 means the parameter of the query uername = ? and password = ?
+            preparedStatement.setString(2, pass);//set the ? for password is the user which is the parameter passed by controller
 
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) { //if result set have next means there is a match of user input and database
