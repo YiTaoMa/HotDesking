@@ -3,6 +3,7 @@
 - Name: Yitao Ma
 - Student ID: s3843689
 - Course Name: Further Programming (2110) COSC2391
+- Register only for Employee not admin
 
 # Packaging
 The main class is Main.java
