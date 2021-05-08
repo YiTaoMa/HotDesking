@@ -28,7 +28,7 @@ public class LoginModel {
             return false;
         }
     }
-
+/**if user nad password one of them not exist becuase it is and so there is no row return when password or */
     public Boolean isLogin(String user, String pass) throws SQLException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet=null;

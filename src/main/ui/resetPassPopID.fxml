@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderpaneResetPop" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.ResetPassPopIDController">
+<BorderPane fx:id="borderpaneResetPop" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="351.0" prefWidth="478.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.ResetPassPopIDController">
    <top>
-      <Label text="Please enter your ID to reset your password!" BorderPane.alignment="CENTER">
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Please enter your ID to reset your password!" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets top="20.0" />
+            <Insets top="50.0" />
          </BorderPane.margin>
          <font>
             <Font size="21.0" />
@@ -23,35 +23,41 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="errorMessage" prefHeight="17.0" prefWidth="438.0" text="Error,  ID can not be empty and must be a positive whole number!" textFill="RED">
+            <Label fx:id="errorMessage" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Error,  ID can not be empty and must be a positive whole number!" textFill="RED" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="20.0" top="5.0" />
+                  <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Label text="ID">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="ID" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="210.0" top="6.0" />
+                  <Insets top="20.0" />
                </VBox.margin>
                <font>
-                  <Font size="19.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="txtID">
+            <TextField fx:id="txtID" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets left="120.0" right="120.0" />
                </VBox.margin>
             </TextField>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" prefWidth="68.0" text="Go Back">
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBack" text="Go Back" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="130.0" />
+                        <Insets left="100.0" right="20.0" top="20.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#goToResetPassword" prefHeight="27.0" prefWidth="68.0" text="Continue" textFill="#09dd5e">
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goToResetPassword" text="Continue" textFill="GREEN" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="40.0" />
+                        <Insets left="5.0" right="100.0" top="20.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
                   </Button>
                </children>
                <VBox.margin>

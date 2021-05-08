@@ -15,14 +15,14 @@
             <Font size="21.0" />
          </font>
          <BorderPane.margin>
-            <Insets top="30.0" />
+            <Insets top="50.0" />
          </BorderPane.margin>
       </Label>
    </top>
    <center>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Clcik the Login to start!" textFill="#27009a" VBox.vgrow="ALWAYS">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Clcik the Login to start!" textFill="#27009a" wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
@@ -30,67 +30,65 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label maxWidth="1.7976931348623157E308" text=" Register if you don't have an account!" textFill="#27009a" VBox.vgrow="ALWAYS">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="   Register if you don't have an account!" textFill="#27009a" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="19.0" />
                </font>
                <VBox.margin>
-                  <Insets left="100.0" />
+                  <Insets />
                </VBox.margin>
             </Label>
-            <Label maxWidth="1.7976931348623157E308" text="This system preventing the same users from sitting in the same spot " VBox.vgrow="ALWAYS">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="This system preventing the same users from sitting in the same spot " wrapText="true" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="16.0" />
                </font>
                <VBox.margin>
-                  <Insets left="34.0" top="19.0" />
+                  <Insets top="19.0" />
                </VBox.margin>
             </Label>
-            <Label maxWidth="1.7976931348623157E308" text="for multiple days so that they can socially interact with different people " VBox.vgrow="ALWAYS">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="for multiple days so that they can socially interact with different people " wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="20.0" />
+                  <Insets />
                </VBox.margin>
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label maxWidth="1.7976931348623157E308" prefHeight="4.0" prefWidth="75.0" text="every time." textAlignment="CENTER" VBox.vgrow="ALWAYS">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="every time." textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="16.0" />
                </font>
                <VBox.margin>
-                  <Insets left="200.0" />
+                  <Insets />
                </VBox.margin>
             </Label>
+            <HBox maxWidth="1.7976931348623157E308">
+               <children>
+                  <Button fx:id="loginID" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#homeLogin" text="Login" textAlignment="CENTER" textFill="GREEN" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="registerID" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#homeRegister" text="Register" textAlignment="CENTER" textFill="GREEN" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="100.0" right="100.0" top="30.0" />
+               </VBox.margin>
+            </HBox>
          </children>
          <BorderPane.margin>
             <Insets left="50.0" right="50.0" />
          </BorderPane.margin>
       </VBox>
    </center>
-   <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#homeLogin" prefHeight="0.0" prefWidth="0.0" text="Login" textAlignment="CENTER" textFill="#0dd72b" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <HBox.margin>
-                  <Insets top="45.0" />
-               </HBox.margin>
-            </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#homeRegister" prefHeight="0.0" prefWidth="0.0" text="Register" textAlignment="CENTER" textFill="#0dd72b" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="20.0" top="45.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="66.0" left="160.0" right="160.0" />
-         </BorderPane.margin>
-      </HBox>
-   </bottom>
 </BorderPane>

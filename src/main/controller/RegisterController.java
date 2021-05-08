@@ -14,9 +14,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import main.Main;
 import main.model.RegisterModel;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -82,45 +84,65 @@ public void initialize(URL location, ResourceBundle resources) {
                 else if(registerModel.isRegister(txtUserName.getText(),txtPassword.getText(),idInt,txtFirstName.getText(),
                         txtLastName.getText(),choiceRoleBox.getValue().toString(),choiceSQBox.getValue().toString(),txtAnswerForSecretQ.getText())){
                    try {
-                       ////problem is do we need to do main new stage again or we can use the stage from the main directly
-                       Parent root = FXMLLoader.load(getClass().getResource("../ui/main.fxml"));
-                       Stage stage = new Stage();
-                       //this.stgLogin = stage;
-                       stage.setScene(new Scene(root));
-                       stage.setTitle("Hotdesking-Main");
-                       Stage registerStage = (Stage) borderpaneRegister.getScene().getWindow();
-                       registerStage.close();
-                       stage.show();
+                       //////problem is do we need to do main new stage again or we can use the stage from the main directly
+                       //Parent root = FXMLLoader.load(getClass().getResource("../ui/main.fxml"));
+                       //Stage stage = new Stage();
+                       ////this.stgLogin = stage;
+                       //stage.setScene(new Scene(root));
+                       //stage.setTitle("Hotdesking-Main");
+                       //Stage registerStage = (Stage) borderpaneRegister.getScene().getWindow();
+                       //registerStage.close();
+                       //stage.show();
+                       Scene scene = borderpaneRegister.getScene();
+                       // from the scene, we try to access the primary stage
+                       Window window = scene.getWindow();
+                       Stage primaryStage = (Stage) window;
+
+                       // load the second scene
+                       try {
+                           Parent root = FXMLLoader.load(getClass().getResource("../ui/main.fxml"));
+                           primaryStage.setTitle("Hotdesking-Main");
+                           primaryStage.setScene(new Scene(root));
+                       } catch (IOException e) {
+                           System.out.println("Cannot load the main scene");
+                       }
                    }
                    catch (Exception e) {
                        e.printStackTrace();
                    }
-
                 }
                 else{
                     errorMessageRegister.setText("                                      Register failed, Employee ID or username already exist!");
                 }
             }
-
-
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void goBack(ActionEvent event) {
         //go back to home page
+        //try {
+        //    Main.stg.show();//we call the home page to show
+        //    Stage registerStage = (Stage) borderpaneRegister.getScene().getWindow();//use the borderpane to get the stage for this register
+        //    registerStage.close(); // close the login page
+        //} catch (Exception e) {
+        //    e.printStackTrace();
+        //}
+
+        Scene scene = borderpaneRegister.getScene();
+        // from the scene, we try to access the primary stage
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+
+        // load the second scene
         try {
-            Main.stg.show();//we call the home page to show
-            Stage registerStage = (Stage) borderpaneRegister.getScene().getWindow();//use the borderpane to get the stage for this register
-            registerStage.close(); // close the login page
-        } catch (Exception e) {
-            e.printStackTrace();
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/home.fxml"));
+            primaryStage.setTitle("Hotdesking-Home");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the home scene");
         }
     }
-
-
 }
