@@ -59,4 +59,30 @@ public class LoginModel {
 
     }
 
+    public String getRole(String username, String password) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet=null;
+        String query = "select character_role from Employee where username = ? and password= ?";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getString("character_role");
+            }
+            else{
+                return "not found";
+            }
+        }
+        catch (Exception e)
+        {
+            return "not found";
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
 }

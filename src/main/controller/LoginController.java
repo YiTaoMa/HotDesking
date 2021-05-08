@@ -51,15 +51,29 @@ public class LoginController implements Initializable {//implements Initializabl
     public void Login(ActionEvent event) {
         try {
             if (loginModel.isLogin(txtUsername.getText(), txtPassword.getText())) { // if login success
-                    Scene scene = borderpaneLogin.getScene();
-                    Window window = scene.getWindow();
-                    Stage primaryStage = (Stage) window;
-                    try {
-                        Parent root = FXMLLoader.load(getClass().getResource("../ui/main.fxml"));
-                        primaryStage.setTitle("Hotdesking-Main");
-                        primaryStage.setScene(new Scene(root));
-                    } catch (IOException e) {
-                        System.out.println("Cannot load the main scene");
+                    if (loginModel.getRole(txtUsername.getText(),txtPassword.getText()).equals("Employee")){
+                        Scene scene = borderpaneLogin.getScene();
+                        Window window = scene.getWindow();
+                        Stage primaryStage = (Stage) window;
+                        try {
+                            Parent root = FXMLLoader.load(getClass().getResource("../ui/main.fxml"));
+                            primaryStage.setTitle("Hotdesking-Main");
+                            primaryStage.setScene(new Scene(root));
+                        } catch (IOException e) {
+                            System.out.println("Cannot load the main scene");
+                        }
+                    }
+                    else if (loginModel.getRole(txtUsername.getText(),txtPassword.getText()).equals("Admin")){
+                        Scene scene = borderpaneLogin.getScene();
+                        Window window = scene.getWindow();
+                        Stage primaryStage = (Stage) window;
+                        try {
+                            Parent root = FXMLLoader.load(getClass().getResource("../ui/mainAdmin.fxml"));
+                            primaryStage.setTitle("Hotdesking-Main-Admin");
+                            primaryStage.setScene(new Scene(root));
+                        } catch (IOException e) {
+                            System.out.println("Cannot load the mainAdmin scene");
+                        }
                     }
             } else {
                 errorMessage.setText("username and password is incorrect");

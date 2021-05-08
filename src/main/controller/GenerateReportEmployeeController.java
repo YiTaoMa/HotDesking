@@ -7,6 +7,7 @@ public class GenerateReportEmployeeController {
     GenerateReportEmployeeModel generateReportEmployeeModel =  new GenerateReportEmployeeModel();
 
     public void generateReportForEmployee(ActionEvent event) {
+        // only generated 1 row instead of all
        generateReportEmployeeModel.generateEmployeeReport();
     }
 }
