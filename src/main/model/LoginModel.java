@@ -85,4 +85,30 @@ public class LoginModel {
         }
     }
 
+    public int getEmployeeId(String username, String password) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet=null;
+        String query = "select id from Employee where username=? and password=?";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("id");
+            }
+            else{
+                return 0;
+            }
+        }
+        catch (Exception e)
+        {
+            return 0;
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
 }

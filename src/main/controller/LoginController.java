@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {//implements Initializable
     public LoginModel loginModel = new LoginModel();
+    protected static int employeeID;
     @FXML
     private Label errorMessage;
     @FXML
@@ -51,6 +52,7 @@ public class LoginController implements Initializable {//implements Initializabl
     public void Login(ActionEvent event) {
         try {
             if (loginModel.isLogin(txtUsername.getText(), txtPassword.getText())) { // if login success
+                employeeID = loginModel.getEmployeeId(txtUsername.getText(), txtPassword.getText());
                     if (loginModel.getRole(txtUsername.getText(),txtPassword.getText()).equals("Employee")){
                         Scene scene = borderpaneLogin.getScene();
                         Window window = scene.getWindow();
@@ -111,5 +113,8 @@ public class LoginController implements Initializable {//implements Initializabl
         } catch (IOException e) {
             System.out.println("Cannot load the resetPassPopID scene");
         }
+    }
+    public int getEmployeeID(){
+        return employeeID;
     }
 }
