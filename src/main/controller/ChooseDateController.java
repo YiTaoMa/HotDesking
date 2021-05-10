@@ -59,12 +59,6 @@ public class ChooseDateController implements Initializable {
         };
         bookingDatePicker.setConverter(converter);
 
-
-
-
-
-
-
         bookingDatePicker.setValue(LocalDate.now());
         final Callback<DatePicker, DateCell> dayCellFactory =
                 new Callback<DatePicker, DateCell>() {

@@ -1,20 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.BookingController">
    <center>
       <AnchorPane maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="seat4" layoutX="69.0" layoutY="282.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
-            <Button fx:id="seat2" layoutX="261.0" layoutY="138.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
-            <Button fx:id="seat3" layoutX="455.0" layoutY="138.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
-            <Button fx:id="seat6" layoutX="455.0" layoutY="282.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
-            <Button fx:id="seat5" layoutX="261.0" layoutY="282.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
-            <Button fx:id="seat1" layoutX="69.0" layoutY="138.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
+            <Button fx:id="seat4" layoutX="62.0" layoutY="217.0" mnemonicParsing="false" onAction="#clickedSeat4" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
+            <Button fx:id="seat2" layoutX="261.0" layoutY="58.0" mnemonicParsing="false" onAction="#clickedSeat2" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
+            <Button fx:id="seat3" layoutX="455.0" layoutY="58.0" mnemonicParsing="false" onAction="#clickedSeat3" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
+            <Button fx:id="seat6" layoutX="455.0" layoutY="217.0" mnemonicParsing="false" onAction="#clickedSeat6" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
+            <Button fx:id="seat5" layoutX="261.0" layoutY="217.0" mnemonicParsing="false" onAction="#clickedSeat5" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
+            <Button fx:id="seat1" layoutX="69.0" layoutY="58.0" mnemonicParsing="false" onAction="#clickedSeat1" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: green;" />
          </children>
       </AnchorPane>
    </center>
+   <top>
+      <VBox prefHeight="72.0" prefWidth="551.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="50.0" right="50.0" />
+         </BorderPane.margin>
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Green: Free to book" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Red: Already been booked by others" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="DarkRed: Booked by you previously" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Orange: Locked down" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </top>
 </BorderPane>

@@ -91,4 +91,30 @@ LinkedList<Integer> seatsBookedByOther = new LinkedList<>();
          }
          return seatsBookedByUserPrevious;
      }
+
+     public boolean isAlreadyBookedInSelectedDate(String date, int employeeId) throws SQLException { // check if the user booked another seat in that day which is he attempt to book anotehr
+        //seat in that day second time, not allow
+         String query = "select number from Booking where date=? and employee_id=?";
+         PreparedStatement preparedStatement = null;
+         ResultSet resultSet=null;
+         try {
+             preparedStatement = connection.prepareStatement(query);
+             preparedStatement.setString(1,date);
+             preparedStatement.setInt(2,employeeId);
+             resultSet = preparedStatement.executeQuery();
+             if(resultSet.next()) {
+                 return true;// means if the user havethe booking in that day not allow him to book in that day again
+             }
+             else{
+                 return false;
+             }
+         }
+         catch (Exception e)
+         {
+             return false;
+         }finally {
+             preparedStatement.close();
+             resultSet.close();
+         }
+     }
 }

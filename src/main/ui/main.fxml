@@ -7,7 +7,10 @@
    <bottom>
       <Button mnemonicParsing="false" onAction="#goHome" text="Home" BorderPane.alignment="CENTER" />
    </bottom>
-   <center>
+   <right>
       <Button mnemonicParsing="false" onAction="#booking" text="Booking" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <Button mnemonicParsing="false" onAction="#manageBooking" text="Manage Booking" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

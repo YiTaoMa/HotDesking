@@ -55,4 +55,8 @@ public void booking(ActionEvent event){
             System.out.println("Cannot load the login scene");
         }
     }
+
+    public void manageBooking(ActionEvent event){
+
+    }
 }
