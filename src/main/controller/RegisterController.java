@@ -79,7 +79,7 @@ public void initialize(URL location, ResourceBundle resources) {
                 if(txtUserName.getText().trim().equals("") || txtPassword.getText().trim().equals("") || txtFirstName.getText().trim().equals("")
                 || txtLastName.getText().trim().equals("") || choiceRoleBox.getValue().toString().trim().equals("") || choiceSQBox.getValue().toString().trim().equals("")
                 || txtAnswerForSecretQ.getText().trim().equals("")){
-                    errorMessageRegister.setText("                                                                  Fields can not be empty!");
+                    errorMessageRegister.setText("Fields can not be empty! (input can not be a space or spaces)");
                 }
                 else if(registerModel.isRegister(txtUserName.getText(),txtPassword.getText(),idInt,txtFirstName.getText(),
                         txtLastName.getText(),choiceRoleBox.getValue().toString(),choiceSQBox.getValue().toString(),txtAnswerForSecretQ.getText())){

@@ -38,7 +38,7 @@ private BorderPane borderPaneConfirmBooking;
                 // if insert into Booking tble success insert into whitelist also
                if (confirmBookingModel.insertToWhitelist(loginController.getEmployeeID(),bookingController.getSeatID(),chooseDateController.getDateChosed())){
                    //if insert into whitelist is true which is success then go to page
-                   swirchSceneToMain();
+                   switchSceneToMain();
                    showBookingSuccessStage();
                }
             }
@@ -61,7 +61,7 @@ private BorderPane borderPaneConfirmBooking;
             System.out.println("Cannot load the bookingSuccess.fxml");
         }
     }
-    public void swirchSceneToMain(){
+    public void switchSceneToMain(){
         Scene scene = borderPaneConfirmBooking.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;

@@ -15,4 +15,7 @@
    <top>
       <Label text="You can only book the date start from tomorrow!" BorderPane.alignment="CENTER" />
    </top>
+   <bottom>
+      <Button mnemonicParsing="false" onAction="#goBackToMain" text="Go Back" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

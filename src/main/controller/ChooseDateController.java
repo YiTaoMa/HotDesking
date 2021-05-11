@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
 public class ChooseDateController implements Initializable {
     protected static String dateChosed;
     private final String pattern = "yyyy-MM-dd";
+    SelectBookingToManageEmpController selectBookingToManageEmpController = new SelectBookingToManageEmpController();
     //SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
     //ft.format();
     @FXML
@@ -84,6 +85,10 @@ public class ChooseDateController implements Initializable {
     }
 
     public void gotoBooking(ActionEvent event){
+        // if it is normal booking we first set management booking to false
+        //so when you go to booking controller it will perform the initialise as booking management
+        selectBookingToManageEmpController.setIsBookingManagementEmp(false);
+
         //dateChosed= convertToDateViaInstant(bookingDatePicker.getValue());
         dateChosed= bookingDatePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         //dateChosed = convertToDateViaSqlDate(bookingDatePicker.getValue());
@@ -111,5 +116,18 @@ public class ChooseDateController implements Initializable {
     //}
     public Date convertToDateViaSqlDate(LocalDate dateToConvert) {
         return java.sql.Date.valueOf(dateToConvert);
+    }
+
+    public void goBackToMain(ActionEvent event){
+        Scene scene = borderpaneChooseDate.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/main.fxml"));
+            primaryStage.setTitle("Hotdesking-Main");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the main.fxml");
+        }
     }
 }

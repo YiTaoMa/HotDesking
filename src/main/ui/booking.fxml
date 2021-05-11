@@ -27,22 +27,22 @@
             <Insets left="50.0" right="50.0" />
          </BorderPane.margin>
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Green: Free to book" VBox.vgrow="ALWAYS">
+            <Label fx:id="greenPrompt" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Green: Free to book" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Red: Already been booked by others" VBox.vgrow="ALWAYS">
+            <Label fx:id="redPrompt" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Red: Already been booked by others" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="DarkRed: Booked by you previously" VBox.vgrow="ALWAYS">
+            <Label fx:id="darkRedOrBlackPrompt" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="DarkRed: Booked by you previously" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Orange: Locked down" VBox.vgrow="ALWAYS">
+            <Label fx:id="orangePrompt" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Orange: Locked down" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="16.0" />
                </font>
@@ -50,4 +50,7 @@
          </children>
       </VBox>
    </top>
+   <bottom>
+      <Button mnemonicParsing="false" onAction="#goBackToDateSelectOrList" text="Go Back" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

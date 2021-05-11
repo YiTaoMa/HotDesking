@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import main.Main;
 
 import java.io.IOException;
 
@@ -57,6 +56,15 @@ public void booking(ActionEvent event){
     }
 
     public void manageBooking(ActionEvent event){
-
+        Scene scene = borderpaneMain.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/selectBookingToManageEmp.fxml"));
+            primaryStage.setTitle("Hotdesking-Manage Booking-Employee");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the selectBookingToManageEmp.fxml");
+        }
     }
 }
