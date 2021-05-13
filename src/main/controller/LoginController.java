@@ -20,7 +20,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {//implements Initializable
+public class LoginController implements Initializable {//implements Initialize
     public LoginModel loginModel = new LoginModel();
     protected static int employeeID;
     @FXML
@@ -34,17 +34,11 @@ public class LoginController implements Initializable {//implements Initializabl
 
     //note: <?import javafx.scene.effect.Light?> need to be add if you see error in color
 
-
-    // Check database connection
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //if (loginModel.isDbConnected()){
-        //    isConnected.setText("Connected");
-        //}else{
-        //    isConnected.setText("Not Connected");
-        //}
         errorMessage.setText("");
     }
+
     /* login Action method
        check if user input is the same as database.
      */
@@ -53,30 +47,29 @@ public class LoginController implements Initializable {//implements Initializabl
         try {
             if (loginModel.isLogin(txtUsername.getText(), txtPassword.getText())) { // if login success
                 employeeID = loginModel.getEmployeeId(txtUsername.getText(), txtPassword.getText());
-                    if (loginModel.getRole(txtUsername.getText(),txtPassword.getText()).equals("Employee")){
-                        Scene scene = borderpaneLogin.getScene();
-                        Window window = scene.getWindow();
-                        Stage primaryStage = (Stage) window;
-                        try {
-                            Parent root = FXMLLoader.load(getClass().getResource("../ui/main.fxml"));
-                            primaryStage.setTitle("Hotdesking-Main");
-                            primaryStage.setScene(new Scene(root));
-                        } catch (IOException e) {
-                            System.out.println("Cannot load the main scene");
-                        }
+                if (loginModel.getRole(txtUsername.getText(), txtPassword.getText()).equals("Employee")) {
+                    Scene scene = borderpaneLogin.getScene();
+                    Window window = scene.getWindow();
+                    Stage primaryStage = (Stage) window;
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getResource("../ui/main.fxml"));
+                        primaryStage.setTitle("Hotdesking-Main");
+                        primaryStage.setScene(new Scene(root));
+                    } catch (IOException e) {
+                        System.out.println("Cannot load the main scene");
                     }
-                    else if (loginModel.getRole(txtUsername.getText(),txtPassword.getText()).equals("Admin")){
-                        Scene scene = borderpaneLogin.getScene();
-                        Window window = scene.getWindow();
-                        Stage primaryStage = (Stage) window;
-                        try {
-                            Parent root = FXMLLoader.load(getClass().getResource("../ui/mainAdmin.fxml"));
-                            primaryStage.setTitle("Hotdesking-Main-Admin");
-                            primaryStage.setScene(new Scene(root));
-                        } catch (IOException e) {
-                            System.out.println("Cannot load the mainAdmin scene");
-                        }
+                } else if (loginModel.getRole(txtUsername.getText(), txtPassword.getText()).equals("Admin")) {
+                    Scene scene = borderpaneLogin.getScene();
+                    Window window = scene.getWindow();
+                    Stage primaryStage = (Stage) window;
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getResource("../ui/mainAdmin.fxml"));
+                        primaryStage.setTitle("Hotdesking-Main-Admin");
+                        primaryStage.setScene(new Scene(root));
+                    } catch (IOException e) {
+                        System.out.println("Cannot load the mainAdmin scene");
                     }
+                }
             } else {
                 errorMessage.setText("username and password is incorrect");
             }
@@ -114,7 +107,8 @@ public class LoginController implements Initializable {//implements Initializabl
             System.out.println("Cannot load the resetPassPopID scene");
         }
     }
-    public int getEmployeeID(){
+
+    public int getEmployeeID() {
         return employeeID;
     }
 }

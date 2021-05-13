@@ -16,20 +16,15 @@ import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.sql.Date;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class ChooseDateController implements Initializable {
-    protected static String dateChosed;
+    protected static String dateChose;
     private final String pattern = "yyyy-MM-dd";
     SelectBookingToManageEmpController selectBookingToManageEmpController = new SelectBookingToManageEmpController();
-    //SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
-    //ft.format();
+
     @FXML
     private DatePicker bookingDatePicker;
     @FXML
@@ -37,10 +32,10 @@ public class ChooseDateController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         StringConverter converter = new StringConverter<LocalDate>() {
             DateTimeFormatter dateFormatter =
                     DateTimeFormatter.ofPattern(pattern);
+
             @Override
             public String toString(LocalDate date) {
                 if (date != null) {
@@ -49,6 +44,7 @@ public class ChooseDateController implements Initializable {
                     return "";
                 }
             }
+
             @Override
             public LocalDate fromString(String string) {
                 if (string != null && !string.isEmpty()) {
@@ -84,16 +80,13 @@ public class ChooseDateController implements Initializable {
         bookingDatePicker.setValue(bookingDatePicker.getValue().plusDays(1));
     }
 
-    public void gotoBooking(ActionEvent event){
+    public void gotoBooking(ActionEvent event) {
         // if it is normal booking we first set management booking to false
         //so when you go to booking controller it will perform the initialise as booking management
         selectBookingToManageEmpController.setIsBookingManagementEmp(false);
 
-        //dateChosed= convertToDateViaInstant(bookingDatePicker.getValue());
-        dateChosed= bookingDatePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        //dateChosed = convertToDateViaSqlDate(bookingDatePicker.getValue());
-        //System.out.println(dateChosed + "first");
-          //dateChosed=bookingDatePicker.getValue();
+        dateChose = bookingDatePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
         Scene scene = borderpaneChooseDate.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
@@ -105,20 +98,12 @@ public class ChooseDateController implements Initializable {
             System.out.println("Cannot load the Booking scene");
         }
     }
-    public String getDateChosed(){
-        //System.out.println(dateChosed +"in get date chosed method");
-        return dateChosed;
-    }
-    //public Date convertToDateViaInstant(LocalDate dateToConvert) {
-    //    return java.util.Date.from(dateToConvert.atStartOfDay()
-    //            .atZone(ZoneId.systemDefault())
-    //            .toInstant());
-    //}
-    public Date convertToDateViaSqlDate(LocalDate dateToConvert) {
-        return java.sql.Date.valueOf(dateToConvert);
+
+    public String getDateChose() {
+        return dateChose;
     }
 
-    public void goBackToMain(ActionEvent event){
+    public void goBackToMain(ActionEvent event) {
         Scene scene = borderpaneChooseDate.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;

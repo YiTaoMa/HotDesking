@@ -8,13 +8,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SeatBookedErrorController implements Initializable {
-    //protected static String seatBookedErrorMessage;
     @FXML
     private Label errorMessageBooking;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //seatBookedErrorMessage = errorMessage.getText();
-        //errorMessageBooking.setText("");
-    }
 
+    }
 }

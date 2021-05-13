@@ -9,20 +9,18 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="borderpaneResetPassSuccess" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="494.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.ResetPassSuccessController">
-   <top>
-      <Label text="Congratulations, your password has been reset！" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets top="55.0" />
-         </BorderPane.margin>
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
-   </top>
    <center>
-      <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="409.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="494.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Here is your new password:" VBox.vgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Congratulations, your password has been reset！" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="60.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Here is your new password:" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
@@ -40,12 +38,12 @@
             </Label>
             <HBox maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToLogin" text="Go back to Login" textFill="GREEN" HBox.hgrow="ALWAYS">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToLogin" text="Go back to Login" textFill="GREEN" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>
                      <HBox.margin>
-                        <Insets top="35.0" />
+                        <Insets left="40.0" right="40.0" top="35.0" />
                      </HBox.margin>
                   </Button>
                </children>

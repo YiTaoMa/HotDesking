@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.BookAgainInSelectedDateErrorController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="202.0" prefWidth="461.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.BookAgainInSelectedDateErrorController">
    <center>
-      <Label text="Error! You can not book multiple seats in a day!" BorderPane.alignment="CENTER">
+      <Label text="Error! You can not book multiple seats in a day!" textFill="RED" wrapText="true" BorderPane.alignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>

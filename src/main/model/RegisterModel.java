@@ -24,11 +24,9 @@ public class RegisterModel {
         String sqlregister = "select * from Employee where id=? or username=?"; // as long as email is incorrect not going to register user that is why need only email
         //not password!!! important!!
         try {
-            prst = connection.prepareStatement(sqlregister); // PS to SQL statement
-            //prst.setInt(1,id);
+            prst = connection.prepareStatement(sqlregister);
             prst.setInt(1, id);//represnet "?" place holder
-            prst.setString(2,username);
-            //prst.setString(2, password);
+            prst.setString(2, username);
 
             resultSet = prst.executeQuery(); // execute SQL statement and return results
 

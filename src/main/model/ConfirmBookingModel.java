@@ -4,11 +4,9 @@ import main.SQLConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.LinkedList;
 import java.util.Locale;
 
 public class ConfirmBookingModel {
@@ -43,20 +41,19 @@ public class ConfirmBookingModel {
         }
         return result;
     }
+
     public boolean insertToWhitelist(int employeeId, int seatId, String date) throws SQLException {
         //in the whitelist date is plus 1 so need to convert string date to date then plus a day then convert back to String
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
         LocalDate dateConverted = LocalDate.parse(date, formatter);
         dateConverted = dateConverted.plusDays(1);//add one day
         String dateString = dateConverted.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")); // after added 1 day convert back to string
 
         PreparedStatement prst = null;
-        //ResultSet resultSet = null;
         boolean result = false;
         String sql = "insert into Whitelist (employee_id,seat_id,date,is_locked) values(?,?,?,?)"; // SQL statement
         try {
-            prst = connection.prepareStatement(sql); // PS to SQL statement
+            prst = connection.prepareStatement(sql);
             prst.setInt(1, employeeId);
             prst.setInt(2, seatId);
             prst.setString(3, dateString);

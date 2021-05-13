@@ -32,6 +32,7 @@ public class SelectBookingToManageEmpController implements Initializable {
     protected static boolean isBookingManagementEmp;
     protected static String dateForManage;
     protected static int seatIDBookedByCurrentUserManage;
+    protected static boolean hasConfirmed;
     ObservableList<String> items = FXCollections.observableArrayList();
     SelectBookingToManageEmpModel selectBookingToManageEmpModel = new SelectBookingToManageEmpModel();
     LoginController loginController = new LoginController();
@@ -42,28 +43,23 @@ public class SelectBookingToManageEmpController implements Initializable {
             items = selectBookingToManageEmpModel.getEmployeeBookingDetail(loginController.getEmployeeID());
             list.setItems(items);
             errorMessageListEmpty.setText("");
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        //select employee_id,date,seat_id from Booking where employee_id=23443
     }
-    public void goToBookingManageEmp(ActionEvent event){
+
+    public void goToBookingManageEmp(ActionEvent event) {
         String selectedItem = list.getSelectionModel().getSelectedItem(); // get the current select4ed item from list
-        //System.out.println(selectedItem);
-        if (selectedItem==null){ // if user not choose an item
+        if (selectedItem == null) { // if user not choose an item
             errorMessageListEmpty.setText("Error, you must choose an item!");
-        }
-        else{
-            String spl[]=selectedItem.split("---");
-            dateForManage=spl[3];
-            seatIDBookedByCurrentUserManage=Integer.parseInt(spl[5]);
-
-            // System.out.println(dateForManage);
-
-//this action is go to the booking page as to management so set it to true
-            isBookingManagementEmp =true;
-            Scene scene =  borderPaneSelectBooking.getScene();
+        } else {
+            String spl[] = selectedItem.split("---");
+            dateForManage = spl[3];
+            seatIDBookedByCurrentUserManage = Integer.parseInt(spl[5]);
+            hasConfirmed = Boolean.parseBoolean(spl[7]);
+            //this action is go to the booking page as to management so set it to true
+            isBookingManagementEmp = true;
+            Scene scene = borderPaneSelectBooking.getScene();
             Window window = scene.getWindow();
             Stage primaryStage = (Stage) window;
             try {
@@ -75,8 +71,9 @@ public class SelectBookingToManageEmpController implements Initializable {
             }
         }
     }
-    public void goBackToMain(ActionEvent event){
-        Scene scene =  borderPaneSelectBooking.getScene();
+
+    public void goBackToMain(ActionEvent event) {
+        Scene scene = borderPaneSelectBooking.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
         try {
@@ -88,16 +85,23 @@ public class SelectBookingToManageEmpController implements Initializable {
         }
     }
 
-    public boolean getIsBookingManagementEmp(){
+    public boolean getIsBookingManagementEmp() {
         return isBookingManagementEmp;
     }
-    public String getDateForManage(){
+
+    public String getDateForManage() {
         return dateForManage;
     }
-    public int getSeatIDBookedByCurrentUserManage(){
+
+    public int getSeatIDBookedByCurrentUserManage() {
         return seatIDBookedByCurrentUserManage;
     }
-    public void setIsBookingManagementEmp(boolean normalBooking){ // if user is normal booking set it to false
+
+    public boolean getHasConfirmedFromList() {
+        return hasConfirmed;
+    }
+
+    public void setIsBookingManagementEmp(boolean normalBooking) { // if user is normal booking set it to false
         isBookingManagementEmp = normalBooking;
     }
 }

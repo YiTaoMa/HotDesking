@@ -10,32 +10,65 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPaneChooseDSUpdateEmp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.chooseDSUpdateEmpController">
+<BorderPane fx:id="borderPaneChooseDSUpdateEmp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="374.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.chooseDSUpdateEmpController">
    <center>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="374.0" prefWidth="619.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="updateErrorMessage" text="Error! The seat you chose for the date already been booked by you or others!" textFill="RED">
+            <Label fx:id="updateErrorMessage" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Error! The seat you chose for the date already been booked by you or others!" textFill="RED" VBox.vgrow="ALWAYS">
                <font>
-                  <Font size="16.0" />
+                  <Font size="18.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
             </Label>
-            <Label text="Choose your new date for this booking" />
-            <Label text="Note: You can't change this seat to another seat in same date." />
-            <DatePicker fx:id="updateBookingDatePicker" editable="false" promptText="Choose a date" />
-            <Label text="Choose your new seat for this booking">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Choose your new date for this booking" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Note: You can't change this seat to another seat in same date." VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <DatePicker fx:id="updateBookingDatePicker" editable="false" maxWidth="1.7976931348623157E308" promptText="Choose a date" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" top="5.0" />
+               </VBox.margin></DatePicker>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Choose your new seat for this booking" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
             </Label>
-            <ChoiceBox fx:id="choiceNewSeatBox" prefWidth="150.0" />
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <ChoiceBox fx:id="choiceNewSeatBox" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" top="5.0" />
+               </VBox.margin></ChoiceBox>
+            <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" onAction="#goBackToempBookManageChooseOptionScene" text="Go Back">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToEmpBookManageChooseOptionScene" text="Go Back" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets right="20.0" />
+                        <Insets left="160.0" right="40.0" top="20.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#updateBooking" text="Update" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#updateBooking" text="Update" textFill="GREEN" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="160.0" top="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
