@@ -1,5 +1,6 @@
 package main.model;
 
+import main.DBUtils;
 import main.SQLConnection;
 
 import java.sql.Connection;
@@ -8,16 +9,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ResetPassPopIDModel {
+    //DBUtils dbUtils = new DBUtils();
+    //Connection connection;
 
-    Connection connection;
-
-    public ResetPassPopIDModel() {
-        connection = SQLConnection.connect();
-        if (connection == null)
-            System.exit(1);
-    }
+    //public ResetPassPopIDModel() {
+    //    connection = SQLConnection.connect();
+    //    if (connection == null)
+    //        System.exit(1);
+    //}
 
     public String getSecretQuestion(int id) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String query = "select * from Employee where id = ?";
@@ -33,12 +36,17 @@ public class ResetPassPopIDModel {
         } catch (Exception e) {
             return "not found";
         } finally {
-            preparedStatement.close();
-            resultSet.close();
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closePrepareStatement(preparedStatement);
+            DBUtils.closeConnection(connection);
+            //preparedStatement.close();
+            //resultSet.close();
         }
     }
 
     public Boolean isIdExist(int id) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String query = "select * from employee where id = ?";
@@ -54,8 +62,11 @@ public class ResetPassPopIDModel {
         } catch (Exception e) {
             return false;
         } finally {
-            preparedStatement.close();
-            resultSet.close();
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closePrepareStatement(preparedStatement);
+            DBUtils.closeConnection(connection);
+            //preparedStatement.close();
+            //resultSet.close();
         }
     }
 }

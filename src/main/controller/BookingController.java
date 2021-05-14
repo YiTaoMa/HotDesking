@@ -96,6 +96,7 @@ public class BookingController implements Initializable {
 
             if (selectBookingToManageEmpController.getIsBookingManagementEmp()) { // if it is manage function
                 seatIdBookedByUserManage = selectBookingToManageEmpController.getSeatIDBookedByCurrentUserManage();//get the seat id
+                //System.out.println("booking controller"+seatIdBookedByUserManage);
             } else { // normal booking
                 seatsBookedByUserPrevious = bookingModel.getSeatIdBookedByUserPrevious(loginController.getEmployeeID(), chooseDateController.getDateChose());
             }
@@ -125,21 +126,22 @@ public class BookingController implements Initializable {
 
             if (selectBookingToManageEmpController.getIsBookingManagementEmp()) { // if management employee
                 if (seatIdBookedByUserManage == 1) {
+                   // System.out.println("balck" + seatIdBookedByUserManage);
                     seat1.setStyle("-fx-background-color: black;");
                 }
-                if (seatIdBookedByUserManage == 2) {
+                else if (seatIdBookedByUserManage == 2) {
                     seat2.setStyle("-fx-background-color: black;");
                 }
-                if (seatIdBookedByUserManage == 3) {
+                else if (seatIdBookedByUserManage == 3) {
                     seat3.setStyle("-fx-background-color: black;");
                 }
-                if (seatIdBookedByUserManage == 4) {
+                else if (seatIdBookedByUserManage == 4) {
                     seat4.setStyle("-fx-background-color: black;");
                 }
-                if (seatIdBookedByUserManage == 5) {
+                else if (seatIdBookedByUserManage == 5) {
                     seat5.setStyle("-fx-background-color: black;");
                 }
-                if (seatIdBookedByUserManage == 6) {
+                else if (seatIdBookedByUserManage == 6) {
                     seat6.setStyle("-fx-background-color: black;");
                 }
             } else { // normal booking
@@ -150,19 +152,19 @@ public class BookingController implements Initializable {
                         if (seatsBookedByUserPrevious.get(i) == 1) {
                             seat1.setStyle("-fx-background-color: darkred;");
                         }
-                        if (seatsBookedByUserPrevious.get(i) == 2) {
+                        else if (seatsBookedByUserPrevious.get(i) == 2) {
                             seat2.setStyle("-fx-background-color: darkred;");
                         }
-                        if (seatsBookedByUserPrevious.get(i) == 3) {
+                        else if (seatsBookedByUserPrevious.get(i) == 3) {
                             seat3.setStyle("-fx-background-color: darkred;");
                         }
-                        if (seatsBookedByUserPrevious.get(i) == 4) {
+                        else if (seatsBookedByUserPrevious.get(i) == 4) {
                             seat4.setStyle("-fx-background-color: darkred;");
                         }
-                        if (seatsBookedByUserPrevious.get(i) == 5) {
+                        else if (seatsBookedByUserPrevious.get(i) == 5) {
                             seat5.setStyle("-fx-background-color: darkred;");
                         }
-                        if (seatsBookedByUserPrevious.get(i) == 6) {
+                        else if (seatsBookedByUserPrevious.get(i) == 6) {
                             seat6.setStyle("-fx-background-color: darkred;");
                         }
                     }

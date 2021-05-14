@@ -1,5 +1,6 @@
 package main.model;
 
+import main.DBUtils;
 import main.SQLConnection;
 
 import java.sql.Connection;
@@ -10,15 +11,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class ConfirmBookingModel {
-    Connection connection;
-
-    public ConfirmBookingModel() {
-        connection = SQLConnection.connect();
-        if (connection == null)
-            System.exit(1);
-    }
+    //Connection connection;
+    //DBUtils dbUtils = new DBUtils();
+    //public ConfirmBookingModel() {
+    //    connection = SQLConnection.connect();
+    //    if (connection == null)
+    //        System.exit(1);
+    //}
 
     public boolean insertBookingRecord(int employeeId, String date, int seatID) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         PreparedStatement prst = null;
         //ResultSet resultSet = null;
         boolean result = false;
@@ -36,13 +39,17 @@ public class ConfirmBookingModel {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            prst.close();
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
+            //prst.close();
             //resultSet.close();
         }
         return result;
     }
 
     public boolean insertToWhitelist(int employeeId, int seatId, String date) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         //in the whitelist date is plus 1 so need to convert string date to date then plus a day then convert back to String
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
         LocalDate dateConverted = LocalDate.parse(date, formatter);
@@ -64,7 +71,9 @@ public class ConfirmBookingModel {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            prst.close();
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
+            //prst.close();
             //resultSet.close();
         }
         return result;

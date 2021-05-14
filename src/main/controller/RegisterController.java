@@ -77,11 +77,11 @@ public class RegisterController implements Initializable {
                         Window window = scene.getWindow();
                         Stage primaryStage = (Stage) window;
                         try {
-                            Parent root = FXMLLoader.load(getClass().getResource("../ui/main.fxml"));
-                            primaryStage.setTitle("Hotdesking-Main");
+                            Parent root = FXMLLoader.load(getClass().getResource("../ui/login.fxml"));
+                            primaryStage.setTitle("Hotdesking-Login");
                             primaryStage.setScene(new Scene(root));
                         } catch (IOException e) {
-                            System.out.println("Cannot load the main scene");
+                            System.out.println("Cannot load the login.fxml");
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

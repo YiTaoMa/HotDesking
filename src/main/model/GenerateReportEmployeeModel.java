@@ -1,5 +1,6 @@
 package main.model;
 
+import main.DBUtils;
 import main.SQLConnection;
 
 import java.io.BufferedWriter;
@@ -11,20 +12,25 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class GenerateReportEmployeeModel {
-    Connection connection;
+    //Connection connection;
+    //DBUtils dbUtils = new DBUtils();
 
-    public GenerateReportEmployeeModel() {
-        connection = SQLConnection.connect();
-        if (connection == null)
-            System.exit(1);
-    }
+    //public GenerateReportEmployeeModel() {
+    //    connection = SQLConnection.connect();
+    //    if (connection == null)
+    //        System.exit(1);
+    //}
 
     public void generateEmployeeReport() {
+        Connection connection;
+        connection = SQLConnection.connect();
+        Statement statement=null;
+        ResultSet resultSet=null;
         String csvFilePath = "EmployeeReport.csv";
         try {
             String sql = "select * from Employee";
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
             BufferedWriter fileWriter = new BufferedWriter(new FileWriter(csvFilePath));
             fileWriter.write("id,first_name,last_name,character_role,username,password,secret_question,answer_for_secret_question");
             while (resultSet.next()) {
@@ -52,10 +58,14 @@ public class GenerateReportEmployeeModel {
                 fileWriter.newLine();
                 fileWriter.write(line);
             }
-            statement.close();
+            //statement.close();
             fileWriter.close();
         } catch (SQLException | IOException e) {
             e.printStackTrace();
+        } finally {
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closeStatement(statement);
+            DBUtils.closeConnection(connection);
         }
     }
 }

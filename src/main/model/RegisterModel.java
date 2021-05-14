@@ -1,5 +1,6 @@
 package main.model;
 
+import main.DBUtils;
 import main.SQLConnection;
 
 import java.sql.Connection;
@@ -8,16 +9,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RegisterModel {
-    Connection connection;
+    //DBUtils dbUtils = new DBUtils();
+    //Connection connection;
 
-    public RegisterModel() {
-        connection = SQLConnection.connect();
-        if (connection == null)
-            System.exit(1);
-    }
+    //public RegisterModel() {
+    //
+    //    connection = SQLConnection.connect();
+    //    if (connection == null)
+    //        System.exit(1);
+    //}
 
     public Boolean isRegister(String username, String password, int id, String firstname, String lastname, String role, String secretQ, String answerForSecretQ) throws SQLException {
         //int resultRegister = -1;
+        Connection connection;
+        connection = SQLConnection.connect();
         PreparedStatement prst = null;
         ResultSet resultSet = null;
         /**we only chek is id exist then not going to register user, an employee can only register once*/
@@ -51,8 +56,11 @@ public class RegisterModel {
         } catch (Exception e) {
             return false;
         } finally {
-            prst.close();
-            resultSet.close();
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
+            //prst.close();
+            //resultSet.close();
         }
     }
 }

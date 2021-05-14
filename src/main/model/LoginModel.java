@@ -1,5 +1,6 @@
 package main.model;
 
+import main.DBUtils;
 import main.SQLConnection;
 
 import java.sql.Connection;
@@ -7,16 +8,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginModel {
-    Connection connection;
 
-    public LoginModel() {
-        connection = SQLConnection.connect();
-        if (connection == null)
-            System.exit(1);
-    }
+public class LoginModel {
+   // DBUtils dbUtils = new DBUtils();
+    //Connection connection;
+    //
+    //public LoginModel() {
+    //    connection = SQLConnection.connect();
+    //    if (connection == null)
+    //        System.exit(1);
+    //}
 
     public Boolean isDbConnected() {
+        Connection connection;
+        connection = SQLConnection.connect();
         try {
             return !connection.isClosed();
         } catch (Exception e) {
@@ -28,6 +33,8 @@ public class LoginModel {
      * if user nad password one of them not exist becuase it is and so there is no row return when password or
      */
     public Boolean isLogin(String user, String pass) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String query = "select * from Employee where username = ? and password= ?";
@@ -48,12 +55,17 @@ public class LoginModel {
         } catch (Exception e) {
             return false;
         } finally {
-            preparedStatement.close();
-            resultSet.close();
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closePrepareStatement(preparedStatement);
+            DBUtils.closeConnection(connection);
+            //preparedStatement.close();
+            //resultSet.close();
         }
     }
 
     public String getRole(String username, String password) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String query = "select character_role from Employee where username = ? and password= ?";
@@ -71,12 +83,17 @@ public class LoginModel {
         } catch (Exception e) {
             return "not found";
         } finally {
-            preparedStatement.close();
-            resultSet.close();
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closePrepareStatement(preparedStatement);
+            DBUtils.closeConnection(connection);
+            //preparedStatement.close();
+            //resultSet.close();
         }
     }
 
     public int getEmployeeId(String username, String password) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String query = "select id from Employee where username=? and password=?";
@@ -94,8 +111,11 @@ public class LoginModel {
         } catch (Exception e) {
             return 0;
         } finally {
-            preparedStatement.close();
-            resultSet.close();
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closePrepareStatement(preparedStatement);
+            DBUtils.closeConnection(connection);
+            //preparedStatement.close();
+            //resultSet.close();
         }
     }
 }

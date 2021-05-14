@@ -1,5 +1,6 @@
 package main.model;
 
+import main.DBUtils;
 import main.SQLConnection;
 
 import java.sql.Connection;
@@ -11,15 +12,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class ChooseDSUpdateEmpModel {
-    Connection connection;
+    //Connection connection;
 
-    public ChooseDSUpdateEmpModel() {
-        connection = SQLConnection.connect();
-        if (connection == null)
-            System.exit(1);
-    }
+    //public ChooseDSUpdateEmpModel() {
+    //    connection = SQLConnection.connect();
+    //    if (connection == null)
+    //        System.exit(1);
+    //}
 
     public boolean isSeatAlreadyBookedInThatDate(int seatId, String date) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         String query = "select number from Booking where seat_id=? and date=?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -36,12 +39,17 @@ public class ChooseDSUpdateEmpModel {
         } catch (Exception e) {
             return false;
         } finally {
-            preparedStatement.close();
-            resultSet.close();
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closePrepareStatement(preparedStatement);
+            DBUtils.closeConnection(connection);
+            //preparedStatement.close();
+            //resultSet.close();
         }
     }
 
     public boolean isSeatIdBookedByUserPrevious(int seatId, int empId, String date) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         String query = "select id from Whitelist where seat_id=? and employee_id=? and is_locked=true and date=?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -59,13 +67,18 @@ public class ChooseDSUpdateEmpModel {
         } catch (Exception e) {
             return false;
         } finally {
-            preparedStatement.close();
-            resultSet.close();
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closePrepareStatement(preparedStatement);
+            DBUtils.closeConnection(connection);
+            //preparedStatement.close();
+            //resultSet.close();
         }
         return result;
     }
 
     public boolean isSeatLockedDown(int seatId) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         String query = "select id from Seat where id=? and is_locked=true";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -80,13 +93,18 @@ public class ChooseDSUpdateEmpModel {
         } catch (Exception e) {
             return false;
         } finally {
-            preparedStatement.close();
-            resultSet.close();
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closePrepareStatement(preparedStatement);
+            DBUtils.closeConnection(connection);
+            //preparedStatement.close();
+            //resultSet.close();
         }
         return result;
     }
 
     public boolean updateBooking(String date, int seatId, int empId, String oldDate) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         String query = "update Booking set date=?,seat_id=?,has_confirmed=false where employee_id=? and date=?";
         PreparedStatement prst = null;
         boolean result = false;
@@ -101,7 +119,9 @@ public class ChooseDSUpdateEmpModel {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            prst.close();
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
+            //prst.close();
         }
         return result;
     }
@@ -112,6 +132,8 @@ public class ChooseDSUpdateEmpModel {
      * all operation related to date in whitelist will go with + 1 day
      */
     public boolean updateWhitelist(int seatId, String date, int empId, String oldDate) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
         LocalDate dateConverted = LocalDate.parse(date, formatter);
         dateConverted = dateConverted.plusDays(1);//add one day
@@ -136,7 +158,9 @@ public class ChooseDSUpdateEmpModel {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            prst.close();
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
+            //prst.close();
         }
         return result;
     }

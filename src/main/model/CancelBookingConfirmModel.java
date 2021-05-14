@@ -1,5 +1,6 @@
 package main.model;
 
+import main.DBUtils;
 import main.SQLConnection;
 
 import java.sql.Connection;
@@ -10,15 +11,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class CancelBookingConfirmModel {
-    Connection connection;
-
-    public CancelBookingConfirmModel() {
-        connection = SQLConnection.connect();
-        if (connection == null)
-            System.exit(1);
-    }
+    //Connection connection;
+    //
+    //public CancelBookingConfirmModel() {
+    //    connection = SQLConnection.connect();
+    //    if (connection == null)
+    //        System.exit(1);
+    //}
 
     public boolean deleteBookingRecord(int empId, String date) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         String query = "delete from Booking where employee_id=? and date=?";
         PreparedStatement prst = null;
         boolean result = false;
@@ -30,12 +33,16 @@ public class CancelBookingConfirmModel {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            prst.close();
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
+            //prst.close();
         }
         return result;
     }
 
     public boolean deleteWhitelistRecord(int empId, String date) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
         LocalDate dateConverted = LocalDate.parse(date, formatter);
         dateConverted = dateConverted.plusDays(1);//add one day
@@ -53,7 +60,9 @@ public class CancelBookingConfirmModel {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            prst.close();
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
+            //prst.close();
         }
         return result;
     }

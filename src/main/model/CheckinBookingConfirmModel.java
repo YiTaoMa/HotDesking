@@ -1,5 +1,6 @@
 package main.model;
 
+import main.DBUtils;
 import main.SQLConnection;
 
 import java.sql.Connection;
@@ -7,15 +8,17 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class CheckinBookingConfirmModel {
-    Connection connection;
-
-    public CheckinBookingConfirmModel() {
-        connection = SQLConnection.connect();
-        if (connection == null)
-            System.exit(1);
-    }
+    //Connection connection;
+    //
+    //public CheckinBookingConfirmModel() {
+    //    connection = SQLConnection.connect();
+    //    if (connection == null)
+    //        System.exit(1);
+    //}
 
     public boolean updateCheckinStatus(int empId, String date) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         String query = "update Booking set is_checked_in=true where employee_id=? and date=?";
         PreparedStatement prst = null;
         boolean result = false;
@@ -28,7 +31,9 @@ public class CheckinBookingConfirmModel {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            prst.close();
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
+            //prst.close();
         }
         return result;
     }

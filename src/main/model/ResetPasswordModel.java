@@ -1,5 +1,6 @@
 package main.model;
 
+import main.DBUtils;
 import main.SQLConnection;
 
 import java.security.SecureRandom;
@@ -9,19 +10,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ResetPasswordModel {
-    Connection connection;
-
-    public ResetPasswordModel() {
-        connection = SQLConnection.connect();
-        if (connection == null)
-            System.exit(1);
-    }
+    //Connection connection;
+    //DBUtils dbUtils = new DBUtils();
+    //public ResetPasswordModel() {
+    //    connection = SQLConnection.connect();
+    //    if (connection == null)
+    //        System.exit(1);
+    //}
 
     /**
      * COmpare this user's entered answer with this user's answer in databse, if we found there is a match of this user and the answer
      * he provided, it means correct answer for his SQ, then we give he a new random password
      */
     public Boolean isAnswerForSQCorrect(int id, String answerForSQ) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String query = "select * from Employee where id=? and answer_for_secret_question=?";
@@ -39,8 +42,11 @@ public class ResetPasswordModel {
         } catch (Exception e) {
             return false;
         } finally {
-            preparedStatement.close();
-            resultSet.close();
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closePrepareStatement(preparedStatement);
+            DBUtils.closeConnection(connection);
+            //preparedStatement.close();
+            //resultSet.close();
         }
     }
 
@@ -60,6 +66,8 @@ public class ResetPasswordModel {
     }
 
     public void updatePassword(int id, String newPassword) throws SQLException {
+        Connection connection;
+        connection = SQLConnection.connect();
         PreparedStatement preparedStatement = null;
         String query = "update Employee set password=? where id=?";
         try {
@@ -70,7 +78,9 @@ public class ResetPasswordModel {
         } catch (Exception e) {
             System.out.println("update failed");
         } finally {
-            preparedStatement.close();
+            DBUtils.closePrepareStatement(preparedStatement);
+            DBUtils.closeConnection(connection);
+            //preparedStatement.close();
         }
     }
 }

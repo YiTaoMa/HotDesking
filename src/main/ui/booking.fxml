@@ -65,7 +65,7 @@
             </Label>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="seat4" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickedSeat4" prefHeight="70.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
+                  <Button fx:id="seat1" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickedSeat1" prefHeight="70.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="30.0" right="30.0" top="40.0" />
                      </HBox.margin>
@@ -84,7 +84,7 @@
             </HBox>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="seat6" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickedSeat6" prefHeight="70.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
+                  <Button fx:id="seat4" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickedSeat4" prefHeight="70.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </HBox.margin>
@@ -94,7 +94,7 @@
                         <Insets left="30.0" right="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="seat1" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickedSeat1" prefHeight="70.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
+                  <Button fx:id="seat6" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickedSeat6" prefHeight="70.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </HBox.margin>

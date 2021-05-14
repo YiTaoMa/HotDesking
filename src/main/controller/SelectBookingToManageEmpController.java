@@ -56,6 +56,7 @@ public class SelectBookingToManageEmpController implements Initializable {
             String spl[] = selectedItem.split("---");
             dateForManage = spl[3];
             seatIDBookedByCurrentUserManage = Integer.parseInt(spl[5]);
+            //System.out.println(seatIDBookedByCurrentUserManage);
             hasConfirmed = Boolean.parseBoolean(spl[7]);
             //this action is go to the booking page as to management so set it to true
             isBookingManagementEmp = true;
