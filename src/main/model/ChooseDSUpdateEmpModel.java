@@ -117,7 +117,7 @@ public class ChooseDSUpdateEmpModel {
 
             result = prst.executeUpdate() > 0;
         } catch (Exception e) {
-            e.printStackTrace();
+            return false;
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
@@ -156,7 +156,7 @@ public class ChooseDSUpdateEmpModel {
 
             result = prst.executeUpdate() > 0;
         } catch (Exception e) {
-            e.printStackTrace();
+            return false;
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);

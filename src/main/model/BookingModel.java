@@ -12,6 +12,7 @@ public class BookingModel {
     LinkedList<Integer> seatsLockedByAdmin = new LinkedList<>();
     LinkedList<Integer> seatsBookedByUserPrevious = new LinkedList<>();
 
+
     //public BookingModel() {
     //    connection = SQLConnection.connect();
     //    if (connection == null)
@@ -19,6 +20,7 @@ public class BookingModel {
     //}
 
     public LinkedList getSeatIdLockedByAdmin() throws SQLException {
+        seatsLockedByAdmin.clear();
         Connection connection;
         connection = SQLConnection.connect();
         Statement statement = null;
@@ -43,6 +45,7 @@ public class BookingModel {
     }
 
     public LinkedList getSeatIDBookedByOther(String date) throws SQLException { //the date is what user chosed at the start
+        seatsBookedByOther.clear();
         Connection connection;
         connection = SQLConnection.connect();
         String query = "select seat_id from Booking where date=? and is_booked=true";//that date which seat has been booked
@@ -69,6 +72,7 @@ public class BookingModel {
     }
 
     public LinkedList getSeatIdBookedByUserPrevious(int id, String date) throws SQLException { //select the seat that user booked previous
+        seatsBookedByUserPrevious.clear();
         Connection connection;
         connection = SQLConnection.connect();
         //so can not book again

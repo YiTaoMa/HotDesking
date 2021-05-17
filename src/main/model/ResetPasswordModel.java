@@ -65,22 +65,24 @@ public class ResetPasswordModel {
         return sb.toString();
     }
 
-    public void updatePassword(int id, String newPassword) throws SQLException {
+    public boolean updatePassword(int id, String newPassword) throws SQLException {
         Connection connection;
         connection = SQLConnection.connect();
         PreparedStatement preparedStatement = null;
+        boolean result;
         String query = "update Employee set password=? where id=?";
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, newPassword);
             preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
+            result=preparedStatement.executeUpdate() >0;
         } catch (Exception e) {
-            System.out.println("update failed");
+           return false;
         } finally {
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
             //preparedStatement.close();
         }
+        return result;
     }
 }

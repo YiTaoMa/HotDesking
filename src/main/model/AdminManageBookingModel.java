@@ -10,12 +10,14 @@ public class AdminManageBookingModel {
     //Connection connection;
     LinkedList<Integer> seatsLockedByAdmin = new LinkedList<>();
     LinkedList<Integer> seatsBookedByOther = new LinkedList<>();
+
     //public AdminManageBookingModel() {
     //    connection = SQLConnection.connect();
     //    if (connection == null)
     //        System.exit(1);
     //}
     public LinkedList getSeatIdLockedByAdmin() throws SQLException {
+        seatsLockedByAdmin.clear();
         Connection connection;
         connection = SQLConnection.connect();
         Statement statement = null;
@@ -38,7 +40,9 @@ public class AdminManageBookingModel {
         }
         return seatsLockedByAdmin;
     }
+
     public LinkedList getSeatIDBookedByOther(String date) throws SQLException { //the date is what user chosed at the start
+        seatsBookedByOther.clear();
         Connection connection;
         connection = SQLConnection.connect();
         String query = "select seat_id from Booking where date=? and is_booked=true";//that date which seat has been booked

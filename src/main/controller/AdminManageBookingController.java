@@ -2,10 +2,17 @@ package main.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import main.model.AdminManageBookingModel;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.LinkedList;
@@ -30,6 +37,9 @@ public class AdminManageBookingController implements Initializable {
     private Button seat5;
     @FXML
     private Button seat6;
+
+    @FXML
+    private BorderPane borderPaneAdminManageBooking;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -115,7 +125,7 @@ public class AdminManageBookingController implements Initializable {
             System.out.println("can not click green or red");
         }
         else if (seat1.getStyle().equals("-fx-background-color: blue;")){
-            System.out.println("do you want to confirm or reject this booking");
+            switchToAdminBookManageChooseOption();
         }
         else if(seat1.getStyle().equals("-fx-background-color: ORANGE;")){
             System.out.println("do you want to lock down");
@@ -136,5 +146,17 @@ public class AdminManageBookingController implements Initializable {
     }
     public void ClickSeat6(ActionEvent event) {
 
+    }
+    public void switchToAdminBookManageChooseOption(){
+        Scene scene = borderPaneAdminManageBooking.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminBookManageChooseOption.fxml"));
+            primaryStage.setTitle("Hotdesking-Admin-Choose Option");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminBookManageChooseOption.fxml");
+        }
     }
 }

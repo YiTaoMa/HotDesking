@@ -18,6 +18,7 @@ public class AdminSelectBookingToManageModel {
     //}
 
     public ObservableList<String> getAllBookingDetail() throws SQLException {
+        itemsAdmin.clear();
         Connection connection;
         connection = SQLConnection.connect();
         //select * from Booking

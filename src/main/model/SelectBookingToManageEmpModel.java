@@ -22,6 +22,7 @@ public class SelectBookingToManageEmpModel {
     //}
 
     public ObservableList<String> getEmployeeBookingDetail(int employeeId) throws SQLException {
+        items.clear();
         Connection connection;
         connection = SQLConnection.connect();
         String query = "select employee_id,date,seat_id,has_confirmed from Booking where employee_id=?";

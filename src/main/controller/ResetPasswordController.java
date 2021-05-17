@@ -44,16 +44,17 @@ public class ResetPasswordController implements Initializable {
             if (resetPasswordModel.isAnswerForSQCorrect(employeeID, txtAnswerForSQ.getText())) { // note: answer is not get from the reset Pass pop
                 //it is get from the one that user inputted again which is reset password this fxml
                 newPassword = resetPasswordModel.generateRandomPassword(10);//generate new password
-                resetPasswordModel.updatePassword(employeeID, newPassword);//update new password to the database
-                Scene scene = borderpaneResetPass.getScene();
-                Window window = scene.getWindow();
-                Stage primaryStage = (Stage) window;
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("../ui/resetPassSuccess.fxml"));
-                    primaryStage.setTitle("Hotdesking-Reset Password Success");
-                    primaryStage.setScene(new Scene(root));
-                } catch (IOException e) {
-                    System.out.println("Cannot load the reset Password Success scene");
+                if (resetPasswordModel.updatePassword(employeeID, newPassword)) { //update new password to the database
+                    Scene scene = borderpaneResetPass.getScene();
+                    Window window = scene.getWindow();
+                    Stage primaryStage = (Stage) window;
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getResource("../ui/resetPassSuccess.fxml"));
+                        primaryStage.setTitle("Hotdesking-Reset Password Success");
+                        primaryStage.setScene(new Scene(root));
+                    } catch (IOException e) {
+                        System.out.println("Cannot load the reset Password Success scene");
+                    }
                 }
             } else {
                 answerSQWrongError.setText("Your answer is incorrect! Can not reset the password!");

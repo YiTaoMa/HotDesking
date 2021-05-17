@@ -40,6 +40,7 @@ public class SelectBookingToManageEmpController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+            items.clear();
             items = selectBookingToManageEmpModel.getEmployeeBookingDetail(loginController.getEmployeeID());
             list.setItems(items);
             errorMessageListEmpty.setText("");
