@@ -27,7 +27,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class chooseDSUpdateEmpController implements Initializable {
+public class ChooseDSUpdateEmpController implements Initializable {
     private final String pattern = "yyyy-MM-dd";
     ObservableList<Integer> seatsId = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6);
     SelectBookingToManageEmpController selectBookingToManageEmpController = new SelectBookingToManageEmpController();
@@ -127,7 +127,7 @@ public class chooseDSUpdateEmpController implements Initializable {
                 updateErrorMessage.setText("Error! You already booked another seat in the date you chose!");
             }
             else if (chooseDSUpdateEmpModel.isSeatAlreadyBookedInThatDate(seatIdFromChoiceBox, updateBookingChoseDate)) {
-                updateErrorMessage.setText("Error! The seat you tend to book in that date already booked by You OR others!");
+                updateErrorMessage.setText("Error! The seat you tend to book in that date already booked by You OR Others!");
             } else if (chooseDSUpdateEmpModel.isSeatIdBookedByUserPrevious(seatIdFromChoiceBox, loginController.getEmployeeID(), updateBookingChoseDate)) {
                 updateErrorMessage.setText("Error! The seat already been booked by you previously!");
             } else if (chooseDSUpdateEmpModel.isSeatLockedDown(seatIdFromChoiceBox)) { // if the seat user chose is locked down by admin then not going to let him update
