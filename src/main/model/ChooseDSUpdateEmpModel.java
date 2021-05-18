@@ -19,7 +19,34 @@ public class ChooseDSUpdateEmpModel {
     //    if (connection == null)
     //        System.exit(1);
     //}
-
+    public boolean isBookedAnotherSeatInSelectedDateUpdate(String date, int employeeId,int seatID) throws SQLException { // check if the user booked another seat in that day which is he attempt to book anotehr
+        Connection connection;
+        connection = SQLConnection.connect();
+        //another seat booked in that not allow
+        String query = "select number from Booking where date=? and employee_id=? and seat_id<>?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, date);
+            preparedStatement.setInt(2, employeeId);
+            preparedStatement.setInt(3, seatID);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return true;// means if the user havethe booking in that day not include teh seat he chosed not allow him to book in that day again
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        } finally {
+            DBUtils.closeResultSet(resultSet);
+            DBUtils.closePrepareStatement(preparedStatement);
+            DBUtils.closeConnection(connection);
+            //preparedStatement.close();
+            //resultSet.close();
+        }
+    }
     public boolean isSeatAlreadyBookedInThatDate(int seatId, String date) throws SQLException {
         Connection connection;
         connection = SQLConnection.connect();

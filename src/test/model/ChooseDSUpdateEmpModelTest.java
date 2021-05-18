@@ -22,6 +22,18 @@ class ChooseDSUpdateEmpModelTest {
     }
 
     @Test
+    void isBookedAnotherSeatInSelectedDateUpdateWithNoOtherSeat() throws SQLException {
+        assertEquals(false, chooseDSUpdateEmpModel.isBookedAnotherSeatInSelectedDateUpdate("2021-05-31", 23443, 1),
+                "ID 23443 don't have any other seat except seat 1 in 2021-05-31, expected return false");
+    }
+
+    @Test
+    void isBookedAnotherSeatInSelectedDateUpdateWithOtherSeat() throws SQLException {
+        assertEquals(true, chooseDSUpdateEmpModel.isBookedAnotherSeatInSelectedDateUpdate("2021-05-31", 23443, 2),
+                "ID 23443 have other seat: 1 except seat 2 in 2021-05-31, expected return true");
+    }
+
+    @Test
     void isSeatAlreadyBookedInThatDateWithBooked() throws SQLException {
         assertEquals(true, chooseDSUpdateEmpModel.isSeatAlreadyBookedInThatDate(1, "2021-05-12"),
                 "seat id 1 already booked in 2021-05-12 expected return true");

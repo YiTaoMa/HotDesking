@@ -107,13 +107,27 @@ public class chooseDSUpdateEmpController implements Initializable {
         int seatIdFromChoiceBox = Integer.parseInt(choiceNewSeatBox.getValue().toString());
         String updateBookingChoseDate = updateBookingDatePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         try {
-            // first condition:if the user already booked in that date he can not change this booking to that date
+            // first condition:if the user already booked in that date he can not change this booking to that date so check the seat is not
+            //chosed by this user in that date
             //second condition: if user desired date and seat id already exist in that day, means already been booked, not going to let the user choose that date and seat.
             // third condition: if user can't book in that day because he booked yesterday this seat
-            if (bookingModel.isAlreadyBookedInSelectedDate(updateBookingChoseDate, loginController.getEmployeeID())) {
+            if (chooseDSUpdateEmpModel.isBookedAnotherSeatInSelectedDateUpdate(updateBookingChoseDate, loginController.getEmployeeID(),selectBookingToManageEmpController.getSeatIDBookedByCurrentUserManage())) {
+                updateErrorMessage.setText("Error! You already booked another seat other than current seat in the date you chose!");
+            }
+            // check if the user already booked in that day say 05-31. and if the user chose date to update in
+            //update select date page is not equal to the date of booking he managed say 05-25.
+            //If bothe condition success means the user manage the booking is 05-25, he tend to update it to 05-31
+            //but he already have a booking in 05-31, display error message.
+            //Other wise, if the date of booking he chose in update choose date page is equal to the date of booking he manage
+            //now, let's say current booking to manage is 05-31 and the date he tend to update is same day 05-31 then not display error
+            //message as user can update different seat in a same day as long as there is still time to update 48 hours and
+            // the seat is not locked down  not booked by others, can not book as previously booked
+            else if (bookingModel.isAlreadyBookedInSelectedDate(updateBookingChoseDate,loginController.getEmployeeID())
+            && !updateBookingChoseDate.equals(selectBookingToManageEmpController.getDateForManage())){
                 updateErrorMessage.setText("Error! You already booked another seat in the date you chose!");
-            } else if (chooseDSUpdateEmpModel.isSeatAlreadyBookedInThatDate(seatIdFromChoiceBox, updateBookingChoseDate)) {
-                updateErrorMessage.setText("Error! The seat you tend to book in that date already booked by others!");
+            }
+            else if (chooseDSUpdateEmpModel.isSeatAlreadyBookedInThatDate(seatIdFromChoiceBox, updateBookingChoseDate)) {
+                updateErrorMessage.setText("Error! The seat you tend to book in that date already booked by You OR others!");
             } else if (chooseDSUpdateEmpModel.isSeatIdBookedByUserPrevious(seatIdFromChoiceBox, loginController.getEmployeeID(), updateBookingChoseDate)) {
                 updateErrorMessage.setText("Error! The seat already been booked by you previously!");
             } else if (chooseDSUpdateEmpModel.isSeatLockedDown(seatIdFromChoiceBox)) { // if the seat user chose is locked down by admin then not going to let him update

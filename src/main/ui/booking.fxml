@@ -63,6 +63,14 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Label>
+            <Label fx:id="blackPrompt" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Black: Seat booked by you" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
                   <Button fx:id="seat1" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickedSeat1" prefHeight="70.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">

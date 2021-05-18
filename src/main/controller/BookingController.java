@@ -37,6 +37,7 @@ public class BookingController implements Initializable {
     LinkedList<Integer> seatsIdBookedByOther = new LinkedList<>();
     LinkedList<Integer> seatsIdLockedByAdmin = new LinkedList<>();
     LinkedList<Integer> seatsBookedByUserPrevious = new LinkedList<>();
+    LinkedList<Integer> seatsBookedByUserPreviousAdmin = new LinkedList<>();
 
     private int seatIdBookedByUserManage;
 
@@ -68,6 +69,8 @@ public class BookingController implements Initializable {
     private Label welcomeMessage;
     @FXML
     private Label promptClickMessage;
+    @FXML
+    private Label blackPrompt;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -75,6 +78,7 @@ public class BookingController implements Initializable {
         seatsIdBookedByOther.clear();
         seatsIdLockedByAdmin.clear();
         seatsBookedByUserPrevious.clear();
+        seatsBookedByUserPreviousAdmin.clear();
         try { // if seat locked down by admin set to orange
             bookingScene = seat1.getScene();
             seatsIdLockedByAdmin = bookingModel.getSeatIdLockedByAdmin();
@@ -84,19 +88,21 @@ public class BookingController implements Initializable {
                 promptClickMessage.setText("Click the Seat you booked to start your Management!");
                 greenPrompt.setText("You can only click the table you Booked!");
                 greenPrompt.setStyle("-fx-text-fill: black;");
-                redPrompt.setText("");
-                darkRedOrBlackPrompt.setText("Black: Seat booked by you.");
-                darkRedOrBlackPrompt.setStyle("-fx-text-fill: black;");
-                orangePrompt.setText("");
+                //redPrompt.setText("");
+                //darkRedOrBlackPrompt.setText("Black: Seat booked by you.");
+                //darkRedOrBlackPrompt.setStyle("-fx-text-fill: black;");
+                //orangePrompt.setText("");
                 seatsIdBookedByOther = bookingModel.getSeatIDBookedByOther(selectBookingToManageEmpController.getDateForManage());// we pass the date user choose in the list
             } else { // else it is normal booking
+                redPrompt.setText("Red: Already been booked by You OR others");
+                blackPrompt.setText("");
                 darkRedOrBlackPrompt.setStyle("-fx-text-fill: darkred;");
                 seatsIdBookedByOther = bookingModel.getSeatIDBookedByOther(chooseDateController.getDateChose());
             }
 
             if (selectBookingToManageEmpController.getIsBookingManagementEmp()) { // if it is manage function
                 seatIdBookedByUserManage = selectBookingToManageEmpController.getSeatIDBookedByCurrentUserManage();//get the seat id
-                //System.out.println("booking controller"+seatIdBookedByUserManage);
+                seatsBookedByUserPreviousAdmin = bookingModel.getSeatIdBookedByUserPrevious(loginController.getEmployeeID(), selectBookingToManageEmpController.getDateForManage());
             } else { // normal booking
                 seatsBookedByUserPrevious = bookingModel.getSeatIdBookedByUserPrevious(loginController.getEmployeeID(), chooseDateController.getDateChose());
             }
@@ -126,45 +132,54 @@ public class BookingController implements Initializable {
 
             if (selectBookingToManageEmpController.getIsBookingManagementEmp()) { // if management employee
                 if (seatIdBookedByUserManage == 1) {
-                   // System.out.println("balck" + seatIdBookedByUserManage);
+                    // System.out.println("balck" + seatIdBookedByUserManage);
                     seat1.setStyle("-fx-background-color: black;");
-                }
-                else if (seatIdBookedByUserManage == 2) {
+                } else if (seatIdBookedByUserManage == 2) {
                     seat2.setStyle("-fx-background-color: black;");
-                }
-                else if (seatIdBookedByUserManage == 3) {
+                } else if (seatIdBookedByUserManage == 3) {
                     seat3.setStyle("-fx-background-color: black;");
-                }
-                else if (seatIdBookedByUserManage == 4) {
+                } else if (seatIdBookedByUserManage == 4) {
                     seat4.setStyle("-fx-background-color: black;");
-                }
-                else if (seatIdBookedByUserManage == 5) {
+                } else if (seatIdBookedByUserManage == 5) {
                     seat5.setStyle("-fx-background-color: black;");
-                }
-                else if (seatIdBookedByUserManage == 6) {
+                } else if (seatIdBookedByUserManage == 6) {
                     seat6.setStyle("-fx-background-color: black;");
+                }
+
+                if (!seatsBookedByUserPreviousAdmin.isEmpty()) {
+                    for (int i = 0; i < seatsBookedByUserPreviousAdmin.size(); i++) {
+                        if (seatsBookedByUserPreviousAdmin.get(i) == 1) {
+                            seat1.setStyle("-fx-background-color: darkred;");
+                        } else if (seatsBookedByUserPreviousAdmin.get(i) == 2) {
+                            seat2.setStyle("-fx-background-color: darkred;");
+                        } else if (seatsBookedByUserPreviousAdmin.get(i) == 3) {
+                            seat3.setStyle("-fx-background-color: darkred;");
+                        } else if (seatsBookedByUserPreviousAdmin.get(i) == 4) {
+                            seat4.setStyle("-fx-background-color: darkred;");
+                        } else if (seatsBookedByUserPreviousAdmin.get(i) == 5) {
+                            seat5.setStyle("-fx-background-color: darkred;");
+                        } else if (seatsBookedByUserPreviousAdmin.get(i) == 6) {
+                            seat6.setStyle("-fx-background-color: darkred;");
+                        }
+                    }
                 }
             } else { // normal booking
                 //if this user booked previously like i booked in 9th then the whitelist record 10th is locked as true, so when
                 //i come to book at 10th, the table booked by me in 9th will be dark red color and can not book again in 10th
+
                 if (!seatsBookedByUserPrevious.isEmpty()) {
                     for (int i = 0; i < seatsBookedByUserPrevious.size(); i++) {
                         if (seatsBookedByUserPrevious.get(i) == 1) {
                             seat1.setStyle("-fx-background-color: darkred;");
-                        }
-                        else if (seatsBookedByUserPrevious.get(i) == 2) {
+                        } else if (seatsBookedByUserPrevious.get(i) == 2) {
                             seat2.setStyle("-fx-background-color: darkred;");
-                        }
-                        else if (seatsBookedByUserPrevious.get(i) == 3) {
+                        } else if (seatsBookedByUserPrevious.get(i) == 3) {
                             seat3.setStyle("-fx-background-color: darkred;");
-                        }
-                        else if (seatsBookedByUserPrevious.get(i) == 4) {
+                        } else if (seatsBookedByUserPrevious.get(i) == 4) {
                             seat4.setStyle("-fx-background-color: darkred;");
-                        }
-                        else if (seatsBookedByUserPrevious.get(i) == 5) {
+                        } else if (seatsBookedByUserPrevious.get(i) == 5) {
                             seat5.setStyle("-fx-background-color: darkred;");
-                        }
-                        else if (seatsBookedByUserPrevious.get(i) == 6) {
+                        } else if (seatsBookedByUserPrevious.get(i) == 6) {
                             seat6.setStyle("-fx-background-color: darkred;");
                         }
                     }
@@ -202,7 +217,7 @@ public class BookingController implements Initializable {
     public void clickedSeat1(ActionEvent event) { // when user clicked seat 1
         if (selectBookingToManageEmpController.getIsBookingManagementEmp()) { // if it is manage by employee
             if (seat1.getStyle().equals("-fx-background-color: red;") || seat1.getStyle().equals("-fx-background-color: green;")
-                    || seat1.getStyle().equals("-fx-background-color: ORANGE;")) {
+                    || seat1.getStyle().equals("-fx-background-color: ORANGE;") || seat1.getStyle().equals("-fx-background-color: darkred;")) {
                 showBookManageEmpErrorStage();
             } else if (seat1.getStyle().equals("-fx-background-color: black;")) {
                 goToEmpBookManageChooseOptionStage();
@@ -231,7 +246,7 @@ public class BookingController implements Initializable {
     public void clickedSeat2(ActionEvent event) {
         if (selectBookingToManageEmpController.getIsBookingManagementEmp()) { // if it is manage by employee
             if (seat2.getStyle().equals("-fx-background-color: red;") || seat2.getStyle().equals("-fx-background-color: green;")
-                    || seat2.getStyle().equals("-fx-background-color: ORANGE;")) {
+                    || seat2.getStyle().equals("-fx-background-color: ORANGE;") || seat2.getStyle().equals("-fx-background-color: darkred;")) {
                 showBookManageEmpErrorStage();
             } else if (seat2.getStyle().equals("-fx-background-color: black;")) {
                 goToEmpBookManageChooseOptionStage();
@@ -258,7 +273,7 @@ public class BookingController implements Initializable {
     public void clickedSeat3(ActionEvent event) {
         if (selectBookingToManageEmpController.getIsBookingManagementEmp()) { // if it is manage by employee
             if (seat3.getStyle().equals("-fx-background-color: red;") || seat3.getStyle().equals("-fx-background-color: green;")
-                    || seat3.getStyle().equals("-fx-background-color: ORANGE;")) {
+                    || seat3.getStyle().equals("-fx-background-color: ORANGE;") || seat3.getStyle().equals("-fx-background-color: darkred;")) {
                 showBookManageEmpErrorStage();
             } else if (seat3.getStyle().equals("-fx-background-color: black;")) {
                 goToEmpBookManageChooseOptionStage();
@@ -285,7 +300,7 @@ public class BookingController implements Initializable {
     public void clickedSeat4(ActionEvent event) {
         if (selectBookingToManageEmpController.getIsBookingManagementEmp()) { // if it is manage by employee
             if (seat4.getStyle().equals("-fx-background-color: red;") || seat4.getStyle().equals("-fx-background-color: green;")
-                    || seat4.getStyle().equals("-fx-background-color: ORANGE;")) {
+                    || seat4.getStyle().equals("-fx-background-color: ORANGE;") || seat4.getStyle().equals("-fx-background-color: darkred;")) {
                 showBookManageEmpErrorStage();
             } else if (seat4.getStyle().equals("-fx-background-color: black;")) {
                 goToEmpBookManageChooseOptionStage();
@@ -312,7 +327,7 @@ public class BookingController implements Initializable {
     public void clickedSeat5(ActionEvent event) {
         if (selectBookingToManageEmpController.getIsBookingManagementEmp()) { // if it is manage by employee
             if (seat5.getStyle().equals("-fx-background-color: red;") || seat5.getStyle().equals("-fx-background-color: green;")
-                    || seat5.getStyle().equals("-fx-background-color: ORANGE;")) {
+                    || seat5.getStyle().equals("-fx-background-color: ORANGE;") || seat5.getStyle().equals("-fx-background-color: darkred;")) {
                 showBookManageEmpErrorStage();
             } else if (seat5.getStyle().equals("-fx-background-color: black;")) {
                 goToEmpBookManageChooseOptionStage();
@@ -339,7 +354,7 @@ public class BookingController implements Initializable {
     public void clickedSeat6(ActionEvent event) {
         if (selectBookingToManageEmpController.getIsBookingManagementEmp()) { // if it is manage by employee
             if (seat6.getStyle().equals("-fx-background-color: red;") || seat6.getStyle().equals("-fx-background-color: green;")
-                    || seat6.getStyle().equals("-fx-background-color: ORANGE;")) {
+                    || seat6.getStyle().equals("-fx-background-color: ORANGE;") || seat6.getStyle().equals("-fx-background-color: darkred;")) {
                 showBookManageEmpErrorStage();
             } else if (seat6.getStyle().equals("-fx-background-color: black;")) {
                 goToEmpBookManageChooseOptionStage();
