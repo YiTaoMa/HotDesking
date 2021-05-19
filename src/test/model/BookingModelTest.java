@@ -18,14 +18,14 @@ class BookingModelTest {
 
     @Test
     void isAlreadyBookedInSelectedDateWithBooked() throws SQLException {
-        assertEquals(true, bookingModel.isAlreadyBookedInSelectedDate("2021-05-12", 23443),
-                "Employee id 23443 with date 2021-05-12 already exist in database, expected true");
+        assertEquals(true, bookingModel.isAlreadyBookedInSelectedDate("2021-05-20", 77777),
+                "Employee id 77777 with date 2021-05-20 already exist in database, expected true");
     }
 
     @Test
     void isAlreadyBookedInSelectedDateWithUnBooked() throws SQLException {
-        assertEquals(false, bookingModel.isAlreadyBookedInSelectedDate("2021-05-31", 23443),
-                "Employee id 23443 with date 2021-05-31 record not in database, expected false");
+        assertEquals(false, bookingModel.isAlreadyBookedInSelectedDate("2021-05-31", 77777),
+                "Employee id 77777 with date 2021-05-31 record not in database, expected false");
     }
 
     @Test
@@ -36,26 +36,26 @@ class BookingModelTest {
 
     @Test
     void getSeatIDBookedByOther() throws SQLException {
-        assertEquals(false, bookingModel.getSeatIDBookedByOther("2021-05-13").isEmpty(),
-                "we have booking in 2021-05-13 in database so return should not be empty, expected false");
+        assertEquals(false, bookingModel.getSeatIDBookedByOther("2021-05-20").isEmpty(),
+                "we have booking in 2021-05-20 in database so return should not be empty, expected false");
     }
 
     @Test
     void getSeatIDBookedByOtherEmpty() throws SQLException {
-        assertEquals(true, bookingModel.getSeatIDBookedByOther("2021-05-31").isEmpty(),
-                "we don't have booking in 2021-05-31 in database so return should be empty, expected true");
+        assertEquals(true, bookingModel.getSeatIDBookedByOther("2021-05-10").isEmpty(),
+                "we don't have booking in 2021-05-10 in database so return should be empty, expected true");
     }
 
     @Test
     void getSeatIdBookedByUserPrevious() throws SQLException {
-        assertEquals(false, bookingModel.getSeatIdBookedByUserPrevious(23443, "2021-05-13").isEmpty(),
-                "we have ID 23443 can not booking in 2021-05-13 in database so return should not be empty, expected false");
+        assertEquals(false, bookingModel.getSeatIdBookedByUserPrevious(77777, "2021-05-21").isEmpty(),
+                "we have ID 77777 can not booking in 2021-05-21 in database so return should not be empty, expected false");
     }
 
     @Test
     void getSeatIdBookedByUserPreviousEmpty() throws SQLException {
-        assertEquals(true, bookingModel.getSeatIdBookedByUserPrevious(23443, "2021-05-31").isEmpty(),
-                "we don't have ID 23443 can not booking in 2021-05-31 record in database so return should be empty, expected true");
+        assertEquals(true, bookingModel.getSeatIdBookedByUserPrevious(77777, "2021-05-10").isEmpty(),
+                "we don't have ID 77777 can not booking in 2021-05-10 record in database so return should be empty, expected true");
     }
 
 

@@ -83,6 +83,7 @@ public class RegisterController implements Initializable {
                         } catch (IOException e) {
                             System.out.println("Cannot load the login.fxml");
                         }
+                        showRegisterSuccessStage();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -105,6 +106,18 @@ public class RegisterController implements Initializable {
             primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
             System.out.println("Cannot load the home scene");
+        }
+    }
+
+    public void showRegisterSuccessStage() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/registerSuccess.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Hotdesking-Register Success");
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Cannot load the registerSuccess.fxml");
         }
     }
 }

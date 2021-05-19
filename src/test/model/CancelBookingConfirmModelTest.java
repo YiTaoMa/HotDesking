@@ -55,7 +55,7 @@ class CancelBookingConfirmModelTest {
         PreparedStatement prst = null;
         int number = 25;
         String date = "2021-05-20";
-        int seatID = 2;
+        int seatID = 6;
         int empID = 77777;
         String query = "insert into Booking (number,employee_id,date,seat_id,is_booked,has_confirmed,is_checked_in) values(?,?,?,?,true,false,false)";
         try {
@@ -84,7 +84,7 @@ class CancelBookingConfirmModelTest {
         PreparedStatement prst = null;
         int id = 22;
         String date = "2021-05-21";
-        int seatID = 2;
+        int seatID = 6;
         int empID = 77777;
         String query = "insert into Whitelist (id,employee_id,seat_id,date,is_locked) values(?,?,?,?,true)";
         try {
