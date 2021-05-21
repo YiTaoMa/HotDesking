@@ -5,7 +5,7 @@
 - Course Name: Further Programming (2110) COSC2391
 - Register only for Employee not admin
 - Test Employee, use Username: employee Password: employee
-- Test Admin, use Username: admin Password admin
+- Test Admin, use Username: admin Password: admin
 
 # Packaging
 The main class is Main.java
