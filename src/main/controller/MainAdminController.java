@@ -21,7 +21,7 @@ public class MainAdminController {
         Stage primaryStage = (Stage) window;
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../ui/adminSelectBookingToManage.fxml"));
-            primaryStage.setTitle("Hotdesking-Select Booking Manage");
+            primaryStage.setTitle("Hotdesking-Admin-Select Booking Manage");
             primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
             System.out.println("Cannot load the adminSelectBookingToManage.fxml");

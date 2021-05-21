@@ -34,6 +34,7 @@ public class LoginController implements Initializable {//implements Initialize
 
     //note: <?import javafx.scene.effect.Light?> need to be add if you see error in color
 
+    /**Java FX : initials method called automate by javafx right before the fxml file is displayed to the user*/
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         errorMessage.setText("");
@@ -107,7 +108,8 @@ public class LoginController implements Initializable {//implements Initialize
             System.out.println("Cannot load the resetPassPopID scene");
         }
     }
-
+/**This can be done using singleton just call set id from singlton class and get id from other controller then you don't
+ * need to create logincontroller reference everytime needed*/
     public int getEmployeeID() {
         return employeeID;
     }

@@ -39,5 +39,19 @@ public class AdminBookManageChooseOptionController {
         }
     }
 
+    public void  switchToAdminRejectBookingPrompt(ActionEvent event) {
+        Scene scene = borderPaneConfirmOrRejectAdmin.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminRejectBookingPrompt.fxml"));
+            primaryStage.setTitle("Hotdesking-Admin-Booking Management-Reject");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminRejectBookingPrompt.fxml");
+        }
+
+    }
+
 
 }

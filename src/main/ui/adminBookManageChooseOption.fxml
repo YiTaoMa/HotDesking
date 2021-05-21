@@ -21,7 +21,7 @@
                         <Insets right="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Reject">
+                  <Button mnemonicParsing="false" onAction="#switchToAdminRejectBookingPrompt" text="Reject">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>

@@ -12,6 +12,8 @@
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="welcome admin" />
+            <Label text="You can click any seat to lockdown/unlock!" />
+            <Label text="You can only confirm the Blue seat" />
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <VBox.margin>
                   <Insets top="150.0" />
@@ -52,6 +54,14 @@
                      </HBox.margin>
                   </Button>
                </children>
+            </HBox>
+            <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToSelectBooking" text="Go Back" HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets left="260.0" right="260.0" />
+               </padding>
             </HBox>
          </children>
       </VBox>

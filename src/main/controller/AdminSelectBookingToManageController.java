@@ -25,6 +25,9 @@ public class AdminSelectBookingToManageController implements Initializable {
     protected static boolean isBookingManagementAdmin;
     protected static int seatIDBookedByCurrentUserAdminManage;
     protected static String dateForAdminManage;
+    protected static boolean isCurrentBookingConfirmed;
+    protected static int selectedEmpIdFromList;
+
     AdminSelectBookingToManageModel adminSelectBookingToManageModel = new AdminSelectBookingToManageModel();
     SelectBookingToManageEmpController selectBookingToManageEmpController = new SelectBookingToManageEmpController();
     @FXML
@@ -55,6 +58,13 @@ public class AdminSelectBookingToManageController implements Initializable {
             //System.out.println(seatIDBookedByCurrentUserAdminManage);
 
             dateForAdminManage =  spl[5];
+
+            isCurrentBookingConfirmed =Boolean.parseBoolean(spl[11]);
+
+            selectedEmpIdFromList = Integer.parseInt(spl[3]);
+
+            //System.out.println(isCurrentBookingConfirmed);
+
            // System.out.println( dateForAdminManage);
             //System.out.println(seatIDBookedByCurrentUserAdminManage);
             //selectBookingToManageEmpController.setIsBookingManagementEmp(false);// set employee booking manage to false
@@ -98,6 +108,14 @@ public class AdminSelectBookingToManageController implements Initializable {
     }
     public String getDateForAdminManage(){
         return dateForAdminManage;
+    }
+
+    public boolean getIsCurrentBookingConfirmed(){
+        return isCurrentBookingConfirmed;
+    }
+
+    public int getSelectedEmpIdFromList() {
+        return selectedEmpIdFromList;
     }
 
 }

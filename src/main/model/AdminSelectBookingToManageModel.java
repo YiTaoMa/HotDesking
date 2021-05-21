@@ -23,8 +23,8 @@ public class AdminSelectBookingToManageModel {
         connection = SQLConnection.connect();
         //select * from Booking
         Statement statement = connection.createStatement();
-        // only check un confirmed booking
-        String query = "select * from Booking where has_confirmed=false";
+        // include all booking both confirmed and un confirmed
+        String query = "select * from Booking";//where has_confirmed=false
         //PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
