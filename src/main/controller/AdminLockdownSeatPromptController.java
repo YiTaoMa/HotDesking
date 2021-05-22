@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class AdminLockdownSeatPromptController {
+    AdminManageBookingController adminManageBookingController = new AdminManageBookingController();
     AdminSelectBookingToManageController adminSelectBookingToManageController = new AdminSelectBookingToManageController();
     AdminLockdownSeatPromptModel adminLockdownSeatPromptModel = new AdminLockdownSeatPromptModel();
     @FXML
@@ -39,18 +40,35 @@ public class AdminLockdownSeatPromptController {
         // note: this is unconfirmed seat and user chose is blue
         //1: delete all booking and whitelist if the seat is the seat we locked down
         //2: 拿到这个桌子的编号第几号桌子 list 里面拿到，然后在lockdown表里面把它变成true， 这样结束后返回到主界面。
+
+        /**if it it red or green seat clicked, we will do different operation as the parameter seat passed is different,
+         * this situation, the parameter seat is the corresponding seat admin clicked and we will delete/update
+         * all related things about this seat that clicked, so we can not get hte seat like darkblue or blue directly from the list.
+         * Process: if it is red or green in admin manage booking controller --> adminBMChooseOptionGRController --> this current controller*/
         try {
-            // delete all this seat number related booking in the Booking table
-            if (adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(adminSelectBookingToManageController.getSeatIDBookedByCurrentUserAdminManage())) {
-                // delete all this seat number related booking in the Whitelist table
-                if (adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(adminSelectBookingToManageController.getSeatIDBookedByCurrentUserAdminManage())) {
-                    // update Seat table corresponding seat ID locked just now to lock status
-                    if (adminLockdownSeatPromptModel.updateSeatIdLockedDown(adminSelectBookingToManageController.getSeatIDBookedByCurrentUserAdminManage())) {
-                        switchBackToMainAdmin();
-                        showLockDownSuccessStage();
+            if (adminManageBookingController.getIsSeatRedOrGreen()) { // if it is red or green seat
+                if (adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(adminManageBookingController.getSeatIdCurrentClicked())) {
+                    if (adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(adminManageBookingController.getSeatIdCurrentClicked())) {
+                        if (adminLockdownSeatPromptModel.updateSeatIdLockedDown(adminManageBookingController.getSeatIdCurrentClicked())) {
+                            switchBackToMainAdmin();
+                            showLockDownSuccessStage();
+                        }
+                    }
+                }
+            } else { // else is not red or green
+                // delete all this seat number related booking in the Booking table
+                if (adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(adminSelectBookingToManageController.getSeatIDBookedByCurrentUserAdminManage())) {
+                    // delete all this seat number related booking in the Whitelist table
+                    if (adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(adminSelectBookingToManageController.getSeatIDBookedByCurrentUserAdminManage())) {
+                        // update Seat table corresponding seat ID locked just now to lock status
+                        if (adminLockdownSeatPromptModel.updateSeatIdLockedDown(adminSelectBookingToManageController.getSeatIDBookedByCurrentUserAdminManage())) {
+                            switchBackToMainAdmin();
+                            showLockDownSuccessStage();
+                        }
                     }
                 }
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
