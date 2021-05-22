@@ -50,8 +50,21 @@ public class AdminBookManageChooseOptionController {
         } catch (IOException e) {
             System.out.println("Cannot load the adminRejectBookingPrompt.fxml");
         }
+    }
+    public void switchToAdminLockdownSeatPrompt(ActionEvent event) {
+        Scene scene = borderPaneConfirmOrRejectAdmin.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminLockdownSeatPrompt.fxml"));
+            primaryStage.setTitle("Hotdesking-Admin-Booking Management-Lock down Seat");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminLockdownSeatPrompt.fxml");
+        }
 
     }
+
 
 
 }

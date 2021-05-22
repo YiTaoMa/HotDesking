@@ -31,7 +31,7 @@
                         <Insets right="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Lock Down" />
+                  <Button mnemonicParsing="false" onAction="#switchToAdminLockdownSeatPrompt" text="Lock Down" />
                </children>
             </HBox>
          </children>

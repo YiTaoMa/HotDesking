@@ -69,7 +69,7 @@ public class AdminConfirmBookingPromptController {
             Parent root = FXMLLoader.load(getClass().getResource("../ui/adminConfirmBookingSuccess.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Hotdesking-Update Booking-Success");
+            stage.setTitle("Hotdesking-Confirm Booking-Success");
             stage.show();
         } catch (IOException e) {
             System.out.println("Cannot load the adminConfirmBookingSuccess.fxml");
