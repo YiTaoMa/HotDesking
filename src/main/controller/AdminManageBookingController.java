@@ -176,7 +176,7 @@ public class AdminManageBookingController implements Initializable {
             // if it is green or red, no need to do darkred as admin not user can not booking
             // admin can lock down it only 1 operation
             isSeatRedOrGreen = true;// used to do different lock down in admin lockdown seat prompt controller
-            switchToAdminBookManageChooseOptionGR();
+            switchToAdminLockdownSeatPrompt();
 
         } else if (seat1.getStyle().equals("-fx-background-color: blue;")) {
             isSeatRedOrGreen = false; // set it to false if not red or green as it will not do operation of red or green
@@ -193,16 +193,17 @@ public class AdminManageBookingController implements Initializable {
             isSeatRedOrGreen = false;
             // admin be able to unlock this table.
             // if a table previously booked by user then it will be canceled and if unlock this table, it won't come back.
-            System.out.println("do you want to un lock this table?");
+            //System.out.println("do you want to un lock this table?");
+            // here id is the current seat admin clicked.already set this to current seat 1 when clicked
+            switchToAdminUnlockSeatPrompt();
         }
-
     }
 
     public void ClickSeat2(ActionEvent event) {
         setSeatIdCurrentClicked(seatID2);
         if (seat2.getStyle().equals("-fx-background-color: green;") || seat2.getStyle().equals("-fx-background-color: red;")) {
             isSeatRedOrGreen = true;
-            switchToAdminBookManageChooseOptionGR();
+            switchToAdminLockdownSeatPrompt();
         } else if (seat2.getStyle().equals("-fx-background-color: blue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOption();
@@ -213,7 +214,7 @@ public class AdminManageBookingController implements Initializable {
         }
         else if (seat2.getStyle().equals("-fx-background-color: ORANGE;")) {
             isSeatRedOrGreen = false;
-            System.out.println("do you want to un lock this table?");
+            switchToAdminUnlockSeatPrompt();
         }
 
     }
@@ -222,7 +223,7 @@ public class AdminManageBookingController implements Initializable {
         setSeatIdCurrentClicked(seatID3);
         if (seat3.getStyle().equals("-fx-background-color: green;") || seat3.getStyle().equals("-fx-background-color: red;")) {
             isSeatRedOrGreen = true;
-            switchToAdminBookManageChooseOptionGR();
+            switchToAdminLockdownSeatPrompt();
         } else if (seat3.getStyle().equals("-fx-background-color: blue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOption();
@@ -233,7 +234,7 @@ public class AdminManageBookingController implements Initializable {
         }
         else if (seat3.getStyle().equals("-fx-background-color: ORANGE;")) {
             isSeatRedOrGreen = false;
-            System.out.println("do you want to un lock this table?");
+            switchToAdminUnlockSeatPrompt();
         }
 
     }
@@ -242,7 +243,7 @@ public class AdminManageBookingController implements Initializable {
         setSeatIdCurrentClicked(seatID4);
         if (seat4.getStyle().equals("-fx-background-color: green;") || seat4.getStyle().equals("-fx-background-color: red;")) {
             isSeatRedOrGreen = true;
-            switchToAdminBookManageChooseOptionGR();
+            switchToAdminLockdownSeatPrompt();
         } else if (seat4.getStyle().equals("-fx-background-color: blue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOption();
@@ -253,7 +254,7 @@ public class AdminManageBookingController implements Initializable {
         }
         else if (seat4.getStyle().equals("-fx-background-color: ORANGE;")) {
             isSeatRedOrGreen = false;
-            System.out.println("do you want to un lock this table?");
+            switchToAdminUnlockSeatPrompt();
         }
 
     }
@@ -262,7 +263,7 @@ public class AdminManageBookingController implements Initializable {
         setSeatIdCurrentClicked(seatID5);
         if (seat5.getStyle().equals("-fx-background-color: green;") || seat5.getStyle().equals("-fx-background-color: red;")) {
             isSeatRedOrGreen = true;
-            switchToAdminBookManageChooseOptionGR();
+            switchToAdminLockdownSeatPrompt();
         } else if (seat5.getStyle().equals("-fx-background-color: blue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOption();
@@ -273,7 +274,7 @@ public class AdminManageBookingController implements Initializable {
         }
         else if (seat5.getStyle().equals("-fx-background-color: ORANGE;")) {
             isSeatRedOrGreen = false;
-            System.out.println("do you want to un lock this table?");
+            switchToAdminUnlockSeatPrompt();
         }
 
     }
@@ -282,7 +283,7 @@ public class AdminManageBookingController implements Initializable {
         setSeatIdCurrentClicked(seatID6);
         if (seat6.getStyle().equals("-fx-background-color: green;") || seat6.getStyle().equals("-fx-background-color: red;")) {
             isSeatRedOrGreen = true;
-            switchToAdminBookManageChooseOptionGR();
+            switchToAdminLockdownSeatPrompt();
         } else if (seat6.getStyle().equals("-fx-background-color: blue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOption();
@@ -293,7 +294,7 @@ public class AdminManageBookingController implements Initializable {
         }
         else if (seat6.getStyle().equals("-fx-background-color: ORANGE;")) {
             isSeatRedOrGreen = false;
-            System.out.println("do you want to un lock this table?");
+            switchToAdminUnlockSeatPrompt();
         }
 
     }
@@ -337,16 +338,29 @@ public class AdminManageBookingController implements Initializable {
         }
     }
 
-    public void switchToAdminBookManageChooseOptionGR() { // green or red controller
+    public void switchToAdminLockdownSeatPrompt() {
         Scene scene = borderPaneAdminManageBooking.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminBMChooseOptionGR.fxml"));
-            primaryStage.setTitle("Hotdesking-Admin-Choose Option with Green and Red seat");
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminLockdownSeatPrompt.fxml"));
+            primaryStage.setTitle("Hotdesking-Admin-Booking Management-Lock down Seat");
             primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
-            System.out.println("Cannot load the adminBMChooseOptionGR.fxml");
+            System.out.println("Cannot load the adminLockdownSeatPrompt.fxml");
+        }
+    }
+
+    public void switchToAdminUnlockSeatPrompt() {
+        Scene scene = borderPaneAdminManageBooking.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminUnlockSeatPrompt.fxml"));
+            primaryStage.setTitle("Hotdesking-Admin-Booking Management-Unlock Seat");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminUnlockSeatPrompt.fxml");
         }
     }
 

@@ -80,7 +80,7 @@ public class AdminSelectBookingToManageController implements Initializable {
                 primaryStage.setTitle("Hotdesking-Admin-Booking Management");
                 primaryStage.setScene(new Scene(root));
             } catch (IOException e) {
-                System.out.println("Cannot load the booking.fxml");
+                System.out.println("Cannot load the adminManageBooking.fxml");
             }
         }
     }

@@ -21,17 +21,17 @@ public class AdminLockdownSeatPromptController {
     @FXML
     private BorderPane borderPaneLockDownPrompt;
 
-    // go back to choose option
-    public void switchToAdminBookManageChooseOption(ActionEvent event) {
+    // go back to manage booking
+    public void switchToAdminBookManage(ActionEvent event) {
         Scene scene = borderPaneLockDownPrompt.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminBookManageChooseOption.fxml"));
-            primaryStage.setTitle("Hotdesking-Admin-Choose Option");
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminManageBooking.fxml"));
+            primaryStage.setTitle("Hotdesking-Admin-Booking Management");
             primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
-            System.out.println("Cannot load the adminBookManageChooseOption.fxml");
+            System.out.println("Cannot load the adminManageBooking.fxml");
         }
     }
 

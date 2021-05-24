@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<BorderPane fx:id="borderPaneAdminChooseOptionGR" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.AdminBMChooseOptionGRController">
+<BorderPane fx:id="borderPaneUnlockSeat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.AdminUnlockSeatPromptController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Choose Option to lock down this seat!" />
+            <Label text="Do you want to unlock this seat?" />
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#goBackToAdminManageBooking" text="Go Back" />
-                  <Button mnemonicParsing="false" onAction="#switchToAdminLockdownSeatPrompt" text="Lock Down">
+                  <Button mnemonicParsing="false" onAction="#switchToAdminBookManage" text="Go Back" />
+                  <Button mnemonicParsing="false" onAction="#unlockClickedSeat" text="Unlock">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
