@@ -18,17 +18,17 @@ public class AdminConfirmBookingPromptController {
     @FXML
     private BorderPane borderPaneConfirmBookingPrompt;
 
-    // go back to choose option
+
     public void switchToAdminBookManageChooseOption(ActionEvent event) {
         Scene scene = borderPaneConfirmBookingPrompt.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminBookManageChooseOption.fxml"));
-            primaryStage.setTitle("Hotdesking-Admin-Choose Option");
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminManageBooking.fxml"));
+            primaryStage.setTitle("Hotdesking-Admin-Booking Management");
             primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
-            System.out.println("Cannot load the adminBookManageChooseOption.fxml");
+            System.out.println("Cannot load the adminManageBooking.fxml");
         }
     }
 
