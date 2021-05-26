@@ -6,9 +6,6 @@ import main.SQLConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 public class AdminLockdownSeatPromptModel {
 
@@ -27,7 +24,6 @@ public class AdminLockdownSeatPromptModel {
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
         }
         return result;
     }
@@ -49,7 +45,6 @@ public class AdminLockdownSeatPromptModel {
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
         }
         return result;
     }
@@ -71,7 +66,6 @@ public class AdminLockdownSeatPromptModel {
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
         }
         return result;
     }

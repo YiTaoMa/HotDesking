@@ -11,13 +11,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class CancelBookingConfirmModel {
-    //Connection connection;
-    //
-    //public CancelBookingConfirmModel() {
-    //    connection = SQLConnection.connect();
-    //    if (connection == null)
-    //        System.exit(1);
-    //}
 
     public boolean deleteBookingRecord(int empId, String date) throws SQLException {
         Connection connection;
@@ -35,7 +28,6 @@ public class CancelBookingConfirmModel {
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
         }
         return result;
     }
@@ -62,7 +54,6 @@ public class CancelBookingConfirmModel {
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
         }
         return result;
     }

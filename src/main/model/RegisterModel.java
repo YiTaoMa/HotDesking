@@ -9,15 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RegisterModel {
-    //DBUtils dbUtils = new DBUtils();
-    //Connection connection;
-
-    //public RegisterModel() {
-    //
-    //    connection = SQLConnection.connect();
-    //    if (connection == null)
-    //        System.exit(1);
-    //}
 
     public Boolean isRegister(String username, String password, int id, String firstname, String lastname, String role, String secretQ, String answerForSecretQ) throws SQLException {
         //int resultRegister = -1;
@@ -30,7 +21,7 @@ public class RegisterModel {
         //not password!!! important!!
         try {
             prst = connection.prepareStatement(sqlregister);
-            prst.setInt(1, id);//represnet "?" place holder
+            prst.setInt(1, id);//represent "?" place holder
             prst.setString(2, username);
 
             resultSet = prst.executeQuery(); // execute SQL statement and return results
@@ -59,8 +50,6 @@ public class RegisterModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
-            //resultSet.close();
         }
     }
 }

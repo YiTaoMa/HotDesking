@@ -11,19 +11,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class ConfirmBookingModel {
-    //Connection connection;
-    //DBUtils dbUtils = new DBUtils();
-    //public ConfirmBookingModel() {
-    //    connection = SQLConnection.connect();
-    //    if (connection == null)
-    //        System.exit(1);
-    //}
 
     public boolean insertBookingRecord(int employeeId, String date, int seatID) throws SQLException {
         Connection connection;
         connection = SQLConnection.connect();
         PreparedStatement prst = null;
-        //ResultSet resultSet = null;
         boolean result = false;
         String sql = "insert into Booking (employee_id,date,seat_id,is_booked,has_confirmed,is_checked_in) values(?,?,?,?,?,?)"; // SQL statement
         try {
@@ -41,8 +33,6 @@ public class ConfirmBookingModel {
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
-            //resultSet.close();
         }
         return result;
     }
@@ -67,14 +57,11 @@ public class ConfirmBookingModel {
             prst.setInt(4, 1);//is locked default true
 
             result = prst.executeUpdate() > 0;
-            //prst.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
-            //resultSet.close();
         }
         return result;
     }

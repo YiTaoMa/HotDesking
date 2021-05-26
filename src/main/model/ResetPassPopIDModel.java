@@ -9,14 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ResetPassPopIDModel {
-    //DBUtils dbUtils = new DBUtils();
-    //Connection connection;
-
-    //public ResetPassPopIDModel() {
-    //    connection = SQLConnection.connect();
-    //    if (connection == null)
-    //        System.exit(1);
-    //}
 
     public String getSecretQuestion(int id) throws SQLException {
         Connection connection;
@@ -26,7 +18,7 @@ public class ResetPassPopIDModel {
         String query = "select * from Employee where id = ?";
         try {
             preparedStatement = connection.prepareStatement(query); // PS to SQL statement
-            preparedStatement.setInt(1, id);//represnet "?" place holder
+            preparedStatement.setInt(1, id);//represent "?" place holder
             resultSet = preparedStatement.executeQuery(); // execute SQL statement and return results
             if (resultSet.next()) { //if there is an id same as the user input
                 return resultSet.getString("secret_question");
@@ -39,8 +31,6 @@ public class ResetPassPopIDModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
     }
 
@@ -52,7 +42,7 @@ public class ResetPassPopIDModel {
         String query = "select * from employee where id = ?";
         try {
             preparedStatement = connection.prepareStatement(query); // PS to SQL statement
-            preparedStatement.setInt(1, id);//represnet "?" place holder
+            preparedStatement.setInt(1, id);//represent "?" place holder
             resultSet = preparedStatement.executeQuery(); // execute SQL statement and return results
             if (resultSet.next()) { //if there is an id same as the user input
                 return true;
@@ -65,8 +55,6 @@ public class ResetPassPopIDModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
     }
 }

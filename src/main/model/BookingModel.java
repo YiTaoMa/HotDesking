@@ -7,17 +7,10 @@ import java.sql.*;
 import java.util.LinkedList;
 
 public class BookingModel {
-   //Connection connection;
+
     LinkedList<Integer> seatsBookedByOther = new LinkedList<>();
     LinkedList<Integer> seatsLockedByAdmin = new LinkedList<>();
     LinkedList<Integer> seatsBookedByUserPrevious = new LinkedList<>();
-
-
-    //public BookingModel() {
-    //    connection = SQLConnection.connect();
-    //    if (connection == null)
-    //        System.exit(1);
-    //}
 
     public LinkedList getSeatIdLockedByAdmin() throws SQLException {
         seatsLockedByAdmin.clear();
@@ -38,13 +31,11 @@ public class BookingModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closeStatement(statement);
             DBUtils.closeConnection(connection);
-            //statement.close();
-            //resultSet.close();
         }
         return seatsLockedByAdmin;
     }
 
-    public LinkedList getSeatIDBookedByOther(String date) throws SQLException { //the date is what user chosed at the start
+    public LinkedList getSeatIDBookedByOther(String date) throws SQLException { //the date is what user chose at the start
         seatsBookedByOther.clear();
         Connection connection;
         connection = SQLConnection.connect();
@@ -65,8 +56,6 @@ public class BookingModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
         return seatsBookedByOther;
     }
@@ -85,7 +74,6 @@ public class BookingModel {
             preparedStatement.setString(2, date);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                //System.out.println(resultSet.getInt("seat_id"));
                 seatsBookedByUserPrevious.add(resultSet.getInt("seat_id"));
             }
 
@@ -95,8 +83,6 @@ public class BookingModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
         return seatsBookedByUserPrevious;
     }
@@ -114,7 +100,7 @@ public class BookingModel {
             preparedStatement.setInt(2, employeeId);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return true;// means if the user havethe booking in that day not allow him to book in that day again
+                return true;// means if the user have the booking in that day not allow him to book in that day again
             } else {
                 return false;
             }
@@ -124,8 +110,6 @@ public class BookingModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
     }
 }

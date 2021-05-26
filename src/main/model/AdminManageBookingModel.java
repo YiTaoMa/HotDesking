@@ -7,15 +7,10 @@ import java.sql.*;
 import java.util.LinkedList;
 
 public class AdminManageBookingModel {
-    //Connection connection;
+
     LinkedList<Integer> seatsLockedByAdmin = new LinkedList<>();
     LinkedList<Integer> seatsBookedByOther = new LinkedList<>();
 
-    //public AdminManageBookingModel() {
-    //    connection = SQLConnection.connect();
-    //    if (connection == null)
-    //        System.exit(1);
-    //}
     public LinkedList getSeatIdLockedByAdmin() throws SQLException {
         seatsLockedByAdmin.clear();
         Connection connection;
@@ -35,13 +30,11 @@ public class AdminManageBookingModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closeStatement(statement);
             DBUtils.closeConnection(connection);
-            //statement.close();
-            //resultSet.close();
         }
         return seatsLockedByAdmin;
     }
 
-    public LinkedList getSeatIDBookedByOther(String date) throws SQLException { //the date is what user chosed at the start
+    public LinkedList getSeatIDBookedByOther(String date) throws SQLException { //the date is what user chose at the start
         seatsBookedByOther.clear();
         Connection connection;
         connection = SQLConnection.connect();
@@ -62,8 +55,6 @@ public class AdminManageBookingModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
         return seatsBookedByOther;
     }

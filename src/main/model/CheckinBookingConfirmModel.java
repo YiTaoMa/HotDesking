@@ -8,13 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class CheckinBookingConfirmModel {
-    //Connection connection;
-    //
-    //public CheckinBookingConfirmModel() {
-    //    connection = SQLConnection.connect();
-    //    if (connection == null)
-    //        System.exit(1);
-    //}
 
     public boolean updateCheckinStatus(int empId, String date) throws SQLException {
         Connection connection;
@@ -33,7 +26,6 @@ public class CheckinBookingConfirmModel {
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
         }
         return result;
     }

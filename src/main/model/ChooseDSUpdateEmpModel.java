@@ -12,13 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class ChooseDSUpdateEmpModel {
-    //Connection connection;
 
-    //public ChooseDSUpdateEmpModel() {
-    //    connection = SQLConnection.connect();
-    //    if (connection == null)
-    //        System.exit(1);
-    //}
     public boolean isBookedAnotherSeatInSelectedDateUpdate(String date, int employeeId,int seatID) throws SQLException { // check if the user booked another seat in that day which is he attempt to book anotehr
         Connection connection;
         connection = SQLConnection.connect();
@@ -33,7 +27,7 @@ public class ChooseDSUpdateEmpModel {
             preparedStatement.setInt(3, seatID);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return true;// means if the user havethe booking in that day not include teh seat he chosed not allow him to book in that day again
+                return true;// means if the user have the booking in that day not include teh seat he chose not allow him to book in that day again
             } else {
                 return false;
             }
@@ -43,8 +37,6 @@ public class ChooseDSUpdateEmpModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
     }
     public boolean isSeatAlreadyBookedInThatDate(int seatId, String date) throws SQLException {
@@ -69,8 +61,6 @@ public class ChooseDSUpdateEmpModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
     }
 
@@ -97,8 +87,6 @@ public class ChooseDSUpdateEmpModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
         return result;
     }
@@ -123,8 +111,6 @@ public class ChooseDSUpdateEmpModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
         return result;
     }
@@ -148,7 +134,6 @@ public class ChooseDSUpdateEmpModel {
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
         }
         return result;
     }
@@ -187,7 +172,6 @@ public class ChooseDSUpdateEmpModel {
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
         }
         return result;
     }

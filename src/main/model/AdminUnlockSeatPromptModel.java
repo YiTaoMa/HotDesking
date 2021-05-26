@@ -26,7 +26,6 @@ public class AdminUnlockSeatPromptModel {
         } finally {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
-            //prst.close();
         }
         return result;
     }
