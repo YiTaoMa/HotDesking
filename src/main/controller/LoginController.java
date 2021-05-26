@@ -72,7 +72,7 @@ public class LoginController implements Initializable {//implements Initialize
                     }
                 }
             } else {
-                errorMessage.setText("username and password is incorrect");
+                errorMessage.setText("Username and Password is incorrect OR This account is Deactivated.");
             }
         } catch (SQLException e) {
             e.printStackTrace();

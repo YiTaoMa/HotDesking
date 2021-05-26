@@ -30,13 +30,13 @@ class ResetPassPopIDModelTest {
 
     @Test
     void isIdExistWithExistID() throws SQLException {
-        assertEquals(true, resetPassPopIDModel.isIdExist(23443),
+        assertEquals(true, resetPassPopIDModel.isIdExistAndNotDeactivated(23443),
                 "Employee ID 23443 expected return true");
     }
 
     @Test
     void isIdExistWithIncorrectID() throws SQLException {
-        assertEquals(false, resetPassPopIDModel.isIdExist(00000),
+        assertEquals(false, resetPassPopIDModel.isIdExistAndNotDeactivated(00000),
                 "Employee ID 00000 expected return false");
     }
 }

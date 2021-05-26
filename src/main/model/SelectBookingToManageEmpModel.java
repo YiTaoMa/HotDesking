@@ -11,15 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SelectBookingToManageEmpModel {
-   // DBUtils dbUtils = new DBUtils();
-    //Connection connection;
-    ObservableList<String> items = FXCollections.observableArrayList();
 
-    //public SelectBookingToManageEmpModel() {
-    //    connection = SQLConnection.connect();
-    //    if (connection == null)
-    //        System.exit(1);
-    //}
+    ObservableList<String> items = FXCollections.observableArrayList();
 
     public ObservableList<String> getEmployeeBookingDetail(int employeeId) throws SQLException {
         items.clear();
@@ -42,8 +35,6 @@ public class SelectBookingToManageEmpModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
         return items;
     }

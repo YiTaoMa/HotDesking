@@ -34,12 +34,12 @@ public class ResetPassPopIDModel {
         }
     }
 
-    public Boolean isIdExist(int id) throws SQLException {
+    public Boolean isIdExistAndNotDeactivated(int id) throws SQLException {
         Connection connection;
         connection = SQLConnection.connect();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        String query = "select * from employee where id = ?";
+        String query = "select * from employee where id=? and is_deactivated=false";
         try {
             preparedStatement = connection.prepareStatement(query); // PS to SQL statement
             preparedStatement.setInt(1, id);//represent "?" place holder

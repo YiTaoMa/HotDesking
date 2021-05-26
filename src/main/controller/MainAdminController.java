@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 
 public class MainAdminController implements Initializable {
     MainAdminModel mainAdminModel = new MainAdminModel();
-    //HashMap<Integer, String> datesAndNumberFromBookingNotConfirmed = new HashMap<>();
+
     HashMap<Integer, String> bookingsOutOfRange = new HashMap<>();
 
     LinkedList<Integer> bookingsOutOfRangeEmpId = new LinkedList<>();
@@ -70,7 +70,7 @@ public class MainAdminController implements Initializable {
 
     }
 
-    public void switchToManageBooking(ActionEvent event) {
+    public void switchToAdminSelectBookingManage(ActionEvent event) {
         Scene scene = borderPaneMainAdmin.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
@@ -83,15 +83,31 @@ public class MainAdminController implements Initializable {
         }
     }
 
-    //public void testHashMap(){
-    //    System.out.println("Booking not confirmed");
-    //    System.out.println(mainAdminModel.getBookingEmpIDAndDatesNotConfirmed());
-    //    System.out.println("Bookings need to delete");
-    //    try {
-    //        System.out.println(mainAdminModel.getBookingsOutOfRanges());
-    //    }
-    //    catch (ParseException e){
-    //        e.printStackTrace();
-    //    }
-    //}
+    public void switchToHome(ActionEvent event) {
+        Scene scene = borderPaneMainAdmin.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/home.fxml"));
+            primaryStage.setTitle("Hotdesking-Home");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the home scene");
+        }
+    }
+    public void switchToAdminManageAccount(ActionEvent event) {
+        Scene scene = borderPaneMainAdmin.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminManageAccount.fxml"));
+            primaryStage.setTitle("Hotdesking-Manage Account-Admin");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminManageAccount.fxml");
+        }
+    }
+
+
+
 }

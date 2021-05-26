@@ -10,16 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ResetPasswordModel {
-    //Connection connection;
-    //DBUtils dbUtils = new DBUtils();
-    //public ResetPasswordModel() {
-    //    connection = SQLConnection.connect();
-    //    if (connection == null)
-    //        System.exit(1);
-    //}
 
     /**
-     * COmpare this user's entered answer with this user's answer in databse, if we found there is a match of this user and the answer
+     * Compare this user's entered answer with this user's answer in database, if we found there is a match of this user and the answer
      * he provided, it means correct answer for his SQ, then we give he a new random password
      */
     public Boolean isAnswerForSQCorrect(int id, String answerForSQ) throws SQLException {
@@ -45,8 +38,6 @@ public class ResetPasswordModel {
             DBUtils.closeResultSet(resultSet);
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
-            //resultSet.close();
         }
     }
 
@@ -57,7 +48,6 @@ public class ResetPasswordModel {
         StringBuilder sb = new StringBuilder();
         // each iteration of the loop randomly chooses a character from the given
         // ASCII range and appends it to the `StringBuilder` instance
-
         for (int i = 0; i < len; i++) {
             int randomIndex = random.nextInt(chars.length());
             sb.append(chars.charAt(randomIndex));
@@ -75,13 +65,12 @@ public class ResetPasswordModel {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, newPassword);
             preparedStatement.setInt(2, id);
-            result=preparedStatement.executeUpdate() >0;
+            result = preparedStatement.executeUpdate() > 0;
         } catch (Exception e) {
-           return false;
+            return false;
         } finally {
             DBUtils.closePrepareStatement(preparedStatement);
             DBUtils.closeConnection(connection);
-            //preparedStatement.close();
         }
         return result;
     }

@@ -43,7 +43,7 @@ public class ResetPassPopIDController implements Initializable {
                 employeeID = idInt;
                 //the only way go to the resetpassword is the id exist, so don't need to check if secret question is not found or what
                 SQ = resetPassPopIDModel.getSecretQuestion(idInt);//get the secret question
-                if (resetPassPopIDModel.isIdExist(idInt)) {//calling model class see if id exist, if yes go to reset password
+                if (resetPassPopIDModel.isIdExistAndNotDeactivated(idInt)) {//calling model class see if id exist, if yes go to reset password
                     Scene scene = borderpaneResetPop.getScene();
                     Window window = scene.getWindow();
                     Stage primaryStage = (Stage) window;
@@ -55,7 +55,7 @@ public class ResetPassPopIDController implements Initializable {
                         System.out.println("Cannot load the resetPassword scene");
                     }
                 } else {
-                    errorMessage.setText("Error, Employee ID not exist! Please register an new employee ID first!");
+                    errorMessage.setText("Error, Employee ID not exist OR Deactivated!");
                 }
             }
         } catch (Exception e) {

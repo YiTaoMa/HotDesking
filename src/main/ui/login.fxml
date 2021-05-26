@@ -10,30 +10,26 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderpaneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.LoginController">
+<BorderPane fx:id="borderpaneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.LoginController">
    <center>
-      <VBox alignment="TOP_CENTER" maxHeight="400.0" maxWidth="600.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="638.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Welcome, Please Login!" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="32.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="90.0" />
+               </VBox.margin>
             </Label>
-            <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" minWidth="-Infinity" VBox.vgrow="ALWAYS">
-               <children>
-                  <Label fx:id="errorMessage" alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="  username and password is incorrect" textAlignment="CENTER" textFill="RED" wrapText="true" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                     <padding>
-                        <Insets right="10.0" />
-                     </padding>
-                  </Label>
-               </children>
-            </HBox>
+            <Label fx:id="errorMessage" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Username and Password is incorrect OR This account is Deactivated." textAlignment="CENTER" textFill="RED" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
             <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="User name" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets left="15.0" right="20.0" top="5.0" />
@@ -44,7 +40,7 @@
             </Label>
             <TextField fx:id="txtUsername" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. username" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="50.0" right="50.0" top="2.0" />
+                  <Insets left="180.0" right="180.0" top="2.0" />
                </VBox.margin>
             </TextField>
             <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Password" wrapText="true" VBox.vgrow="ALWAYS">
@@ -57,48 +53,45 @@
             </Label>
             <PasswordField fx:id="txtPassword" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. 123456" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="50.0" right="50.0" top="2.0" />
+                  <Insets left="180.0" right="180.0" top="2.0" />
                </VBox.margin>
             </PasswordField>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
                   <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBack" text="Go Back" wrapText="true" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="130.0" top="29.0" />
+                     </HBox.margin>
                      <font>
                         <Font size="19.0" />
                      </font>
-                     <HBox.margin>
-                        <Insets left="40.0" top="29.0" />
-                     </HBox.margin>
                   </Button>
                   <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Login" prefHeight="38.0" prefWidth="101.0" text="Login" textFill="GREEN" wrapText="true" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="40.0" right="50.0" top="29.0" />
+                        <Insets left="40.0" right="130.0" top="29.0" />
                      </HBox.margin>
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets />
+                  <Insets left="50.0" right="50.0" />
                </VBox.margin>
             </HBox>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
                   <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#forgotPassword" text="Forgot Password?" textAlignment="CENTER" textFill="BLUE" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="13.0" right="25.0" />
+                        <Insets left="145.0" right="155.0" />
                      </HBox.margin>
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets left="100.0" right="100.0" top="20.0" />
+                  <Insets bottom="80.0" left="100.0" right="100.0" />
                </VBox.margin>
             </HBox>
          </children>
-         <padding>
-            <Insets bottom="120.0" left="120.0" right="120.0" top="110.0" />
-         </padding>
       </VBox>
    </center>
 </BorderPane>

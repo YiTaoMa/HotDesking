@@ -19,7 +19,9 @@ public class LoginModel {
         connection = SQLConnection.connect();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        String query = "select * from Employee where username=? and password=?";
+        // Only get the account not deactivated by admin, if an account is deactivate by admin, no matter if username and
+        //password is correct or not. we will not select it.
+        String query = "select * from Employee where username=? and password=? and is_deactivated=false";
         try {
             // it means select  all from the employee table where the user name is equal to the user input or not and password
             //if there is a match we login the user, both username and password match

@@ -11,7 +11,6 @@ import java.sql.SQLException;
 public class RegisterModel {
 
     public Boolean isRegister(String username, String password, int id, String firstname, String lastname, String role, String secretQ, String answerForSecretQ) throws SQLException {
-        //int resultRegister = -1;
         Connection connection;
         connection = SQLConnection.connect();
         PreparedStatement prst = null;
@@ -30,7 +29,7 @@ public class RegisterModel {
                 return false;
             } else {//user name not match database means the user not register before, then register user
                 //must in sequence corresponding to the database row sequence
-                String sql = "insert into Employee (id,first_name,last_name,character_role,username,password,secret_question,answer_for_secret_question) values(?,?,?,?,?,?,?,?)"; // SQL statement
+                String sql = "insert into Employee (id,first_name,last_name,character_role,username,password,secret_question,answer_for_secret_question,is_deactivated) values(?,?,?,?,?,?,?,?,?)"; // SQL statement
 
                 prst = connection.prepareStatement(sql); // PS to SQL statement
                 prst.setInt(1, id);
@@ -41,6 +40,7 @@ public class RegisterModel {
                 prst.setString(6, password);
                 prst.setString(7, secretQ);
                 prst.setString(8, answerForSecretQ);
+                prst.setInt(9,0); // default deactivate status account is false;
 
                 return prst.executeUpdate() > 0;
             }
