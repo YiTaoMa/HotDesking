@@ -23,7 +23,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#goBackToMainAdmin" text="Go Back" />
-                  <Button mnemonicParsing="false" text="Add account">
+                  <Button mnemonicParsing="false" onAction="#switchToAddAccountScene" text="Add account">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>

@@ -72,6 +72,19 @@ public class AdminManageAccountController implements Initializable {
             }
         }
     }
+    public void switchToAddAccountScene(ActionEvent event) {
+        Scene scene = borderPaneAdminManageAccount.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminAddAccount.fxml"));
+            primaryStage.setTitle("Hotdesking-Manage Account-Add Account");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminAddAccount.fxml");
+        }
+    }
+
 
     public void switchToAdminDeactivatePrompt() {
         Scene scene = borderPaneAdminManageAccount.getScene();

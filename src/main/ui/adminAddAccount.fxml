@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPaneAddAccount" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.AdminAddAccountController">
+   <center>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="670.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Please fill below information to Add Employee/Admin Account!" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="errorMessageAddAccount" text="Error, Employee ID can not be empty and must be a positive whole number with length 5!" textFill="RED">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Employee ID (must be a positive whole number with length 5)" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEmployeeID" alignment="CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. 91928" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="First Name (composed with letters)" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="txtFirstName" alignment="CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. QiYue" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Last Name (composed with letters)" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="txtLastName" alignment="CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. Wang" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Select Employee's Role" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <ChoiceBox fx:id="choiceRoleBox" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" top="5.0" />
+               </VBox.margin>
+            </ChoiceBox>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="User name" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="txtUserName" alignment="CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. HyHy" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Password" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <PasswordField fx:id="txtPassword" alignment="CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. 12345" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Select your Secret Question" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <ChoiceBox fx:id="choiceSQBox" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" top="5.0" />
+               </VBox.margin>
+            </ChoiceBox>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Answer for Secret Question" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="txtAnswerForSecretQ" alignment="CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. Cat" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToAdminManageAccount" prefHeight="22.0" prefWidth="43.0" text="Go Back" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="220.0" top="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addAccount" prefHeight="22.0" prefWidth="43.0" text="Add" textFill="GREEN" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="30.0" right="230.0" top="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
