@@ -72,6 +72,17 @@ public class AdminManageAccountController implements Initializable {
             }
         }
     }
+    public void switchToDeleteAccountPrompt(ActionEvent event) {
+        String selectedItem = adminManageAccountListView.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) { // if user not choose an item
+            errorMessageListEmpty.setText("Error! You have to choose an Account from the list!");
+        } else {
+            String spl[] = selectedItem.split("---");
+            employeeIDFromAccountManageList = Integer.parseInt(spl[1]);
+            switchToAdminDeleteAccountPrompt();
+        }
+    }
+
     public void switchToAddAccountScene(ActionEvent event) {
         Scene scene = borderPaneAdminManageAccount.getScene();
         Window window = scene.getWindow();
@@ -99,7 +110,21 @@ public class AdminManageAccountController implements Initializable {
         }
     }
 
+    public void switchToAdminDeleteAccountPrompt(){
+        Scene scene = borderPaneAdminManageAccount.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminDeleteAccountPrompt.fxml"));
+            primaryStage.setTitle("Hotdesking-Manage Account-Delete Account");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminDeleteAccountPrompt.fxml");
+        }
+    }
+
     public int getEmployeeIDFromAccountManageList(){
         return employeeIDFromAccountManageList;
     }
+
 }

@@ -33,7 +33,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Delete account">
+                  <Button mnemonicParsing="false" onAction="#switchToDeleteAccountPrompt" text="Delete account">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
