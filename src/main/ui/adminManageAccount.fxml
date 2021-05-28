@@ -28,7 +28,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Update account">
+                  <Button mnemonicParsing="false" onAction="#switchToUpdateAccountScene" text="Update account">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>

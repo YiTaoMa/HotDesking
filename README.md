@@ -3,9 +3,6 @@
 - Name: Yitao Ma
 - Student ID: s3843689
 - Course Name: Further Programming (2110) COSC2391
-- Register only for Employee not admin
-- Test Employee, use Username: employee Password: employee
-- Test Admin, use Username: admin Password: admin
 
 # Packaging
 The main class is Main.java
@@ -66,7 +63,32 @@ So while you are writing your readme files please consider a few things:
     - After the installation, how they compile or run the code?
 3. Execution examples
     - You could provide examples of execution with code and screenshots
-    
+4. Function Notes:
+   - For Login: Depend on employee's role, login as employee or admin (see different function).
+   - Register only for Employee not Admin.
+   - To test Employee function, use Username: test AND Password: test
+   - To test Admin, use Username: admin AND Password: admin
+   - Lock down: Period of operation. So, no date check. If a seat is locked down. All booking records AND corresponding 
+   Whitelist records for this locked downed seat will be canceled/deleted.
+   - Admin can achieve COVID-19 lockdown AND COVID-19 condition by manually lockdown selected seats.
+   - Deactivate Account: If an employee account is deactivated, this employee can not log in/reset password/
+   booking/manage booking,etc. Can not do all activities/operations. 
+   - If a normal employee become admin then we still keep their previously booking
+   records, but he/she can not make any operation related to employee (booking/manage booking,etc).
+   - Account deleted: If an account has been deleted, all records in Booking and Whitelist
+   will also been deleted if have any.
+5. Database notes:
+   - Whitelist: If Booking table have a record inserted, Whitelist table also
+   insert same record automatically, but the date column is increment 1 day. Purpose is to prevent
+   the user to book the same sit that has been booked previously. 
+   So, it is to check which seat the user can not book at each date.
+   - Modify Whitelist record is un-necessary! If record changed in the Whitelist,
+   will impact the function. DO NOT MODIFY IT.
+     
+   - (IMPORTANT!) So, For function: "Admin can manually change the Whitelist".
+   It is actually change the Seat table (Seats that is locked down) in the database instead of Whitelist table
+   in the database.  
+
 
 other things you could add:
 

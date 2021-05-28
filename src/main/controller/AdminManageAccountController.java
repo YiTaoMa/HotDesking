@@ -23,8 +23,15 @@ import java.util.ResourceBundle;
 public class AdminManageAccountController implements Initializable {
     ObservableList<String> accounts = FXCollections.observableArrayList();
     AdminManageAccountModel adminManageAccountModel = new AdminManageAccountModel();
-    private String role;
+    //private String role;
     protected static int employeeIDFromAccountManageList;
+    protected static String employeeFNFromAccountManageList;
+    protected static String employeeLNFromAccountManageList;
+    protected static String employeeRoleFromAccountManageList;
+    protected static String employeeUNFromAccountManageList;
+    protected static String employeePWFromAccountManageList;
+    protected static String employeeSQFromAccountManageList;
+    protected static String employeeASQFromAccountManageList;
     @FXML
     private ListView<String> adminManageAccountListView;
     @FXML
@@ -63,15 +70,16 @@ public class AdminManageAccountController implements Initializable {
             errorMessageListEmpty.setText("Error! You have to choose an Account from the list!");
         } else {
             String spl[] = selectedItem.split("---");
-            role = spl[7];
+            employeeRoleFromAccountManageList = spl[7];
             employeeIDFromAccountManageList = Integer.parseInt(spl[1]);
-            if (role.equals("Admin")) {
+            if (employeeRoleFromAccountManageList.equals("Admin")) {
                 errorMessageListEmpty.setText("Error! You can only deactivate other Employee's account not Admin!");
             } else { // if is employee account
                 switchToAdminDeactivatePrompt();
             }
         }
     }
+
     public void switchToDeleteAccountPrompt(ActionEvent event) {
         String selectedItem = adminManageAccountListView.getSelectionModel().getSelectedItem();
         if (selectedItem == null) { // if user not choose an item
@@ -96,6 +104,25 @@ public class AdminManageAccountController implements Initializable {
         }
     }
 
+    public void switchToUpdateAccountScene(ActionEvent event) {
+        String selectedItem = adminManageAccountListView.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) { // if user not choose an item
+            errorMessageListEmpty.setText("Error! You have to choose an Account from the list!");
+        } else {
+            String spl[] = selectedItem.split("---");
+            employeeIDFromAccountManageList = Integer.parseInt(spl[1]);
+            employeeFNFromAccountManageList = spl[3];
+            employeeLNFromAccountManageList = spl[5];
+            employeeRoleFromAccountManageList = spl[7];
+            employeeUNFromAccountManageList = spl[9];
+            employeePWFromAccountManageList = spl[11];
+            employeeSQFromAccountManageList = spl[13];
+            employeeASQFromAccountManageList = spl[15];
+
+            switchToAdminUpdateAccount();
+        }
+    }
+
 
     public void switchToAdminDeactivatePrompt() {
         Scene scene = borderPaneAdminManageAccount.getScene();
@@ -110,7 +137,7 @@ public class AdminManageAccountController implements Initializable {
         }
     }
 
-    public void switchToAdminDeleteAccountPrompt(){
+    public void switchToAdminDeleteAccountPrompt() {
         Scene scene = borderPaneAdminManageAccount.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
@@ -123,8 +150,49 @@ public class AdminManageAccountController implements Initializable {
         }
     }
 
-    public int getEmployeeIDFromAccountManageList(){
+    public void switchToAdminUpdateAccount() {
+        Scene scene = borderPaneAdminManageAccount.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminUpdateAccount.fxml"));
+            primaryStage.setTitle("Hotdesking-Manage Account-Update Account");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminUpdateAccount.fxml");
+        }
+    }
+
+    public int getEmployeeIDFromAccountManageList() {
         return employeeIDFromAccountManageList;
+    }
+
+    public String getEmployeeFNFromAccountManageList() {
+        return employeeFNFromAccountManageList;
+    }
+
+    public String getEmployeeLNFromAccountManageList() {
+        return employeeLNFromAccountManageList;
+    }
+
+    public String getEmployeeRoleFromAccountManageList() {
+        return employeeRoleFromAccountManageList;
+    }
+
+    public String getEmployeeUNFromAccountManageList() {
+        return employeeUNFromAccountManageList;
+    }
+
+    public String getEmployeePWFromAccountManageList() {
+        return employeePWFromAccountManageList;
+    }
+
+    public String getEmployeeSQFromAccountManageList() {
+        return employeeSQFromAccountManageList;
+    }
+
+    public String getEmployeeASQFromAccountManageList() {
+        return employeeASQFromAccountManageList;
     }
 
 }
