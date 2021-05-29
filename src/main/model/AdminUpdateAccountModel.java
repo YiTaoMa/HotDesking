@@ -88,5 +88,39 @@ public class AdminUpdateAccountModel {
         }
 
     }
+
+    public boolean updateBookingEmpId(int empIdFromList, int empIdInput){
+        Connection connection;
+        connection = SQLConnection.connect();
+        PreparedStatement prst = null;
+
+        String sqlUpdate = "update Booking set employee_id=? where employee_id=?";
+        try {
+            prst = connection.prepareStatement(sqlUpdate);
+            prst.setInt(1, empIdInput);
+            prst.setInt(2, empIdFromList);
+
+            return prst.executeUpdate() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean updateWhitelistEmpId(int empIdFromList, int empIdInput){
+        Connection connection;
+        connection = SQLConnection.connect();
+        PreparedStatement prst = null;
+
+        String sqlUpdate = "update Whitelist set employee_id=? where employee_id=?";
+        try {
+            prst = connection.prepareStatement(sqlUpdate);
+            prst.setInt(1, empIdInput);
+            prst.setInt(2, empIdFromList);
+
+            return prst.executeUpdate() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
 

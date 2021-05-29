@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import main.model.AdminDeleteAccountPromptModel;
 import main.model.AdminUpdateAccountModel;
 
 import java.io.IOException;
@@ -22,6 +23,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdminUpdateAccountController implements Initializable {
+    AdminDeleteAccountPromptModel adminDeleteAccountPromptModel = new AdminDeleteAccountPromptModel();
     AdminUpdateAccountModel adminUpdateAccountModel = new AdminUpdateAccountModel();
     AdminManageAccountController adminManageAccountController = new AdminManageAccountController();
     ObservableList<String> roles = FXCollections.observableArrayList("Employee", "Admin");
@@ -89,6 +91,12 @@ public class AdminUpdateAccountController implements Initializable {
                     || txtLastName.getText().trim().equals("") || choiceRoleBox.getValue().toString().trim().equals("") || choiceSQBox.getValue().toString().trim().equals("")
                     || txtAnswerForSecretQ.getText().trim().equals("")) {
                 errorMessageUpdateAccount.setText("Fields can not be empty! (input can not be a space or spaces)");
+            } else if (idInt == adminManageAccountController.getEmployeeIDFromAccountManageList() && txtFirstName.getText().equals(adminManageAccountController.getEmployeeFNFromAccountManageList())
+                    && txtLastName.getText().equals(adminManageAccountController.getEmployeeLNFromAccountManageList()) && choiceRoleBox.getValue().toString().equals(adminManageAccountController.getEmployeeRoleFromAccountManageList())
+                    && txtUserName.getText().equals(adminManageAccountController.getEmployeeUNFromAccountManageList()) && txtPassword.getText().equals(adminManageAccountController.getEmployeePWFromAccountManageList())
+                    && choiceSQBox.getValue().toString().equals(adminManageAccountController.getEmployeeSQFromAccountManageList()) && txtAnswerForSecretQ.getText().equals(adminManageAccountController.getEmployeeASQFromAccountManageList())) {
+                // if admin not change anything
+                errorMessageUpdateAccount.setText("You haven't change anything, Can not update!");
             }
             // if the id input is already registered (exclude current selected account emp id!). We can not let the admin to update id to that one
             // if it is fine then we check user name
@@ -99,21 +107,57 @@ public class AdminUpdateAccountController implements Initializable {
                     if (adminUpdateAccountModel.updateAccount(idInt, adminManageAccountController.getEmployeeIDFromAccountManageList(),
                             txtFirstName.getText(), txtLastName.getText(), choiceRoleBox.getValue().toString(), txtUserName.getText(),
                             txtPassword.getText(), choiceSQBox.getValue().toString(), txtAnswerForSecretQ.getText())) {
-                        System.out.println("update account successful!");
+                        // if this employee old id from the list have bookings we need update employee id in the booking table as well,
+                        // also whitelist
+                        if (adminDeleteAccountPromptModel.isSelectedEmpHaveBookings(adminManageAccountController.getEmployeeIDFromAccountManageList())
+                                && idInt != adminManageAccountController.getEmployeeIDFromAccountManageList()) {
+                            // if this employee have bookings and admin changed this employee's emp id then
+                            // we need to update booking's emp id and whitelist emp id. If the emp id not changed
+                            // we don't need to change bookings and whitelist emp id
+                            // update employee id in booking table
+                            if (adminUpdateAccountModel.updateBookingEmpId(adminManageAccountController.getEmployeeIDFromAccountManageList(), idInt)) {
+                                // update employee id in the whitelist
+                                if (adminUpdateAccountModel.updateWhitelistEmpId(adminManageAccountController.getEmployeeIDFromAccountManageList(), idInt)) {
+                                    switchToMainAdminScene();
+                                    showUpdateAccountSuccessStage();
+                                }
+                            }
+                        } else { // else this employee don't have any bookings then just delete account only
+                            switchToMainAdminScene();
+                            showUpdateAccountSuccessStage();
+                        }
                     }
                 } else {
                     errorMessageUpdateAccount.setText("Update failed, Username already exist!");
                 }
-
-                // if we update this employee id we also need to update their booking corresponding id and whitelist
-                // if have any
-
-
             } else {
                 errorMessageUpdateAccount.setText("Update failed, Employee ID already exist!");
             }
         }
-
     }
 
+    public void switchToMainAdminScene() {
+        Scene scene = borderPaneUpdateAccount.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/mainAdmin.fxml"));
+            primaryStage.setTitle("Hotdesking-Main-Admin");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the mainAdmin scene");
+        }
+    }
+
+    public void showUpdateAccountSuccessStage() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminUpdateAccountSuccess.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Hotdesking-Update Account-Success");
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminUpdateAccountSuccess.fxml");
+        }
+    }
 }

@@ -108,7 +108,7 @@ public class ChooseDSUpdateEmpController implements Initializable {
         String updateBookingChoseDate = updateBookingDatePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         try {
             // first condition:if the user already booked in that date he can not change this booking to that date so check the seat is not
-            //chosed by this user in that date
+            //chose by this user in that date
             //second condition: if user desired date and seat id already exist in that day, means already been booked, not going to let the user choose that date and seat.
             // third condition: if user can't book in that day because he booked yesterday this seat
             if (chooseDSUpdateEmpModel.isBookedAnotherSeatInSelectedDateUpdate(updateBookingChoseDate, loginController.getEmployeeID(),selectBookingToManageEmpController.getSeatIDBookedByCurrentUserManage())) {
@@ -116,7 +116,7 @@ public class ChooseDSUpdateEmpController implements Initializable {
             }
             // check if the user already booked in that day say 05-31. and if the user chose date to update in
             //update select date page is not equal to the date of booking he managed say 05-25.
-            //If bothe condition success means the user manage the booking is 05-25, he tend to update it to 05-31
+            //If both condition success means the user manage the booking is 05-25, he tend to update it to 05-31
             //but he already have a booking in 05-31, display error message.
             //Other wise, if the date of booking he chose in update choose date page is equal to the date of booking he manage
             //now, let's say current booking to manage is 05-31 and the date he tend to update is same day 05-31 then not display error

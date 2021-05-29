@@ -141,34 +141,7 @@ public class AdminManageBookingController implements Initializable {
             }
         }
     }
-    // 任何31号的预定在30号午夜前（30号的半夜12：00前）没有确认，自动取消。
 
-    // 如果当前日期或者30号和预约的31号相差少于等于1天 并且 当前日期的时间（30号）不在当前日期（当天）时间的半夜24：00 之前 并且
-    // has_confirmed == false没有确认，那么自动删除这个预约eclipse例子用
-
-    //也就是说如果今天是30号，预约是31号，那么现在是30号的六点，没有到今天30号的午夜12：00那么还是有时间confirmed的不自动取消，
-    //但是今天30号的时间过了今天的午夜12：00则自动取消。
-
-
-    //------------------- correct one below
-
-
-    //！！！！！！这个已经在eclipse实现，假设今天20号目标日期19号小于今天，判断为今天不在19号之前自动删除即可
-    //！！！！！！假设目标预约21号，今天20号在21号之前，那么可以confirm但是过了今天24：00也就是明天了那么不能confirm自动删除。
-
-    //只需要一个判断不需要这么多，假设今天19号，在21号之前，那么也是可以confirm的
-    //不需要判断当前日期或者30号和预约的31号相差少于等于1天
-
-    //has_confirmed == false 需要判断
-
-    //这个判断时间的最好在一开始，程序运行初就进行？？
-
-    //databse: DELETE FROM table WHERE date < '2011-09-21 08:21:22';
-    //可能不需要这样因为我们判断了这个预约如果小于今天或者过了时间没被confirm我们只要删除这个预约即可
-    //但可能不是只删除这一个选择的booking而是选出所有数据库中的预约日期没有被confirmed，然后进行每个日期的检查，跟今天比较，
-    //因为今天小于预约日期的话就可以confirm，不删除，如果今天大于预约日期的就删除
-
-    //不太需要额外检查： 如果，预约的日期小于或者等于今天的日期并且没有被admin确认则自动删除。因为预约必须被admin在前一天确认。
     public void ClickSeat1(ActionEvent event) {
         setSeatIdCurrentClicked(seatID1);// every time set the current seat to current button number which represent
         //current clicked seat
