@@ -6,62 +6,133 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPaneAdminManageBooking" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.AdminManageBookingController">
+<BorderPane fx:id="borderPaneAdminManageBooking" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.AdminManageBookingController">
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="669.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="welcome admin" />
-            <Label text="You can click any seat to lockdown/unlock!" />
-            <Label text="You can only confirm the Blue seat" />
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Welcome Admin!" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="20.0" />
+               </font>
                <VBox.margin>
-                  <Insets top="150.0" />
+                  <Insets top="20.0" />
+               </VBox.margin></Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="You can click any seats to lockdown!" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="You can click the locked down seat to Unlock!" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Blue Seat: To Confirm OR Reject" textAlignment="CENTER" textFill="BLUE" wrapText="true" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Dark Blue Seat: To Reject" textAlignment="CENTER" textFill="DARKBLUE" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Red: Seat booked by an employee" textAlignment="CENTER" textFill="RED" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Green: Seat is available" textAlignment="CENTER" textFill="GREEN" wrapText="true" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Orange: Seat is Locked down" textAlignment="CENTER" textFill="ORANGE" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="30.0" />
                </VBox.margin>
                <children>
                   <Button fx:id="seat1" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ClickSeat1" prefHeight="60.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="50.0" right="30.0" />
+                        <Insets left="30.0" right="50.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="seat2" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ClickSeat2" prefHeight="60.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets right="30.0" />
+                        <Insets right="50.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="seat3" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ClickSeat3" prefHeight="60.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets right="50.0" />
+                        <Insets right="30.0" />
                      </HBox.margin>
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
                   <Button fx:id="seat4" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ClickSeat4" prefHeight="60.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="50.0" right="30.0" />
+                        <Insets left="30.0" right="50.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="seat5" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ClickSeat5" prefHeight="60.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets right="30.0" />
+                        <Insets right="50.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="seat6" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ClickSeat6" prefHeight="60.0" prefWidth="40.0" style="-fx-background-color: green;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets right="50.0" />
+                        <Insets right="30.0" />
                      </HBox.margin>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
             </HBox>
             <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToSelectBooking" text="Go Back" HBox.hgrow="ALWAYS" />
+                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToSelectBooking" text="Go Back" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin></Button>
                </children>
                <padding>
                   <Insets left="260.0" right="260.0" />
                </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
             </HBox>
          </children>
       </VBox>

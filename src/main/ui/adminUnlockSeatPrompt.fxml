@@ -6,22 +6,40 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<BorderPane fx:id="borderPaneUnlockSeat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.AdminUnlockSeatPromptController">
+<BorderPane fx:id="borderPaneUnlockSeat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="199.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.AdminUnlockSeatPromptController">
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="199.0" prefWidth="435.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Do you want to unlock this seat?" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Do you want to unlock this seat?" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="60.0" />
+               </VBox.margin></Label>
+            <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" onAction="#switchToAdminBookManage" text="Go Back" />
-                  <Button mnemonicParsing="false" onAction="#unlockClickedSeat" text="Unlock">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToAdminBookManage" prefHeight="24.0" prefWidth="61.0" text="Go Back" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                      <HBox.margin>
-                        <Insets left="20.0" />
+                        <Insets left="100.0" />
+                     </HBox.margin></Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#unlockClickedSeat" prefHeight="24.0" prefWidth="61.0" text="Unlock" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="20.0" right="100.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
             </HBox>
          </children>
       </VBox>

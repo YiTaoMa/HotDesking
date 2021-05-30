@@ -40,7 +40,7 @@
             </Label>
             <TextField fx:id="txtUsername" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. username" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="180.0" right="180.0" top="2.0" />
+                  <Insets left="200.0" right="200.0" top="2.0" />
                </VBox.margin>
             </TextField>
             <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Password" wrapText="true" VBox.vgrow="ALWAYS">
@@ -53,25 +53,25 @@
             </Label>
             <PasswordField fx:id="txtPassword" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. 123456" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="180.0" right="180.0" top="2.0" />
+                  <Insets left="200.0" right="200.0" top="2.0" />
                </VBox.margin>
             </PasswordField>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBack" text="Go Back" wrapText="true" HBox.hgrow="ALWAYS">
+                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBack" prefHeight="29.0" prefWidth="77.0" text="Go Back" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="130.0" top="29.0" />
+                        <Insets left="150.0" top="29.0" />
                      </HBox.margin>
                      <font>
-                        <Font size="19.0" />
+                        <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Login" prefHeight="38.0" prefWidth="101.0" text="Login" textFill="GREEN" wrapText="true" HBox.hgrow="ALWAYS">
+                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Login" prefHeight="29.0" prefWidth="77.0" text="Login" textAlignment="CENTER" textFill="GREEN" wrapText="true" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font name="System Bold" size="19.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="40.0" right="130.0" top="29.0" />
+                        <Insets left="40.0" right="150.0" top="29.0" />
                      </HBox.margin>
                   </Button>
                </children>
@@ -83,7 +83,7 @@
                <children>
                   <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#forgotPassword" text="Forgot Password?" textAlignment="CENTER" textFill="BLUE" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="145.0" right="155.0" />
+                        <Insets left="160.0" right="160.0" />
                      </HBox.margin>
                   </Button>
                </children>

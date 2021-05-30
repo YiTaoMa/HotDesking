@@ -31,25 +31,25 @@
             </Label>
             <ListView fx:id="list" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="20.0" right="20.0" top="5.0" />
+                  <Insets left="55.0" right="55.0" top="5.0" />
                </VBox.margin>
             </ListView>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToMain" text="Go Back" HBox.hgrow="ALWAYS">
+                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToMain" text="Go Back" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="30.0" right="80.0" />
                      </HBox.margin>
                      <font>
-                        <Font size="18.0" />
+                        <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goToBookingManageEmp" text="Continue" textFill="GREEN" HBox.hgrow="ALWAYS">
+                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goToBookingManageEmp" text="Continue" textAlignment="CENTER" textFill="GREEN" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
                      <font>
-                        <Font size="18.0" />
+                        <Font size="15.0" />
                      </font></Button>
                </children>
                <VBox.margin>

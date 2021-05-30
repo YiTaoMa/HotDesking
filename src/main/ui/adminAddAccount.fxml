@@ -24,12 +24,12 @@
             </Label>
             <Label fx:id="errorMessageAddAccount" alignment="CENTER" contentDisplay="CENTER" text="Error, Employee ID can not be empty and must be a positive whole number with length 5!" textAlignment="CENTER" textFill="RED" wrapText="true">
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="3.0" />
                </VBox.margin>
             </Label>
             <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Employee ID (must be a positive whole number with length 5)" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="2.0" />
                </VBox.margin>
                <font>
                   <Font name="System Bold" size="13.0" />
