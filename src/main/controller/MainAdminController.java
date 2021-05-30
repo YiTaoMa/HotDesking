@@ -108,6 +108,21 @@ public class MainAdminController implements Initializable {
         }
     }
 
+    public void switchToGenerateReportsScene(ActionEvent event) {
+        Scene scene = borderPaneMainAdmin.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminGenerateReport.fxml"));
+            primaryStage.setTitle("Hotdesking-Generate Reports-Admin");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminGenerateReport.fxml");
+        }
+    }
+
+
+
 
 
 }
