@@ -8,16 +8,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPaneMainAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.MainAdminController">
+<BorderPane fx:id="borderPaneMainAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="339.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.MainAdminController">
    <center>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="584.0" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="339.0" prefWidth="778.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Welcom to Admin page" textAlignment="CENTER" textFill="PURPLE" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="21.0" />
                </font>
                <VBox.margin>
-                  <Insets top="30.0" />
+                  <Insets top="50.0" />
                </VBox.margin></Label>
             <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="As an Admin, You can manage different accounts," textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
@@ -27,7 +27,15 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="manage different bookings and generate CSV reports!" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="manage different bookings, change locked down seats manually" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="and generate CSV reports!" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="20.0" />
                </font>
@@ -76,6 +84,14 @@
                      </font>
                   </Button>
                   <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToGenerateReportsScene" text="Generate Reports" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToChangeLockedDownSeatsScene" text="Change Locked down Seats" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>

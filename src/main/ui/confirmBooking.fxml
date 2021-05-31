@@ -8,34 +8,34 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPaneConfirmBooking" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="533.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.ConfirmBookingController">
+<BorderPane fx:id="borderPaneConfirmBooking" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="179.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.ConfirmBookingController">
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="533.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="179.0" prefWidth="424.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Confirm to book this table?" VBox.vgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Confirm to book this table?" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="20.0" />
                </font>
                <VBox.margin>
-                  <Insets top="60.0" />
+                  <Insets top="50.0" />
                </VBox.margin>
             </Label>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToBookingScene" text="Cancel" HBox.hgrow="ALWAYS">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToBookingScene" text="Cancel" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="170.0" right="40.0" top="30.0" />
+                        <Insets left="80.0" right="40.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirmBooking" text="Confirm" textFill="GREEN" HBox.hgrow="ALWAYS">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirmBooking" text="Confirm" textAlignment="CENTER" textFill="GREEN" wrapText="true" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>
                      <HBox.margin>
-                        <Insets right="170.0" top="30.0" />
+                        <Insets right="80.0" top="30.0" />
                      </HBox.margin>
                   </Button>
                </children>

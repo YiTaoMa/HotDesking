@@ -120,6 +120,19 @@ public class MainAdminController implements Initializable {
             System.out.println("Cannot load the adminGenerateReport.fxml");
         }
     }
+    public void switchToChangeLockedDownSeatsScene(ActionEvent event) {
+        Scene scene = borderPaneMainAdmin.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminChangeLockDownSeats.fxml"));
+            primaryStage.setTitle("Hotdesking-Manually change Locked Down Seats-Admin");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminChangeLockDownSeats.fxml");
+        }
+    }
+
 
 
 

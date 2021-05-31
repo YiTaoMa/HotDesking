@@ -13,7 +13,7 @@
    <center>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="316.0" prefWidth="478.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Please enter your ID to reset your password!" VBox.vgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Please enter your ID to reset your password!" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="21.0" />
                </font>
@@ -21,12 +21,15 @@
                   <Insets top="60.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="errorMessage" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Error,  ID can not be empty and must be a positive whole number!" textFill="RED" VBox.vgrow="ALWAYS">
+            <Label fx:id="errorMessage" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Error,  ID can not be empty and must be a positive whole number!" textAlignment="CENTER" textFill="RED" wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="ID" VBox.vgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="ID" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -41,17 +44,17 @@
             </TextField>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBack" text="Go Back" HBox.hgrow="ALWAYS">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBack" text="Go Back" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="140.0" right="20.0" top="20.0" />
+                        <Insets left="130.0" top="20.0" />
                      </HBox.margin>
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goToResetPassword" text="Continue" textFill="GREEN" HBox.hgrow="ALWAYS">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goToResetPassword" text="Continue" textAlignment="CENTER" textFill="GREEN" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="5.0" right="140.0" top="20.0" />
+                        <Insets left="30.0" right="130.0" top="20.0" />
                      </HBox.margin>
                      <font>
                         <Font size="16.0" />

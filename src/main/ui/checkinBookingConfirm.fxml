@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPaneConfirmCheckin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="421.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.CheckinBookingConfirmController">
+<BorderPane fx:id="borderPaneConfirmCheckin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="181.0" prefWidth="372.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.CheckinBookingConfirmController">
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="421.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="181.0" prefWidth="372.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Do you want to confirm to check in?" VBox.vgrow="ALWAYS">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Do you want to confirm to check in?" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets top="100.0" />
+                  <Insets top="50.0" />
                </VBox.margin>
                <font>
                   <Font size="20.0" />
@@ -22,20 +22,20 @@
             </Label>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToEmpBookManageChooseOption" text="Go Back" HBox.hgrow="ALWAYS">
+                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToEmpBookManageChooseOption" text="Go Back" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="110.0" right="25.0" />
+                        <Insets left="80.0" right="30.0" />
                      </HBox.margin>
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#checkinBooking" text="Check in" textFill="GREEN" HBox.hgrow="ALWAYS">
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#checkinBooking" text="Check in" textAlignment="CENTER" textFill="GREEN" wrapText="true" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>
                      <HBox.margin>
-                        <Insets right="110.0" />
+                        <Insets right="80.0" />
                      </HBox.margin></Button>
                </children>
                <VBox.margin>

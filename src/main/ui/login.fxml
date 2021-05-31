@@ -12,27 +12,27 @@
 
 <BorderPane fx:id="borderpaneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.LoginController">
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="638.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="560.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Welcome, Please Login!" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="32.0" />
                </font>
                <VBox.margin>
-                  <Insets top="90.0" />
+                  <Insets top="80.0" />
                </VBox.margin>
             </Label>
             <Label fx:id="errorMessage" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Username and Password is incorrect OR This account is Deactivated." textAlignment="CENTER" textFill="RED" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font>
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets top="2.0" />
                </VBox.margin>
             </Label>
             <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="User name" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="15.0" right="20.0" top="5.0" />
+                  <Insets left="15.0" right="20.0" top="2.0" />
                </VBox.margin>
                <font>
                   <Font name="System Bold" size="21.0" />
@@ -40,7 +40,7 @@
             </Label>
             <TextField fx:id="txtUsername" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. username" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="200.0" right="200.0" top="2.0" />
+                  <Insets left="170.0" right="170.0" top="2.0" />
                </VBox.margin>
             </TextField>
             <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Password" wrapText="true" VBox.vgrow="ALWAYS">
@@ -53,25 +53,25 @@
             </Label>
             <PasswordField fx:id="txtPassword" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. 123456" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="200.0" right="200.0" top="2.0" />
+                  <Insets left="170.0" right="170.0" top="2.0" />
                </VBox.margin>
             </PasswordField>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
                   <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBack" prefHeight="29.0" prefWidth="77.0" text="Go Back" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="150.0" top="29.0" />
+                        <Insets left="100.0" top="29.0" />
                      </HBox.margin>
                      <font>
-                        <Font size="15.0" />
+                        <Font size="17.0" />
                      </font>
                   </Button>
                   <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Login" prefHeight="29.0" prefWidth="77.0" text="Login" textAlignment="CENTER" textFill="GREEN" wrapText="true" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="System Bold" size="17.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="40.0" right="150.0" top="29.0" />
+                        <Insets left="40.0" right="100.0" top="29.0" />
                      </HBox.margin>
                   </Button>
                </children>
@@ -83,12 +83,15 @@
                <children>
                   <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#forgotPassword" text="Forgot Password?" textAlignment="CENTER" textFill="BLUE" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="160.0" right="160.0" />
+                        <Insets left="100.0" right="100.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets bottom="80.0" left="100.0" right="100.0" />
+                  <Insets bottom="80.0" left="100.0" right="100.0" top="15.0" />
                </VBox.margin>
             </HBox>
          </children>

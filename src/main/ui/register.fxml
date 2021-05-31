@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderpaneRegister" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.RegisterController">
+<BorderPane fx:id="borderpaneRegister" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.RegisterController">
    <center>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Welcome to Register page!" wrapText="true">
                <font>
@@ -43,6 +43,9 @@
                <VBox.margin>
                   <Insets top="2.0" />
                </VBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
             </Label>
             <TextField fx:id="txtEmployeeID" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. 31563" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -53,6 +56,9 @@
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
             </Label>
             <TextField fx:id="txtFirstName" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. Ethan" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -63,6 +69,9 @@
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
             </Label>
             <TextField fx:id="txtLastName" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. Ma" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -73,6 +82,9 @@
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
             </Label>
             <ChoiceBox fx:id="choiceRoleBox" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -83,6 +95,9 @@
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
             </Label>
             <TextField fx:id="txtUserName" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. Hyaa" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -93,6 +108,9 @@
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
             </Label>
             <PasswordField fx:id="txtPassword" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. 12345" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -103,6 +121,9 @@
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
             </Label>
             <ChoiceBox fx:id="choiceSQBox" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -113,6 +134,9 @@
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
             </Label>
             <TextField fx:id="txtAnswerForSecretQ" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" promptText="e.g. Tom" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -121,15 +145,21 @@
             </TextField>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
-                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBack" text="Go Back" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBack" text="Go Back" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="220.0" top="15.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
                   </Button>
-                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#register" text="Register" textAlignment="CENTER" textFill="GREEN" HBox.hgrow="ALWAYS">
+                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#register" text="Register" textAlignment="CENTER" textFill="GREEN" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="30.0" right="230.0" top="15.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
                   </Button>
                </children>
                <VBox.margin>
