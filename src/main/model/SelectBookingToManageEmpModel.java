@@ -18,7 +18,7 @@ public class SelectBookingToManageEmpModel {
         items.clear();
         Connection connection;
         connection = SQLConnection.connect();
-        String query = "select employee_id,date,seat_id,has_confirmed from Booking where employee_id=?";
+        String query = "select number,employee_id,date,seat_id,is_booked,has_confirmed,is_checked_in from Booking where employee_id=?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
@@ -27,7 +27,7 @@ public class SelectBookingToManageEmpModel {
 
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                items.add("Employee ID---" + resultSet.getString("employee_id") + "---Booked in---" + resultSet.getString("date") + "---At Seat Number---" + resultSet.getString("seat_id") + "---Confirmed?---" + resultSet.getBoolean("has_confirmed"));
+                items.add("Booking Number---"+resultSet.getInt("number")+"---Employee ID---" + resultSet.getString("employee_id") + "---Booked in---" + resultSet.getString("date") + "---At Seat Number---" + resultSet.getString("seat_id") + "---Is Booked?---"+resultSet.getBoolean("is_booked")+"---Confirmed?---" + resultSet.getBoolean("has_confirmed")+"---Is Checked In?---"+resultSet.getBoolean("is_checked_in"));
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -92,15 +92,19 @@ public class EmpBookManageChooseOptionController implements Initializable {
     }
 
     public void switchToConfirmCheckinScene(ActionEvent event) {
-        Scene scene = borderPaneEmpBMChooseOption.getScene();
-        Window window = scene.getWindow();
-        Stage primaryStage = (Stage) window;
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../ui/checkinBookingConfirm.fxml"));
-            primaryStage.setTitle("Hotdesking-Confirm Check in");
-            primaryStage.setScene(new Scene(root));
-        } catch (IOException e) {
-            System.out.println("Cannot load the checkinBookingConfirm.fxml");
+        if (selectBookingToManageEmpController.getIsCheckedIn()) {
+            chooseOptionErrorMessage.setText("This booking/seat is already checked in, Can not check in again!");
+        } else {
+            Scene scene = borderPaneEmpBMChooseOption.getScene();
+            Window window = scene.getWindow();
+            Stage primaryStage = (Stage) window;
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("../ui/checkinBookingConfirm.fxml"));
+                primaryStage.setTitle("Hotdesking-Confirm Check in");
+                primaryStage.setScene(new Scene(root));
+            } catch (IOException e) {
+                System.out.println("Cannot load the checkinBookingConfirm.fxml");
+            }
         }
     }
 

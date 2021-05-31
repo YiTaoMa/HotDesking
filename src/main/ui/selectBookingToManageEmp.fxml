@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPaneSelectBooking" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.SelectBookingToManageEmpController">
+<BorderPane fx:id="borderPaneSelectBooking" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.SelectBookingToManageEmpController">
    <center>
-      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="653.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="695.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Select Booking to start your management!" VBox.vgrow="ALWAYS">
                <font>
@@ -31,7 +31,7 @@
             </Label>
             <ListView fx:id="list" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets left="55.0" right="55.0" top="5.0" />
+                  <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin>
             </ListView>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">

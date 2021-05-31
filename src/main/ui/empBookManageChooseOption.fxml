@@ -8,24 +8,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPaneEmpBMChooseOption" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.EmpBookManageChooseOptionController">
+<BorderPane fx:id="borderPaneEmpBMChooseOption" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.EmpBookManageChooseOptionController">
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="574.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="574.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="chooseOptionErrorMessage" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Error! This seat can't be updated. You should update it 48 hours before this booking!" textFill="RED" VBox.vgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Choose your option to Update/Cancel/Check in this booking!" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="80.0" />
                </VBox.margin>
                <font>
-                  <Font size="16.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Choose your option to Update/Cancel/Check in this booking!" VBox.vgrow="ALWAYS">
+            <Label fx:id="chooseOptionErrorMessage" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Error! This seat can't be updated. You should update it 48 hours before this booking!" textAlignment="CENTER" textFill="RED" wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets top="10.0" />
                </VBox.margin>
                <font>
-                  <Font size="20.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
@@ -63,7 +63,7 @@
                      </HBox.margin></Button>
                </children>
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets />
                </VBox.margin>
             </HBox>
          </children>

@@ -32,12 +32,13 @@ public class AdminManageAccountController implements Initializable {
     protected static String employeePWFromAccountManageList;
     protected static String employeeSQFromAccountManageList;
     protected static String employeeASQFromAccountManageList;
+    protected static boolean employeeIsDeactivatedFromAccountManageList;
     @FXML
     private ListView<String> adminManageAccountListView;
     @FXML
     private BorderPane borderPaneAdminManageAccount;
     @FXML
-    private Label errorMessageListEmpty;
+    private Label errorMessageList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -45,7 +46,7 @@ public class AdminManageAccountController implements Initializable {
             accounts.clear();
             accounts = adminManageAccountModel.getAllAccountsDetail();
             adminManageAccountListView.setItems(accounts);
-            errorMessageListEmpty.setText("");
+            errorMessageList.setText("");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -67,23 +68,46 @@ public class AdminManageAccountController implements Initializable {
     public void switchToDeactivateAccountPrompt(ActionEvent event) {
         String selectedItem = adminManageAccountListView.getSelectionModel().getSelectedItem();
         if (selectedItem == null) { // if user not choose an item
-            errorMessageListEmpty.setText("Error! You have to choose an Account from the list!");
+            errorMessageList.setText("Error! You have to choose an Account from the list!");
         } else {
             String spl[] = selectedItem.split("---");
             employeeRoleFromAccountManageList = spl[7];
             employeeIDFromAccountManageList = Integer.parseInt(spl[1]);
+            employeeIsDeactivatedFromAccountManageList = Boolean.parseBoolean(spl[17]);
+
             if (employeeRoleFromAccountManageList.equals("Admin")) {
-                errorMessageListEmpty.setText("Error! You can only deactivate other Employee's account not Admin!");
-            } else { // if is employee account
+                errorMessageList.setText("Error! You can only deactivate other Employee's account not Admin!");
+            } else if (employeeIsDeactivatedFromAccountManageList) {
+                errorMessageList.setText("This account already been deactivated! Can not deactivated again!");
+            } else {
                 switchToAdminDeactivatePrompt();
             }
         }
     }
+    public void switchToUnDeactivateAccountPrompt(ActionEvent event) {
+        String selectedItem = adminManageAccountListView.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) { // if user not choose an item
+            errorMessageList.setText("Error! You have to choose an Account from the list!");
+        } else {
+            String spl[] = selectedItem.split("---");
+            employeeRoleFromAccountManageList = spl[7];
+            employeeIDFromAccountManageList = Integer.parseInt(spl[1]);
+            employeeIsDeactivatedFromAccountManageList = Boolean.parseBoolean(spl[17]);
+            if (employeeRoleFromAccountManageList.equals("Admin")) {
+                errorMessageList.setText("Error! You can only Un Deactivate other Employee's account not Admin!");
+            } else if (!employeeIsDeactivatedFromAccountManageList) {
+                errorMessageList.setText("This account is not deactivated! Can not Un-deactivated this account!");
+            } else {
+                switchToAdminUnDeactivatePrompt();
+            }
+        }
+    }
+
 
     public void switchToDeleteAccountPrompt(ActionEvent event) {
         String selectedItem = adminManageAccountListView.getSelectionModel().getSelectedItem();
         if (selectedItem == null) { // if user not choose an item
-            errorMessageListEmpty.setText("Error! You have to choose an Account from the list!");
+            errorMessageList.setText("Error! You have to choose an Account from the list!");
         } else {
             String spl[] = selectedItem.split("---");
             employeeIDFromAccountManageList = Integer.parseInt(spl[1]);
@@ -107,7 +131,7 @@ public class AdminManageAccountController implements Initializable {
     public void switchToUpdateAccountScene(ActionEvent event) {
         String selectedItem = adminManageAccountListView.getSelectionModel().getSelectedItem();
         if (selectedItem == null) { // if user not choose an item
-            errorMessageListEmpty.setText("Error! You have to choose an Account from the list!");
+            errorMessageList.setText("Error! You have to choose an Account from the list!");
         } else {
             String spl[] = selectedItem.split("---");
             employeeIDFromAccountManageList = Integer.parseInt(spl[1]);
@@ -134,6 +158,18 @@ public class AdminManageAccountController implements Initializable {
             primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
             System.out.println("Cannot load the adminDeactivateAccountPrompt.fxml");
+        }
+    }
+    public void switchToAdminUnDeactivatePrompt() {
+        Scene scene = borderPaneAdminManageAccount.getScene();
+        Window window = scene.getWindow();
+        Stage primaryStage = (Stage) window;
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../ui/adminUnDeactivateAccountPrompt.fxml"));
+            primaryStage.setTitle("Hotdesking-Manage Account-Un Deactivate Account");
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.out.println("Cannot load the adminUnDeactivateAccountPrompt.fxml");
         }
     }
 

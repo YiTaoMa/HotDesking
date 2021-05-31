@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPaneAdminManageAccount" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="747.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.AdminManageAccountController">
+<BorderPane fx:id="borderPaneAdminManageAccount" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.AdminManageAccountController">
    <center>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="747.0" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="898.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Here is all Employees/Admins account information!" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
@@ -27,7 +27,7 @@
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <Label fx:id="errorMessageListEmpty" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Error!  You have to choose an Account from the list!" textAlignment="CENTER" textFill="RED" wrapText="true" VBox.vgrow="ALWAYS">
+            <Label fx:id="errorMessageList" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Error!  You have to choose an Account from the list!" textAlignment="CENTER" textFill="RED" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="15.0" />
                </font>
@@ -39,7 +39,7 @@
                   <Insets left="20.0" right="20.0" top="10.0" />
                </VBox.margin>
             </ListView>
-            <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefWidth="744.0" VBox.vgrow="ALWAYS">
+            <HBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <children>
                   <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goBackToMainAdmin" text="Go Back" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                      <font>
@@ -73,6 +73,14 @@
                      </font>
                   </Button>
                   <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToDeactivateAccountPrompt" text="Deactivate Account" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToUnDeactivateAccountPrompt" text="Un-Deactivate Account" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="20.0" right="30.0" />
                      </HBox.margin>

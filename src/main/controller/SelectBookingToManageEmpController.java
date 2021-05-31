@@ -33,6 +33,7 @@ public class SelectBookingToManageEmpController implements Initializable {
     protected static String dateForManage;
     protected static int seatIDBookedByCurrentUserManage;
     protected static boolean hasConfirmed;
+    protected static boolean isCheckedIn;
     ObservableList<String> items = FXCollections.observableArrayList();
     SelectBookingToManageEmpModel selectBookingToManageEmpModel = new SelectBookingToManageEmpModel();
     LoginController loginController = new LoginController();
@@ -55,10 +56,10 @@ public class SelectBookingToManageEmpController implements Initializable {
             errorMessageListEmpty.setText("Error, you must choose an item!");
         } else {
             String spl[] = selectedItem.split("---");
-            dateForManage = spl[3];
-            seatIDBookedByCurrentUserManage = Integer.parseInt(spl[5]);
-            //System.out.println(seatIDBookedByCurrentUserManage);
-            hasConfirmed = Boolean.parseBoolean(spl[7]);
+            dateForManage = spl[5];
+            seatIDBookedByCurrentUserManage = Integer.parseInt(spl[7]);
+            hasConfirmed = Boolean.parseBoolean(spl[11]);
+            isCheckedIn = Boolean.parseBoolean(spl[13]);
             //this action is go to the booking page as to management so set it to true
             isBookingManagementEmp = true;
             Scene scene = borderPaneSelectBooking.getScene();
@@ -106,4 +107,9 @@ public class SelectBookingToManageEmpController implements Initializable {
     public void setIsBookingManagementEmp(boolean normalBooking) { // if user is normal booking set it to false
         isBookingManagementEmp = normalBooking;
     }
+
+    public boolean getIsCheckedIn() {
+        return isCheckedIn;
+    }
+
 }
