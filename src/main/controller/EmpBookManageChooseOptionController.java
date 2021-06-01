@@ -94,6 +94,8 @@ public class EmpBookManageChooseOptionController implements Initializable {
     public void switchToConfirmCheckinScene(ActionEvent event) {
         if (selectBookingToManageEmpController.getIsCheckedIn()) {
             chooseOptionErrorMessage.setText("This booking/seat is already checked in, Can not check in again!");
+        } else if (!selectBookingToManageEmpController.getHasConfirmedFromList()) {
+            chooseOptionErrorMessage.setText("This booking not confirmed by the Admin, Can not check in!");
         } else {
             Scene scene = borderPaneEmpBMChooseOption.getScene();
             Window window = scene.getWindow();

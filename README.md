@@ -24,6 +24,8 @@
 - Employee Check-in function is independent, not related to other existing functions. Check-in is for the sake of
   contact tracing during the COVID-19 period, and it shows users actually sit on the desk for the period of booking.
   ( user can book but not go, but check-in is showing if the user used the desk or not and when).
+    - Which, the user can not checkin if already checked in AND can not checkin if this booking/seat is not confirmed by
+      the Admin.
 - Lockdown: Period of operation. So, no date check. If a seat is locked down. All booking records AND corresponding
   Whitelist records for this locked downed seat will be cancelled/deleted if have any.
 - Admin can achieve COVID-19 lockdown AND COVID-19 condition by manually lockdown selected seats.
@@ -36,11 +38,10 @@
 - Admin update Account: If an account employee ID is updated. If this employee has bookings we also update their
   employee id in the Booking table and Whitelist table in the database.
 - Time validation framework for Admin confirm booking function:
-    - Every time you go to the select bookings to manage page through the "Manage bookings" button from the Admin main
-      page. this framework will check if any bookings in the database are not valid and delete un valid bookings and
-      whitelist if have any. So, if you don't click the "Manage bookings" button, and you check the database, then it
-      won't delete those un valid bookings. Purpose: Admin like user can not directly see the database if they want to
-      manage bookings they have to click the manage bookings button, which the framework will do its job.
+    - Every time you go to the Home page will do the time validation, so at the very beginning. if we have out of range
+      bookings we will delete them, and their corresponding Whitelist records. If we don't have any out of range
+      bookings, it's just not doing any operations. Which both employee and admin will see the newest updated data of
+      bookings, any un confirmed and out of time bookings will be deleted.
 - For Admin can manually change the Seat table (To change which seats to lockdown/unlock):
     - Like the Lockdown function, if a seat is locked down (status==true) if have bookings for this seat it will delete
       all and corresponding whitelist.

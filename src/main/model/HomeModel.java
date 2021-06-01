@@ -12,12 +12,11 @@ import java.util.*;
 import java.util.Date;
 import java.util.Map.Entry;
 
-public class MainAdminModel {
+public class HomeModel {
     HashMap<Integer, String> datesAndNumberFromBookingNotConfirmed = new HashMap<>();
     HashMap<Integer, String> bookingsOutOfRange = new HashMap<>();
     LinkedList<Integer> bookingsOutOfRangeEmpId = new LinkedList<>();
     LinkedList<String> bookingsOutOfRangeDate = new LinkedList<>();
-
 
     public void getBookingNumberAndDatesNotConfirmed() { // as we need to get unconfirmed bookings first then check date and time
         datesAndNumberFromBookingNotConfirmed.clear();
