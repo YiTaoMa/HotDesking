@@ -86,10 +86,9 @@ public class AdminUpdateAccountModel {
         } catch (Exception e) {
             return false;
         }
-
     }
 
-    public boolean updateBookingEmpId(int empIdFromList, int empIdInput){
+    public boolean updateBookingEmpId(int empIdFromList, int empIdInput) {
         Connection connection;
         connection = SQLConnection.connect();
         PreparedStatement prst = null;
@@ -106,7 +105,7 @@ public class AdminUpdateAccountModel {
         }
     }
 
-    public boolean updateWhitelistEmpId(int empIdFromList, int empIdInput){
+    public boolean updateWhitelistEmpId(int empIdFromList, int empIdInput) {
         Connection connection;
         connection = SQLConnection.connect();
         PreparedStatement prst = null;
@@ -123,4 +122,3 @@ public class AdminUpdateAccountModel {
         }
     }
 }
-

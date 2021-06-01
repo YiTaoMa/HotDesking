@@ -9,24 +9,19 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import main.model.CancelBookingConfirmModel;
 import main.model.MainAdminModel;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.ResourceBundle;
 
 public class MainAdminController implements Initializable {
     MainAdminModel mainAdminModel = new MainAdminModel();
-
     HashMap<Integer, String> bookingsOutOfRange = new HashMap<>();
-
     LinkedList<Integer> bookingsOutOfRangeEmpId = new LinkedList<>();
     LinkedList<String> bookingsOutOfRangeDate = new LinkedList<>();
     @FXML
@@ -42,7 +37,6 @@ public class MainAdminController implements Initializable {
         bookingsOutOfRange.clear();
         bookingsOutOfRangeEmpId.clear();
         bookingsOutOfRangeDate.clear();
-
         try {
             bookingsOutOfRange = mainAdminModel.getBookingsOutOfRanges(); // get all booking out of ranges (need to delete)
         } catch (ParseException e) {
@@ -60,14 +54,12 @@ public class MainAdminController implements Initializable {
             //System.out.println(entry.getKey());
             mainAdminModel.deleteOutOfRangeBookings(entry.getKey());// we delete them through their unique booking number
         }
-
         for (int i = 0; i < bookingsOutOfRangeEmpId.size(); i++) { // as these 2 collection size should be same, so use 1 of them will be fine
             //System.out.println(bookingsOutOfRangeEmpId.get(i) + "---"+bookingsOutOfRangeDate.get(i));
             mainAdminModel.deleteOutOfRangeWhitelistRecord(bookingsOutOfRangeEmpId.get(i), bookingsOutOfRangeDate.get(i));
             // delete their whitelist record by pass their emp ID and date, date plus 1 day in the model
         }
         mainAdminModel.clearEmpIdDateCollection();// clear 2 linked list in the model method after we done the job.
-
     }
 
     public void switchToAdminSelectBookingManage(ActionEvent event) {
@@ -95,6 +87,7 @@ public class MainAdminController implements Initializable {
             System.out.println("Cannot load the home scene");
         }
     }
+
     public void switchToAdminManageAccount(ActionEvent event) {
         Scene scene = borderPaneMainAdmin.getScene();
         Window window = scene.getWindow();
@@ -120,6 +113,7 @@ public class MainAdminController implements Initializable {
             System.out.println("Cannot load the adminGenerateReport.fxml");
         }
     }
+
     public void switchToChangeLockedDownSeatsScene(ActionEvent event) {
         Scene scene = borderPaneMainAdmin.getScene();
         Window window = scene.getWindow();
@@ -132,10 +126,4 @@ public class MainAdminController implements Initializable {
             System.out.println("Cannot load the adminChangeLockDownSeats.fxml");
         }
     }
-
-
-
-
-
-
 }

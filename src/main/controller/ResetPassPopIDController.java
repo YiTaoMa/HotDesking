@@ -41,7 +41,7 @@ public class ResetPassPopIDController implements Initializable {
             } else {
                 int idInt = Integer.parseInt(IdString);
                 employeeID = idInt;
-                //the only way go to the resetpassword is the id exist, so don't need to check if secret question is not found or what
+                //the only way go to the reset password is the id exist, so don't need to check if secret question is not found or what
                 SQ = resetPassPopIDModel.getSecretQuestion(idInt);//get the secret question
                 if (resetPassPopIDModel.isIdExistAndNotDeactivated(idInt)) {//calling model class see if id exist, if yes go to reset password
                     Scene scene = borderpaneResetPop.getScene();

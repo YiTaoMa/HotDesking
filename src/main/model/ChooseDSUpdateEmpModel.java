@@ -13,7 +13,7 @@ import java.util.Locale;
 
 public class ChooseDSUpdateEmpModel {
 
-    public boolean isBookedAnotherSeatInSelectedDateUpdate(String date, int employeeId,int seatID) throws SQLException { // check if the user booked another seat in that day which is he attempt to book anotehr
+    public boolean isBookedAnotherSeatInSelectedDateUpdate(String date, int employeeId, int seatID) throws SQLException { // check if the user booked another seat in that day which is he attempt to book anotehr
         Connection connection;
         connection = SQLConnection.connect();
         //another seat booked in that not allow
@@ -39,6 +39,7 @@ public class ChooseDSUpdateEmpModel {
             DBUtils.closeConnection(connection);
         }
     }
+
     public boolean isSeatAlreadyBookedInThatDate(int seatId, String date) throws SQLException {
         Connection connection;
         connection = SQLConnection.connect();

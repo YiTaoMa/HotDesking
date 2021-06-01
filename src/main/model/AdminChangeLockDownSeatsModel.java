@@ -6,7 +6,6 @@ import main.SQLConnection;
 import java.sql.*;
 import java.util.HashMap;
 
-
 public class AdminChangeLockDownSeatsModel {
     HashMap<Integer, Boolean> seatsStatus = new HashMap<>();
 
@@ -32,7 +31,7 @@ public class AdminChangeLockDownSeatsModel {
         return seatsStatus;
     }
 
-    public boolean updateSeatsLockDownStatus(int seatID, boolean is_locked){
+    public boolean updateSeatsLockDownStatus(int seatID, boolean is_locked) {
         Connection connection;
         connection = SQLConnection.connect();
         PreparedStatement prst = null;

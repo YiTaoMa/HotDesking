@@ -111,5 +111,4 @@ public class SelectBookingToManageEmpController implements Initializable {
     public boolean getIsCheckedIn() {
         return isCheckedIn;
     }
-
 }

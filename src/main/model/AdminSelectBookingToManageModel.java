@@ -15,11 +15,9 @@ public class AdminSelectBookingToManageModel {
         itemsAdmin.clear();
         Connection connection;
         connection = SQLConnection.connect();
-        //select * from Booking
         Statement statement = connection.createStatement();
         // include all booking both confirmed and un confirmed
-        String query = "select * from Booking";//where has_confirmed=false
-        //PreparedStatement preparedStatement = null;
+        String query = "select * from Booking";
         ResultSet resultSet = null;
         try {
             resultSet = statement.executeQuery(query);

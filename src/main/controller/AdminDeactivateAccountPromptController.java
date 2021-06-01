@@ -31,21 +31,22 @@ public class AdminDeactivateAccountPromptController {
             System.out.println("Cannot load the adminManageAccount.fxml");
         }
     }
+
     public void deactivateAccount(ActionEvent event) {
         try {
             // parameter passed is employee id from the list
-            if (adminDeactivateAccountPromptModel.updateDeactivateStatus(adminManageAccountController.getEmployeeIDFromAccountManageList())){
-                  // if we update deactivate status success
-                   switchToMainAdminScene();
-                   showDeactivateSuccessStage();
+            if (adminDeactivateAccountPromptModel.updateDeactivateStatus(adminManageAccountController.getEmployeeIDFromAccountManageList())) {
+                // if we update deactivate status success
+                switchToMainAdminScene();
+                showDeactivateSuccessStage();
             }
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
-    public void showDeactivateSuccessStage(){
+
+    public void showDeactivateSuccessStage() {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../ui/adminDeactivateSuccess.fxml"));
             Stage stage = new Stage();
@@ -57,7 +58,7 @@ public class AdminDeactivateAccountPromptController {
         }
     }
 
-    public void switchToMainAdminScene(){
+    public void switchToMainAdminScene() {
         Scene scene = borderPaneDeactivatePrompt.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
@@ -69,6 +70,4 @@ public class AdminDeactivateAccountPromptController {
             System.out.println("Cannot load the mainAdmin scene");
         }
     }
-
-
 }

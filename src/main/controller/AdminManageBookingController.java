@@ -26,7 +26,7 @@ public class AdminManageBookingController implements Initializable {
     final int seatID5 = 5;
     final int seatID6 = 6;
 
-    protected  static boolean isSeatRedOrGreen;
+    protected static boolean isSeatRedOrGreen;
     protected static int seatIdCurrentClicked;
     LinkedList<Integer> seatsIdBookedByOther = new LinkedList<>();
     LinkedList<Integer> seatsIdLockedByAdmin = new LinkedList<>();
@@ -57,8 +57,8 @@ public class AdminManageBookingController implements Initializable {
         try {
             seatsIdLockedByAdmin = adminManageBookingModel.getSeatIdLockedByAdmin();
             seatsIdBookedByOther = adminManageBookingModel.getSeatIDBookedByOther(adminSelectBookingToManageController.getDateForAdminManage());
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
         seatBookedBySelectedUserToConfirm = adminSelectBookingToManageController.getSeatIDBookedByCurrentUserAdminManage();
 
@@ -117,7 +117,6 @@ public class AdminManageBookingController implements Initializable {
             }
         }
 
-
         if (!seatsIdLockedByAdmin.isEmpty()) {
             for (int i = 0; i < seatsIdLockedByAdmin.size(); i++) {
                 if (seatsIdLockedByAdmin.get(i) == 1) {
@@ -155,18 +154,15 @@ public class AdminManageBookingController implements Initializable {
             isSeatRedOrGreen = false; // set it to false if not red or green as it will not do operation of red or green
             //if it is blue, admin can confirm it or reject it (can reject confirmed booking) or lock down it.
             switchToAdminBookManageChooseOption();
-        }
-        else if (seat1.getStyle().equals("-fx-background-color: darkblue;")){ // use same reject and lockdown operation
+        } else if (seat1.getStyle().equals("-fx-background-color: darkblue;")) { // use same reject and lockdown operation
             isSeatRedOrGreen = false;
             // can not confirm again, no confirm option, only reject and lock down option
             switchToAdminBookManageChooseOptionWithConfirmed();//independent controller only because it do not have the confirm option.
 
-        }
-        else if (seat1.getStyle().equals("-fx-background-color: ORANGE;")) {
+        } else if (seat1.getStyle().equals("-fx-background-color: ORANGE;")) {
             isSeatRedOrGreen = false;
             // admin be able to unlock this table.
             // if a table previously booked by user then it will be canceled and if unlock this table, it won't come back.
-            //System.out.println("do you want to un lock this table?");
             // here id is the current seat admin clicked.already set this to current seat 1 when clicked
             switchToAdminUnlockSeatPrompt();
         }
@@ -180,16 +176,13 @@ public class AdminManageBookingController implements Initializable {
         } else if (seat2.getStyle().equals("-fx-background-color: blue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOption();
-        }
-        else if (seat2.getStyle().equals("-fx-background-color: darkblue;")){
+        } else if (seat2.getStyle().equals("-fx-background-color: darkblue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOptionWithConfirmed();
-        }
-        else if (seat2.getStyle().equals("-fx-background-color: ORANGE;")) {
+        } else if (seat2.getStyle().equals("-fx-background-color: ORANGE;")) {
             isSeatRedOrGreen = false;
             switchToAdminUnlockSeatPrompt();
         }
-
     }
 
     public void ClickSeat3(ActionEvent event) {
@@ -200,16 +193,13 @@ public class AdminManageBookingController implements Initializable {
         } else if (seat3.getStyle().equals("-fx-background-color: blue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOption();
-        }
-        else if (seat3.getStyle().equals("-fx-background-color: darkblue;")){
+        } else if (seat3.getStyle().equals("-fx-background-color: darkblue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOptionWithConfirmed();
-        }
-        else if (seat3.getStyle().equals("-fx-background-color: ORANGE;")) {
+        } else if (seat3.getStyle().equals("-fx-background-color: ORANGE;")) {
             isSeatRedOrGreen = false;
             switchToAdminUnlockSeatPrompt();
         }
-
     }
 
     public void ClickSeat4(ActionEvent event) {
@@ -220,16 +210,13 @@ public class AdminManageBookingController implements Initializable {
         } else if (seat4.getStyle().equals("-fx-background-color: blue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOption();
-        }
-        else if (seat4.getStyle().equals("-fx-background-color: darkblue;")){
+        } else if (seat4.getStyle().equals("-fx-background-color: darkblue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOptionWithConfirmed();
-        }
-        else if (seat4.getStyle().equals("-fx-background-color: ORANGE;")) {
+        } else if (seat4.getStyle().equals("-fx-background-color: ORANGE;")) {
             isSeatRedOrGreen = false;
             switchToAdminUnlockSeatPrompt();
         }
-
     }
 
     public void ClickSeat5(ActionEvent event) {
@@ -240,16 +227,13 @@ public class AdminManageBookingController implements Initializable {
         } else if (seat5.getStyle().equals("-fx-background-color: blue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOption();
-        }
-        else if (seat5.getStyle().equals("-fx-background-color: darkblue;")){
+        } else if (seat5.getStyle().equals("-fx-background-color: darkblue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOptionWithConfirmed();
-        }
-        else if (seat5.getStyle().equals("-fx-background-color: ORANGE;")) {
+        } else if (seat5.getStyle().equals("-fx-background-color: ORANGE;")) {
             isSeatRedOrGreen = false;
             switchToAdminUnlockSeatPrompt();
         }
-
     }
 
     public void ClickSeat6(ActionEvent event) {
@@ -260,16 +244,13 @@ public class AdminManageBookingController implements Initializable {
         } else if (seat6.getStyle().equals("-fx-background-color: blue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOption();
-        }
-        else if (seat6.getStyle().equals("-fx-background-color: darkblue;")){
+        } else if (seat6.getStyle().equals("-fx-background-color: darkblue;")) {
             isSeatRedOrGreen = false;
             switchToAdminBookManageChooseOptionWithConfirmed();
-        }
-        else if (seat6.getStyle().equals("-fx-background-color: ORANGE;")) {
+        } else if (seat6.getStyle().equals("-fx-background-color: ORANGE;")) {
             isSeatRedOrGreen = false;
             switchToAdminUnlockSeatPrompt();
         }
-
     }
 
     public void switchToAdminBookManageChooseOption() {
@@ -337,19 +318,15 @@ public class AdminManageBookingController implements Initializable {
         }
     }
 
-
-
     public boolean getIsSeatRedOrGreen() {
-     return isSeatRedOrGreen;
+        return isSeatRedOrGreen;
     }
 
     public void setSeatIdCurrentClicked(int seatID) {
         seatIdCurrentClicked = seatID;
     }
+
     public int getSeatIdCurrentClicked() {
         return seatIdCurrentClicked;
     }
-
-
-
 }

@@ -15,7 +15,7 @@ public class AdminBMChooseOptionConfirmedBController {
     @FXML
     private BorderPane borderPaneChooseOptionConfirmedB;
 
-    public void  goBackToAdminManageBooking(ActionEvent event) {
+    public void goBackToAdminManageBooking(ActionEvent event) {
         Scene scene = borderPaneChooseOptionConfirmedB.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
@@ -40,6 +40,7 @@ public class AdminBMChooseOptionConfirmedBController {
             System.out.println("Cannot load the adminRejectBookingPrompt.fxml");
         }
     }
+
     public void switchToAdminLockdownSeatPrompt(ActionEvent event) {
         Scene scene = borderPaneChooseOptionConfirmedB.getScene();
         Window window = scene.getWindow();
@@ -51,6 +52,5 @@ public class AdminBMChooseOptionConfirmedBController {
         } catch (IOException e) {
             System.out.println("Cannot load the adminLockdownSeatPrompt.fxml");
         }
-
     }
 }

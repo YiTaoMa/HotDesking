@@ -16,10 +16,10 @@ public class RegisterModel {
         PreparedStatement prst = null;
         ResultSet resultSet = null;
         /**we only chek is id exist then not going to register user, an employee can only register once*/
-        String sqlregister = "select * from Employee where id=? or username=?"; // as long as email is incorrect not going to register user that is why need only email
+        String sqlRegister = "select * from Employee where id=? or username=?"; // as long as email is incorrect not going to register user that is why need only email
         //not password!!! important!!
         try {
-            prst = connection.prepareStatement(sqlregister);
+            prst = connection.prepareStatement(sqlRegister);
             prst.setInt(1, id);//represent "?" place holder
             prst.setString(2, username);
 
@@ -40,7 +40,7 @@ public class RegisterModel {
                 prst.setString(6, password);
                 prst.setString(7, secretQ);
                 prst.setString(8, answerForSecretQ);
-                prst.setInt(9,0); // default deactivate status account is false;
+                prst.setInt(9, 0); // default deactivate status account is false;
 
                 return prst.executeUpdate() > 0;
             }

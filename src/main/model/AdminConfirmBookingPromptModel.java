@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 
 public class AdminConfirmBookingPromptModel {
 
-    public boolean updateHasConfirmed(int empID, String date){
+    public boolean updateHasConfirmed(int empID, String date) {
         Connection connection;
         connection = SQLConnection.connect();
         String query = "update Booking set has_confirmed=true where employee_id=? and date=?";

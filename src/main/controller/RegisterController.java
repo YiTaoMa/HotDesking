@@ -88,7 +88,7 @@ public class RegisterController implements Initializable {
                         e.printStackTrace();
                     }
                 } else {
-                    errorMessageRegister.setText("                                      Register failed, Employee ID or username already exist!");
+                    errorMessageRegister.setText("Register failed, Employee ID or username already exist!");
                 }
             }
         } catch (SQLException e) {

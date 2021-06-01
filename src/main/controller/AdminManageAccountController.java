@@ -84,6 +84,7 @@ public class AdminManageAccountController implements Initializable {
             }
         }
     }
+
     public void switchToUnDeactivateAccountPrompt(ActionEvent event) {
         String selectedItem = adminManageAccountListView.getSelectionModel().getSelectedItem();
         if (selectedItem == null) { // if user not choose an item
@@ -160,6 +161,7 @@ public class AdminManageAccountController implements Initializable {
             System.out.println("Cannot load the adminDeactivateAccountPrompt.fxml");
         }
     }
+
     public void switchToAdminUnDeactivatePrompt() {
         Scene scene = borderPaneAdminManageAccount.getScene();
         Window window = scene.getWindow();
@@ -230,5 +232,4 @@ public class AdminManageAccountController implements Initializable {
     public String getEmployeeASQFromAccountManageList() {
         return employeeASQFromAccountManageList;
     }
-
 }

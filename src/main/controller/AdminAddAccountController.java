@@ -10,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -71,7 +70,6 @@ public class AdminAddAccountController implements Initializable {
     }
 
     public void addAccount(ActionEvent event) {
-
         try {
             String IdString = txtEmployeeID.getText();//must od it here
             if (IdString.trim().equals("") || !IdString.matches("^\\d{5}$")) { //id cannot be empty or not int
@@ -121,5 +119,4 @@ public class AdminAddAccountController implements Initializable {
             System.out.println("Cannot load the adminAddAccountSuccess.fxml");
         }
     }
-
 }

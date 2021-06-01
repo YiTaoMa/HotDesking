@@ -75,5 +75,4 @@ public class AdminDeleteAccountPromptController {
             System.out.println("Cannot load the adminDeleteAccountSuccess.fxml");
         }
     }
-
 }

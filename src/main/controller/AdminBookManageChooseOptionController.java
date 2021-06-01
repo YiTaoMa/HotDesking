@@ -14,7 +14,8 @@ import java.io.IOException;
 public class AdminBookManageChooseOptionController {
     @FXML
     private BorderPane borderPaneConfirmOrRejectAdmin;
-    public void  goBackToAdminManageBooking(ActionEvent event) {
+
+    public void goBackToAdminManageBooking(ActionEvent event) {
         Scene scene = borderPaneConfirmOrRejectAdmin.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
@@ -26,6 +27,7 @@ public class AdminBookManageChooseOptionController {
             System.out.println("Cannot load the adminManageBooking.fxml");
         }
     }
+
     public void switchToAdminConfirmBookingPrompt(ActionEvent event) {
         Scene scene = borderPaneConfirmOrRejectAdmin.getScene();
         Window window = scene.getWindow();
@@ -39,7 +41,7 @@ public class AdminBookManageChooseOptionController {
         }
     }
 
-    public void  switchToAdminRejectBookingPrompt(ActionEvent event) {
+    public void switchToAdminRejectBookingPrompt(ActionEvent event) {
         Scene scene = borderPaneConfirmOrRejectAdmin.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
@@ -51,6 +53,7 @@ public class AdminBookManageChooseOptionController {
             System.out.println("Cannot load the adminRejectBookingPrompt.fxml");
         }
     }
+
     public void switchToAdminLockdownSeatPrompt(ActionEvent event) {
         Scene scene = borderPaneConfirmOrRejectAdmin.getScene();
         Window window = scene.getWindow();
@@ -62,9 +65,5 @@ public class AdminBookManageChooseOptionController {
         } catch (IOException e) {
             System.out.println("Cannot load the adminLockdownSeatPrompt.fxml");
         }
-
     }
-
-
-
 }

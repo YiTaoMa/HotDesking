@@ -70,7 +70,6 @@ public class MainAdminModel {
         // if today is before the target date/booking date in the database, which means before today's 12:00pm right before tomorrow
         // we can still confirm it. if we pass today's 12:00pm which is actually tomorrow, then today becomes tomorrow and will fail
         // which will return false
-
         // Also, if we have date less than today, which today is not before let's say last date, it still return false.
         if (todayCalendar.before(bookingDate)) {
             return true;

@@ -35,15 +35,15 @@ public class AdminUnDeactivateAccountPromptController {
     public void unDeactivateAccount(ActionEvent event) {
         try {
             if (adminUnDeactivateAccountPromptModel.updateDeactivateStatusToFalse(adminManageAccountController.getEmployeeIDFromAccountManageList())) {
-                     switchToMainAdminScene();
-                     showUnDeactivateSuccessStage();
+                switchToMainAdminScene();
+                showUnDeactivateSuccessStage();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
-    public void switchToMainAdminScene(){
+
+    public void switchToMainAdminScene() {
         Scene scene = borderPaneUnDeactivate.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;
@@ -56,7 +56,7 @@ public class AdminUnDeactivateAccountPromptController {
         }
     }
 
-    public void showUnDeactivateSuccessStage(){
+    public void showUnDeactivateSuccessStage() {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../ui/adminUnDeactivateSuccess.fxml"));
             Stage stage = new Stage();

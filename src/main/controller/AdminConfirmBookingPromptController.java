@@ -18,7 +18,6 @@ public class AdminConfirmBookingPromptController {
     @FXML
     private BorderPane borderPaneConfirmBookingPrompt;
 
-
     public void switchToAdminBookManageChooseOption(ActionEvent event) {
         Scene scene = borderPaneConfirmBookingPrompt.getScene();
         Window window = scene.getWindow();
@@ -34,16 +33,12 @@ public class AdminConfirmBookingPromptController {
 
     public void confirmBookingByAdmin(ActionEvent event) {
         // set the seat id to 1,2,3,4,5,6 corresponding to seat clicked button 1,2,3,4,5,6
-        // then a method in admin manage booking to get the setted seat id so we know each button
-        //clicked will set to corresponding seat id to 1,2,3,4,5,6 then when it confirm, we compare, if the seat id is
-        //equal to the seat id in the list which booked by the employee, if same means this seat can be confirmed or reject
-        //if not same, this seat can only be locked down.
-        //
-
-// Now if we confirm it can be confirmed as this booking is 100% unconfirmed, as we did the check to see if it is confirmed or not
-        //in admin booking controller, must be blue represent un confirmed, dark blue represent confirmed so don't have confirm option
-
-        // update Booking set has_confirmed=true where employee_id=? and date=?
+        // then a method in admin manage booking to get the seat id so we know each button
+        // clicked will set to corresponding seat id to 1,2,3,4,5,6 then when it confirm, we compare, if the seat id is
+        // equal to the seat id in the list which booked by the employee, if same means this seat can be confirmed or reject
+        // if not same, this seat can only be locked down.
+        // Now if we confirm it can be confirmed as this booking is 100% unconfirmed, as we did the check to see if it is confirmed or not
+        // in admin booking controller, must be blue represent un confirmed, dark blue represent confirmed so don't have confirm option
         if (adminConfirmBookingPromptModel.updateHasConfirmed(adminSelectBookingToManageController.getSelectedEmpIdFromList(),
                 adminSelectBookingToManageController.getDateForAdminManage())) { // if update success go to main admin page
             switchBackToMainAdmin();

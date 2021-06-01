@@ -23,7 +23,7 @@ public class AdminManageAccountModel {
         try {
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
-                accounts.add("Employee ID---" + resultSet.getInt("id") + "---First name---" + resultSet.getString("first_name") + "---Last name---" + resultSet.getString("last_name") + "---Role---" + resultSet.getString("character_role") + "---Username---" + resultSet.getString("username") + "---Password---" + resultSet.getString("password") + "---Secret question---" + resultSet.getString("secret_question") + "---Answer for Secret question---" + resultSet.getString("answer_for_secret_question")+"---Is Deactivated---"+resultSet.getBoolean("is_deactivated"));
+                accounts.add("Employee ID---" + resultSet.getInt("id") + "---First name---" + resultSet.getString("first_name") + "---Last name---" + resultSet.getString("last_name") + "---Role---" + resultSet.getString("character_role") + "---Username---" + resultSet.getString("username") + "---Password---" + resultSet.getString("password") + "---Secret question---" + resultSet.getString("secret_question") + "---Answer for Secret question---" + resultSet.getString("answer_for_secret_question") + "---Is Deactivated---" + resultSet.getBoolean("is_deactivated"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -34,8 +34,4 @@ public class AdminManageAccountModel {
         }
         return accounts;
     }
-
-    //public boolean isAccountRoleAdmin(){
-    //
-    //}
 }

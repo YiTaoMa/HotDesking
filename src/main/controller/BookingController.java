@@ -88,10 +88,6 @@ public class BookingController implements Initializable {
                 promptClickMessage.setText("Click the Seat you booked to start your Management!");
                 greenPrompt.setText("You can only click the table you Booked!");
                 greenPrompt.setStyle("-fx-text-fill: black;");
-                //redPrompt.setText("");
-                //darkRedOrBlackPrompt.setText("Black: Seat booked by you.");
-                //darkRedOrBlackPrompt.setStyle("-fx-text-fill: black;");
-                //orangePrompt.setText("");
                 seatsIdBookedByOther = bookingModel.getSeatIDBookedByOther(selectBookingToManageEmpController.getDateForManage());// we pass the date user choose in the list
             } else { // else it is normal booking
                 redPrompt.setText("Red: Already been booked by You OR others");
@@ -132,7 +128,6 @@ public class BookingController implements Initializable {
 
             if (selectBookingToManageEmpController.getIsBookingManagementEmp()) { // if management employee
                 if (seatIdBookedByUserManage == 1) {
-                    // System.out.println("balck" + seatIdBookedByUserManage);
                     seat1.setStyle("-fx-background-color: black;");
                 } else if (seatIdBookedByUserManage == 2) {
                     seat2.setStyle("-fx-background-color: black;");

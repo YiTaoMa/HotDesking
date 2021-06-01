@@ -9,7 +9,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import main.model.AdminLockdownSeatPromptModel;
-import main.model.AdminSelectBookingToManageModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -38,8 +37,6 @@ public class AdminLockdownSeatPromptController {
     public void lockDownSeatByAdmin(ActionEvent event) {
         // do lock down operation
         // note: this is unconfirmed seat and user chose is blue
-        //1: delete all booking and whitelist if the seat is the seat we locked down
-        //2: 拿到这个桌子的编号第几号桌子 list 里面拿到，然后在lockdown表里面把它变成true， 这样结束后返回到主界面。
 
         /**if it it red or green seat clicked, we will do different operation as the parameter seat passed is different,
          * this situation, the parameter seat is the corresponding seat admin clicked and we will delete/update

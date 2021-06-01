@@ -111,7 +111,7 @@ public class ChooseDSUpdateEmpController implements Initializable {
             //chose by this user in that date
             //second condition: if user desired date and seat id already exist in that day, means already been booked, not going to let the user choose that date and seat.
             // third condition: if user can't book in that day because he booked yesterday this seat
-            if (chooseDSUpdateEmpModel.isBookedAnotherSeatInSelectedDateUpdate(updateBookingChoseDate, loginController.getEmployeeID(),selectBookingToManageEmpController.getSeatIDBookedByCurrentUserManage())) {
+            if (chooseDSUpdateEmpModel.isBookedAnotherSeatInSelectedDateUpdate(updateBookingChoseDate, loginController.getEmployeeID(), selectBookingToManageEmpController.getSeatIDBookedByCurrentUserManage())) {
                 updateErrorMessage.setText("Error! You already booked another seat other than current seat in the date you chose!");
             }
             // check if the user already booked in that day say 05-31. and if the user chose date to update in
@@ -122,11 +122,10 @@ public class ChooseDSUpdateEmpController implements Initializable {
             //now, let's say current booking to manage is 05-31 and the date he tend to update is same day 05-31 then not display error
             //message as user can update different seat in a same day as long as there is still time to update 48 hours and
             // the seat is not locked down  not booked by others, can not book as previously booked
-            else if (bookingModel.isAlreadyBookedInSelectedDate(updateBookingChoseDate,loginController.getEmployeeID())
-            && !updateBookingChoseDate.equals(selectBookingToManageEmpController.getDateForManage())){
+            else if (bookingModel.isAlreadyBookedInSelectedDate(updateBookingChoseDate, loginController.getEmployeeID())
+                    && !updateBookingChoseDate.equals(selectBookingToManageEmpController.getDateForManage())) {
                 updateErrorMessage.setText("Error! You already booked another seat in the date you chose!");
-            }
-            else if (chooseDSUpdateEmpModel.isSeatAlreadyBookedInThatDate(seatIdFromChoiceBox, updateBookingChoseDate)) {
+            } else if (chooseDSUpdateEmpModel.isSeatAlreadyBookedInThatDate(seatIdFromChoiceBox, updateBookingChoseDate)) {
                 updateErrorMessage.setText("Error! The seat you tend to book in that date already booked by You OR Others!");
             } else if (chooseDSUpdateEmpModel.isSeatIdBookedByUserPrevious(seatIdFromChoiceBox, loginController.getEmployeeID(), updateBookingChoseDate)) {
                 updateErrorMessage.setText("Error! The seat already been booked by you previously!");

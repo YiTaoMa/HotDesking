@@ -27,7 +27,7 @@ public class SelectBookingToManageEmpModel {
 
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                items.add("Booking Number---"+resultSet.getInt("number")+"---Employee ID---" + resultSet.getString("employee_id") + "---Booked in---" + resultSet.getString("date") + "---At Seat Number---" + resultSet.getString("seat_id") + "---Is Booked?---"+resultSet.getBoolean("is_booked")+"---Confirmed?---" + resultSet.getBoolean("has_confirmed")+"---Is Checked In?---"+resultSet.getBoolean("is_checked_in"));
+                items.add("Booking Number---" + resultSet.getInt("number") + "---Employee ID---" + resultSet.getString("employee_id") + "---Booked in---" + resultSet.getString("date") + "---At Seat Number---" + resultSet.getString("seat_id") + "---Is Booked?---" + resultSet.getBoolean("is_booked") + "---Confirmed?---" + resultSet.getBoolean("has_confirmed") + "---Is Checked In?---" + resultSet.getBoolean("is_checked_in"));
             }
         } catch (Exception e) {
             e.printStackTrace();

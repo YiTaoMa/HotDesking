@@ -44,13 +44,10 @@ public class AdminRejectBookingPromptController {
                     switchBackToMainAdmin();
                     showRejectBookingSuccessStage();
                 }
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        //do reject operation
     }
 
     public void switchBackToMainAdmin() {
@@ -77,6 +74,4 @@ public class AdminRejectBookingPromptController {
             System.out.println("Cannot load the adminRejectBookingSuccess.fxml");
         }
     }
-
-
 }
