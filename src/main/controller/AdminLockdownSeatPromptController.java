@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import main.model.AdminChangeLockDownSeatsModel;
 import main.model.AdminLockdownSeatPromptModel;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ public class AdminLockdownSeatPromptController {
     AdminManageBookingController adminManageBookingController = new AdminManageBookingController();
     AdminSelectBookingToManageController adminSelectBookingToManageController = new AdminSelectBookingToManageController();
     AdminLockdownSeatPromptModel adminLockdownSeatPromptModel = new AdminLockdownSeatPromptModel();
+    AdminChangeLockDownSeatsModel adminChangeLockDownSeatsModel = new AdminChangeLockDownSeatsModel();
     @FXML
     private BorderPane borderPaneLockDownPrompt;
 
@@ -44,12 +46,19 @@ public class AdminLockdownSeatPromptController {
          * Process: if it is red or green in admin manage booking controller --> adminBMChooseOptionGRController --> this current controller*/
         try {
             if (adminManageBookingController.getIsSeatRedOrGreen()) { // if it is red or green seat
-                if (adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(adminManageBookingController.getSeatIdCurrentClicked())) {
-                    if (adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(adminManageBookingController.getSeatIdCurrentClicked())) {
-                        if (adminLockdownSeatPromptModel.updateSeatIdLockedDown(adminManageBookingController.getSeatIdCurrentClicked())) {
-                            switchBackToMainAdmin();
-                            showLockDownSuccessStage();
+                if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(adminManageBookingController.getSeatIdCurrentClicked())) { // if we have bookings for this seat
+                    if (adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(adminManageBookingController.getSeatIdCurrentClicked())) {
+                        if (adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(adminManageBookingController.getSeatIdCurrentClicked())) {
+                            if (adminLockdownSeatPromptModel.updateSeatIdLockedDown(adminManageBookingController.getSeatIdCurrentClicked())) {
+                                switchBackToMainAdmin();
+                                showLockDownSuccessStage();
+                            }
                         }
+                    }
+                } else {
+                    if (adminLockdownSeatPromptModel.updateSeatIdLockedDown(adminManageBookingController.getSeatIdCurrentClicked())) {
+                        switchBackToMainAdmin();
+                        showLockDownSuccessStage();
                     }
                 }
             } else { // else is not red or green

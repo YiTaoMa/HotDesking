@@ -65,33 +65,6 @@ public class ChooseDSUpdateEmpModel {
         }
     }
 
-    public boolean isSeatIdBookedByUserPrevious(int seatId, int empId, String date) throws SQLException {
-        Connection connection;
-        connection = SQLConnection.connect();
-        String query = "select id from Whitelist where seat_id=? and employee_id=? and is_locked=true and date=?";
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        boolean result = false;
-        try {
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, seatId);
-            preparedStatement.setInt(2, empId);
-            preparedStatement.setString(3, date);
-            resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                result = true;
-            }
-
-        } catch (Exception e) {
-            return false;
-        } finally {
-            DBUtils.closeResultSet(resultSet);
-            DBUtils.closePrepareStatement(preparedStatement);
-            DBUtils.closeConnection(connection);
-        }
-        return result;
-    }
-
     public boolean isSeatLockedDown(int seatId) throws SQLException {
         Connection connection;
         connection = SQLConnection.connect();

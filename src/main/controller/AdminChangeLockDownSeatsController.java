@@ -24,6 +24,12 @@ import java.util.Map.Entry;
 import java.util.ResourceBundle;
 
 public class AdminChangeLockDownSeatsController implements Initializable {
+    final int SEAT_NO1 = 1;
+    final int SEAT_NO2 = 2;
+    final int SEAT_NO3 = 3;
+    final int SEAT_NO4 = 4;
+    final int SEAT_NO5 = 5;
+    final int SEAT_NO6 = 6;
     HashMap<Integer, Boolean> seatsStatus = new HashMap<>();
     HashMap<Integer, Boolean> seatsStatusFinal = new HashMap<>();
     ObservableList<String> isLockDown = FXCollections.observableArrayList("true", "false");
@@ -62,27 +68,27 @@ public class AdminChangeLockDownSeatsController implements Initializable {
             e.printStackTrace();
         }
         for (Entry<Integer, Boolean> entry : seatsStatus.entrySet()) {
-            if (entry.getKey() == 1) {
+            if (entry.getKey() == SEAT_NO1) {
                 value1FromDataBase = String.valueOf(entry.getValue());
                 choiceBoxSeat1.setValue(String.valueOf(entry.getValue()));
                 choiceBoxSeat1.setItems(isLockDown);
-            } else if (entry.getKey() == 2) {
+            } else if (entry.getKey() == SEAT_NO2) {
                 value2FromDataBase = String.valueOf(entry.getValue());
                 choiceBoxSeat2.setValue(String.valueOf(entry.getValue()));
                 choiceBoxSeat2.setItems(isLockDown);
-            } else if (entry.getKey() == 3) {
+            } else if (entry.getKey() == SEAT_NO3) {
                 value3FromDataBase = String.valueOf(entry.getValue());
                 choiceBoxSeat3.setValue(String.valueOf(entry.getValue()));
                 choiceBoxSeat3.setItems(isLockDown);
-            } else if (entry.getKey() == 4) {
+            } else if (entry.getKey() == SEAT_NO4) {
                 value4FromDataBase = String.valueOf(entry.getValue());
                 choiceBoxSeat4.setValue(String.valueOf(entry.getValue()));
                 choiceBoxSeat4.setItems(isLockDown);
-            } else if (entry.getKey() == 5) {
+            } else if (entry.getKey() == SEAT_NO5) {
                 value5FromDataBase = String.valueOf(entry.getValue());
                 choiceBoxSeat5.setValue(String.valueOf(entry.getValue()));
                 choiceBoxSeat5.setItems(isLockDown);
-            } else if (entry.getKey() == 6) {
+            } else if (entry.getKey() == SEAT_NO6) {
                 value6FromDataBase = String.valueOf(entry.getValue());
                 choiceBoxSeat6.setValue(String.valueOf(entry.getValue()));
                 choiceBoxSeat6.setItems(isLockDown);
@@ -112,12 +118,12 @@ public class AdminChangeLockDownSeatsController implements Initializable {
             errorMessageChangeLockedDownSeats.setText("Error! You haven't change anything, Can not update!");
         } else {
             // assign current value to each element
-            seatsStatusFinal.put(1, Boolean.parseBoolean(choiceBoxSeat1.getValue().toString()));
-            seatsStatusFinal.put(2, Boolean.parseBoolean(choiceBoxSeat2.getValue().toString()));
-            seatsStatusFinal.put(3, Boolean.parseBoolean(choiceBoxSeat3.getValue().toString()));
-            seatsStatusFinal.put(4, Boolean.parseBoolean(choiceBoxSeat4.getValue().toString()));
-            seatsStatusFinal.put(5, Boolean.parseBoolean(choiceBoxSeat5.getValue().toString()));
-            seatsStatusFinal.put(6, Boolean.parseBoolean(choiceBoxSeat6.getValue().toString()));
+            seatsStatusFinal.put(SEAT_NO1, Boolean.parseBoolean(choiceBoxSeat1.getValue().toString()));
+            seatsStatusFinal.put(SEAT_NO2, Boolean.parseBoolean(choiceBoxSeat2.getValue().toString()));
+            seatsStatusFinal.put(SEAT_NO3, Boolean.parseBoolean(choiceBoxSeat3.getValue().toString()));
+            seatsStatusFinal.put(SEAT_NO4, Boolean.parseBoolean(choiceBoxSeat4.getValue().toString()));
+            seatsStatusFinal.put(SEAT_NO5, Boolean.parseBoolean(choiceBoxSeat5.getValue().toString()));
+            seatsStatusFinal.put(SEAT_NO6, Boolean.parseBoolean(choiceBoxSeat6.getValue().toString()));
             for (Entry<Integer, Boolean> entry : seatsStatusFinal.entrySet()) { // for each element update their status if changed
                 adminChangeLockDownSeatsModel.updateSeatsLockDownStatus(entry.getKey(), entry.getValue());
             }
@@ -127,39 +133,39 @@ public class AdminChangeLockDownSeatsController implements Initializable {
             // if it is same, so not change at all we also not delete bookings and whitelist
             try {
                 if (!choiceBoxSeat1.getValue().toString().equals(value1FromDataBase) && choiceBoxSeat1.getValue().toString().equals("true")) {
-                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(1)) { // if this seat have bookings
-                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(1);
-                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(1);
+                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(SEAT_NO1)) { // if this seat have bookings
+                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(SEAT_NO1);
+                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(SEAT_NO1);
                     }
                 }
                 if (!choiceBoxSeat2.getValue().toString().equals(value2FromDataBase) && choiceBoxSeat2.getValue().toString().equals("true")) {
-                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(2)) {
-                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(2);
-                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(2);
+                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(SEAT_NO2)) {
+                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(SEAT_NO2);
+                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(SEAT_NO2);
                     }
                 }
                 if (!choiceBoxSeat3.getValue().toString().equals(value3FromDataBase) && choiceBoxSeat3.getValue().toString().equals("true")) {
-                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(3)) {
-                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(3);
-                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(3);
+                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(SEAT_NO3)) {
+                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(SEAT_NO3);
+                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(SEAT_NO3);
                     }
                 }
                 if (!choiceBoxSeat4.getValue().toString().equals(value4FromDataBase) && choiceBoxSeat4.getValue().toString().equals("true")) {
-                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(4)) {
-                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(4);
-                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(4);
+                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(SEAT_NO4)) {
+                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(SEAT_NO4);
+                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(SEAT_NO4);
                     }
                 }
                 if (!choiceBoxSeat5.getValue().toString().equals(value5FromDataBase) && choiceBoxSeat5.getValue().toString().equals("true")) {
-                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(5)) {
-                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(5);
-                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(5);
+                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(SEAT_NO5)) {
+                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(SEAT_NO5);
+                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(SEAT_NO5);
                     }
                 }
                 if (!choiceBoxSeat6.getValue().toString().equals(value6FromDataBase) && choiceBoxSeat6.getValue().toString().equals("true")) {
-                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(6)) {
-                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(6);
-                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(6);
+                    if (adminChangeLockDownSeatsModel.isSelectedSeatHaveBookings(SEAT_NO6)) {
+                        adminLockdownSeatPromptModel.deleteBookingRecordWithLockedSeat(SEAT_NO6);
+                        adminLockdownSeatPromptModel.deleteWhitelistRecordWithLockedSeat(SEAT_NO6);
                     }
                 }
                 switchToMainAdminScene();

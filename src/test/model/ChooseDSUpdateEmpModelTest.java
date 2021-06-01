@@ -46,18 +46,6 @@ class ChooseDSUpdateEmpModelTest {
     }
 
     @Test
-    void isSeatIdBookedByUserPreviousExist() throws SQLException {
-        assertEquals(true, chooseDSUpdateEmpModel.isSeatIdBookedByUserPrevious(6, 77777, "2021-05-21"),
-                "seat id 6 with employee id 77777 in 2021-05-21, this seat can not be booked by the user, expected return true");
-    }
-
-    @Test
-    void isSeatIdBookedByUserPreviousNotExist() throws SQLException {
-        assertEquals(false, chooseDSUpdateEmpModel.isSeatIdBookedByUserPrevious(1, 77777, "2021-05-22"),
-                "seat id 1 with employee id 77777 in 2021-05-22, not exist in database, expected return false");
-    }
-
-    @Test
     void isSeatLockedDownWithLockedDown() throws SQLException {
         assertEquals(true, chooseDSUpdateEmpModel.isSeatLockedDown(2),
                 "seat id 2 locked down expected return true");

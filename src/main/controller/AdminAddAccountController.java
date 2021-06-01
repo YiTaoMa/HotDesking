@@ -75,7 +75,7 @@ public class AdminAddAccountController implements Initializable {
             if (IdString.trim().equals("") || !IdString.matches("^\\d{5}$")) { //id cannot be empty or not int
                 errorMessageAddAccount.setText("Error, Employee ID can not be empty and must be a positive whole number with length 5!");
             } else if (!txtFirstName.getText().trim().matches("^[A-Za-z]+$") || !txtLastName.getText().trim().matches("^[A-Za-z]+$")) {
-                errorMessageAddAccount.setText("                 Error, First name and Last name should be composed of 26 English letters！");
+                errorMessageAddAccount.setText("Error, First name and Last name should be composed of 26 English letters！");
             } else {
                 int idInt = Integer.parseInt(IdString);//pass the id from integer to int
                 if (txtUserName.getText().trim().equals("") || txtPassword.getText().trim().equals("") || txtFirstName.getText().trim().equals("")
@@ -87,7 +87,7 @@ public class AdminAddAccountController implements Initializable {
                     switchToMainAdminScene();
                     showAddAccountSuccessStage();
                 } else {
-                    errorMessageAddAccount.setText("                                     Add account failed, Employee ID or Username already exist!");
+                    errorMessageAddAccount.setText("Add account failed, Employee ID or Username already exist!");
                 }
             }
         } catch (SQLException e) {
