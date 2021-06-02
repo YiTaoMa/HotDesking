@@ -45,6 +45,9 @@ public class AdminChangeLockDownSeatsModel {
             return prst.executeUpdate() > 0;
         } catch (Exception e) {
             return false;
+        } finally {
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
         }
     }
 

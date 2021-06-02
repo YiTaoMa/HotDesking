@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,63 +21,58 @@ class ChooseDSUpdateEmpModelTest {
     }
 
     @Test
-    void isBookedAnotherSeatInSelectedDateUpdateWithNoOtherSeat() throws SQLException {
-        assertEquals(false, chooseDSUpdateEmpModel.isBookedAnotherSeatInSelectedDateUpdate("2021-05-20", 77777, 6),
-                "ID 77777 don't have any other seat except seat 6 in 2021-05-20, expected return false");
+    void isBookedAnotherSeatInSelectedDateUpdate_False_IfThisEmployeeHaveOnly1SeatInADate() {
+        assertAll(() -> assertEquals(false, chooseDSUpdateEmpModel.isBookedAnotherSeatInSelectedDateUpdate("2021-05-20", 77777, 6),
+                "ID 77777 don't have any other seat except seat 6 in 2021-05-20, expected return false"));
     }
 
     @Test
-    void isBookedAnotherSeatInSelectedDateUpdateWithOtherSeat() throws SQLException {
-        assertEquals(true, chooseDSUpdateEmpModel.isBookedAnotherSeatInSelectedDateUpdate("2021-05-25", 77777, 1),
-                "ID 77777 have another seat: 4 except seat 1 in 2021-05-25, expected return true");
+    void isSeatAlreadyBookedInThatDate_True_IfSeatAlreadyBookedInThatDate() {
+        assertAll(() -> assertEquals(true, chooseDSUpdateEmpModel.isSeatAlreadyBookedInThatDate(1, "2021-05-12"),
+                "seat id 1 already booked in 2021-05-12 expected return true"));
     }
 
     @Test
-    void isSeatAlreadyBookedInThatDateWithBooked() throws SQLException {
-        assertEquals(true, chooseDSUpdateEmpModel.isSeatAlreadyBookedInThatDate(1, "2021-05-12"),
-                "seat id 1 already booked in 2021-05-12 expected return true");
+    void isSeatAlreadyBookedInThatDate_False_IfSeatNotBookedInThatDate() {
+        assertAll(() -> assertEquals(false, chooseDSUpdateEmpModel.isSeatAlreadyBookedInThatDate(2, "2021-05-12"),
+                "seat id 2 not booked by anyone in 2021-05-12 expected return false"));
     }
 
     @Test
-    void isSeatAlreadyBookedInThatDateWithUnBooked() throws SQLException {
-        assertEquals(false, chooseDSUpdateEmpModel.isSeatAlreadyBookedInThatDate(2, "2021-05-12"),
-                "seat id 2 not booked by anyone in 2021-05-12 expected return false");
+    void isSeatLockedDown_True_IfTargetSeatLockedDownInSeatTable() {
+        // note: modify seat table will impact tests
+        assertAll(() -> assertEquals(true, chooseDSUpdateEmpModel.isSeatLockedDown(2),
+                "seat id 2 locked down expected return true"));
     }
 
     @Test
-    void isSeatLockedDownWithLockedDown() throws SQLException {
-        assertEquals(true, chooseDSUpdateEmpModel.isSeatLockedDown(2),
-                "seat id 2 locked down expected return true");
+    void isSeatLockedDown_False_IfTargetSeatNotLockedDownInSeatTable() {
+        assertAll(() -> assertEquals(false, chooseDSUpdateEmpModel.isSeatLockedDown(1),
+                "seat id 1 not locked down expected return false"));
     }
 
     @Test
-    void isSeatLockedDownWithNotLockedDown() throws SQLException {
-        assertEquals(false, chooseDSUpdateEmpModel.isSeatLockedDown(1),
-                "seat id 1 not locked down expected return false");
+    void updateBooking_True_IFEmployeeAndDateExist() {
+        assertAll(() -> assertEquals(true, chooseDSUpdateEmpModel.updateBooking("2021-05-22", 2, 77777, "2021-05-20"),
+                "seat id 2 can be booked by Employee ID 77777 in 2021-05-22 expected return true"));
     }
 
     @Test
-    void updateBookingWithExistEmployeeIDAndDate() throws SQLException {
-        assertEquals(true, chooseDSUpdateEmpModel.updateBooking("2021-05-22", 2, 77777, "2021-05-20"),
-                "seat id 2 can be booked by Employee ID 77777 in 2021-05-22 expected return true");
+    void updateBooking_False_IFEmployeeAndDateNotExist() {
+        assertAll(() -> assertEquals(false, chooseDSUpdateEmpModel.updateBooking("2021-05-22", 2, 00000, "2021-05-20"),
+                "Employee ID 00000 not exist expected return false"));
     }
 
     @Test
-    void updateBookingWithIncorrectEmployeeID() throws SQLException {
-        assertEquals(false, chooseDSUpdateEmpModel.updateBooking("2021-05-22", 2, 00000, "2021-05-20"),
-                "Employee ID 00000 not exist expected return false");
+    void updateWhitelist_True_IFEmployeeAndDateExist() {
+        assertAll(() -> assertEquals(true, chooseDSUpdateEmpModel.updateWhitelist(2, "2021-05-22", 77777, "2021-05-20"),
+                "Employee ID 77777 have record in whitelist expected return true."));
     }
 
     @Test
-    void updateWhitelistWithCorrectEmployeeID() throws SQLException {
-        assertEquals(true, chooseDSUpdateEmpModel.updateWhitelist(2, "2021-05-22", 77777, "2021-05-20"),
-                "Employee ID 77777 have record in whitelist expected return true.");
-    }
-
-    @Test
-    void updateWhitelistWithIncorrectEmployeeID() throws SQLException {
-        assertEquals(false, chooseDSUpdateEmpModel.updateWhitelist(2, "2021-05-22", 00000, "2021-05-20"),
-                "Employee ID 00000 don't have record in whitelist expected return false.");
+    void updateWhitelist_False_IFEmployeeAndDateNotExist() {
+        assertAll(() -> assertEquals(false, chooseDSUpdateEmpModel.updateWhitelist(2, "2021-05-22", 00000, "2021-05-20"),
+                "Employee ID 00000 don't have record in whitelist expected return false."));
     }
 
     /**
@@ -93,7 +87,7 @@ class ChooseDSUpdateEmpModelTest {
         int seatID = 6;
         int id = 77777;
         String oldDate = "2021-05-22";// As 7777 already update to 2021-05-22 so we update back
-        String query = "update Booking set date=?,seat_id=?,has_confirmed=false where employee_id=? and date=?";
+        String query = "update Booking set date=?,seat_id=?,has_confirmed=true where employee_id=? and date=?";
         try {
             prst = connection.prepareStatement(query);
             prst.setString(1, date);

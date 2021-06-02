@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,15 +22,15 @@ class CheckinBookingConfirmModelTest {
     }
 
     @Test
-    void updateCheckinStatus() throws SQLException {
-        assertEquals(true, checkinBookingConfirmModel.updateCheckinStatus(77777, "2021-05-20"),
-                "ID 77777 have record in database in 2021-05-20, expected return true");
+    void updateCheckinStatus_True_IfEmployeeIDAndDateExistInBookingTable() {
+        assertAll(() -> assertEquals(true, checkinBookingConfirmModel.updateCheckinStatus(77777, "2021-05-20"),
+                "ID 77777 have record in database in 2021-05-20, expected return true"));
     }
 
     @Test
-    void updateCheckinStatusWithIncorrectID() throws SQLException {
-        assertEquals(false, checkinBookingConfirmModel.updateCheckinStatus(00000, "2021-05-20"),
-                "ID 00000 don't have record in database in 2021-05-20, expected return false");
+    void updateCheckinStatus_False_IfEmployeeIDAndDateNotExistInBookingTable() {
+        assertAll(() -> assertEquals(false, checkinBookingConfirmModel.updateCheckinStatus(00000, "2021-05-20"),
+                "ID 00000 don't have record in database in 2021-05-20, expected return false"));
     }
 
     @AfterAll

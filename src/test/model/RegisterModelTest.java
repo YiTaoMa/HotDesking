@@ -17,19 +17,18 @@ class RegisterModelTest {
     @BeforeAll
     public static void initialise() {
         registerModel = new RegisterModel();
-
     }
 
     @Test
-    void isRegisterWithExistUP() throws SQLException {
-        assertEquals(false, registerModel.isRegister("test", "test", 23444, "sdf", "sdf", "Employee", "What was your childhood nickname?", "wer"),
-                "username and ID already exist in database expected false");
+    void isRegister_False_IfEmpIDOrUsernameExist() {
+        assertAll(() -> assertEquals(false, registerModel.isRegister("test", "test", 23444, "sdf", "sdf", "Employee", "What was your childhood nickname?", "wer"),
+                "username and ID already exist in database expected false"));
     }
 
     @Test
-    void isRegisterWithNewUP() throws SQLException {
-        assertEquals(true, registerModel.isRegister("Model-Test", "model-test", 11111, "Model-TestF", "Model-TestL", "Employee", "What was your childhood nickname?", "Model-test"),
-                "username and ID not exist in database expected true");
+    void isRegister_True_IfEmpIDOrUsernameNotExist() {
+        assertAll(() -> assertEquals(true, registerModel.isRegister("Model-Test", "model-test", 11111, "Model-TestF", "Model-TestL", "Employee", "What was your childhood nickname?", "Model-test"),
+                "username and ID not exist in database expected true"));
     }
 
     /**

@@ -46,7 +46,7 @@
     - Like the Lockdown function, if a seat is locked down (status==true) if have bookings for this seat it will delete
       all and corresponding whitelist.
 
-#### Database notes:
+#### Database Notes:
 
 - Employee table: Employee ID and Username is UNIQUE.
 - Whitelist: If the Booking table has a record inserted, the Whitelist table also insert the same record automatically,
@@ -56,6 +56,16 @@
   MODIFY IT. It is all down AUTOMATICALLY!
 - (IMPORTANT!) So, For function: "Admin can manually change the Whitelist". It is actually changing the Seat table (
   Seats that is locked down) in the database instead of the Whitelist table in the database.
+
+#### Unit Tests Notes:
+
+- Model Unit Test: Employee ID: 77777 & 77778 & 88888 & 11111 used for test
+    - DO NOT MODIFY THIS ACCOUNT RELATED BOOKING INFORMATION!!
+    - If changed, Tests will fail.
+    - If changed some of Locked down seats, tests will also fail in some cases.
+- If Modify Seat Table, related tests will fail. (Like Test seat 6 is lock down if you unlock it, test will fail.)
+- Unlock seat 2,5 and lockdown seat 2,5 not impact other bookings as we don't have bookings for seat 2 and 5 but if lock
+  down seat 1,3,4,6 will delete all bookings & whitelist records related to these seats.
 
 #### What steps need to be taken?
 

@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,39 +21,33 @@ class ResetPasswordModelTest {
     }
 
     @Test
-    void isAnswerForSQCorrectWithCorrectIDAndAnswerForSQ() throws SQLException {
-        assertEquals(true, resetPasswordModel.isAnswerForSQCorrect(23443, "wer"),
-                "Employee ID 23443 with Answer for SQ 'wer' expected return true");
+    void isAnswerForSQCorrect_True_IfSQAnswerIsCorrect() {
+        assertAll(() -> assertEquals(true, resetPasswordModel.isAnswerForSQCorrect(77777, "wish"),
+                "Employee ID 77777 with Answer for SQ 'wish' expected return true"));
     }
 
     @Test
-    void isAnswerForSQCorrectWithIncorrectIDAndAnswerForSQ() throws SQLException {
-        assertEquals(false, resetPasswordModel.isAnswerForSQCorrect(00000, "vsdnfiusdnvw"),
-                "Employee ID 00000 with Answer for SQ 'vsdnfiusdnvw' expected return false");
+    void isAnswerForSQCorrect_False_IfSQAnswerIsInCorrect() {
+        assertAll(() -> assertEquals(false, resetPasswordModel.isAnswerForSQCorrect(77777, "vsdnfiusdnvw"),
+                "Employee ID 7777 with Answer for SQ 'vsdnfiusdnvw' expected return false"));
     }
 
     @Test
-    void generateRandomPasswordCheckType() {
+    void generateRandomPassword_True_IfReturnTypeIsString() {
         assertEquals(true, resetPasswordModel.generateRandomPassword(10) instanceof String,
                 "generate random password expected return is a type of String");
     }
 
     @Test
-    void generateRandomPasswordCheckLength() {
+    void generateRandomPassword_10_IfReturnedAString() {
         assertEquals(10, resetPasswordModel.generateRandomPassword(10).length(),
                 "generate random password length input 10 expected length return is 10");
     }
 
     @Test
-    void updatePasswordWithCorrectID() throws SQLException {
-        assertEquals(true, resetPasswordModel.updatePassword(77777, "model-testNewP"),
-                "id 77777 exist in database expected return true");
-    }
-
-    @Test
-    void updatePasswordWithInCorrectID() throws SQLException {
-        assertEquals(false, resetPasswordModel.updatePassword(00000, "model-testNewP"),
-                "id 00000 not exist in database expected return false");
+    void updatePassword_True_IfUpdateSuccessForThisEmployee() {
+        assertAll(() -> assertEquals(true, resetPasswordModel.updatePassword(77777, "model-testNewP"),
+                "id 77777 exist in database expected return true"));
     }
 
     /**

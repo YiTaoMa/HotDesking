@@ -85,6 +85,9 @@ public class AdminUpdateAccountModel {
             return prst.executeUpdate() > 0;
         } catch (Exception e) {
             return false;
+        } finally {
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
         }
     }
 
@@ -102,6 +105,9 @@ public class AdminUpdateAccountModel {
             return prst.executeUpdate() > 0;
         } catch (Exception e) {
             return false;
+        } finally {
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
         }
     }
 
@@ -119,6 +125,9 @@ public class AdminUpdateAccountModel {
             return prst.executeUpdate() > 0;
         } catch (Exception e) {
             return false;
+        } finally {
+            DBUtils.closePrepareStatement(prst);
+            DBUtils.closeConnection(connection);
         }
     }
 }

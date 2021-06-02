@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,16 +21,16 @@ class ConfirmBookingModelTest {
     }
 
     @Test
-    void insertBookingRecord() throws SQLException {
-        assertEquals(true,confirmBookingModel.insertBookingRecord(77778,"2021-05-20",4),
-                "new record can be insert into database, expected true");
+    void insertBookingRecord_True_IfEmployeeNotExistInDatabase() {
+        assertAll(() -> assertEquals(true, confirmBookingModel.insertBookingRecord(77778, "2021-05-20", 4),
+                "new record can be insert into database, expected true"));
     }
 
 
     @Test
-    void insertToWhitelist() throws SQLException {
-        assertEquals(true,confirmBookingModel.insertToWhitelist(77778,4,"2021-05-20"),
-                "new record can be insert into database, expected true");
+    void insertToWhitelist_True_AutoInsertAsBookingRecordInsert() {
+        assertAll(() -> assertEquals(true, confirmBookingModel.insertToWhitelist(77778, 4, "2021-05-20"),
+                "new record can be insert into database, expected true"));
     }
 
     @AfterAll
@@ -55,6 +54,7 @@ class ConfirmBookingModelTest {
             DBUtils.closeConnection(connection);
         }
     }
+
     @AfterAll
     public static void deleteTestIDWhitelist() {
         Connection connection;
