@@ -13,7 +13,14 @@
   seats. Each function also has other specific operations, you can discover them by yourself.
 
 #### Function Notes:
-
+##### All functions are working.
+##### DO NOT MODIFY/DELETE EXISTING DATA FOR BOOKING,WHITELIST,EMPLOYEE!!
+- AS DATA USED FOR UNIT TEST, IF CHANGE WILL CAUSE FUNCTION/UNIT TEST PROBLEM.
+##### IF ADD NEW ACCOUNT/BOOKINGS MAY ALSO IMPACT UNIT TEST
+- For example a unit test to delete all seat 6 bookings, if you add extra seat 6 bookings
+it will not be added back as currently only 1 seat6 booking, so only this one will be added back.
+##### Current seat 2 and 5 is locked down, do not change them, keep them locked down, if changed them will impact unit test, also may cause problem for functions.
+##### TO TEST: REGISTER A NEW ACCOUNT TO TEST ALL FUNCTIONS.
 - For Login: Depend on the employee's role, log in as employee or admin (To a different scene).
 - Register only for Employee, not Admin.
 - To test Employee function, use Username: test AND Password: test
@@ -58,7 +65,7 @@
   Seats that is locked down) in the database instead of the Whitelist table in the database.
 
 #### Unit Tests Notes:
-
+- Try not to modify/delete existing data in the database.
 - Model Unit Test: Employee ID: 77777 & 77778 & 88888 & 11111 used for test
     - DO NOT MODIFY THIS ACCOUNT RELATED BOOKING INFORMATION!!
     - If changed, Tests will fail.
@@ -66,6 +73,8 @@
 - If Modify Seat Table, related tests will fail. (Like Test seat 6 is lock down if you unlock it, test will fail.)
 - Unlock seat 2,5 and lockdown seat 2,5 not impact other bookings as we don't have bookings for seat 2 and 5 but if lock
   down seat 1,3,4,6 will delete all bookings & whitelist records related to these seats.
+- If you add something and run some tests, your new added record/account may be deleted as
+there are some tests about lock down which delete all records about a seat.
 
 #### What steps need to be taken?
 

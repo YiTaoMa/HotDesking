@@ -3,7 +3,6 @@ package test.model;
 import main.DBUtils;
 import main.SQLConnection;
 import main.model.AdminConfirmBookingPromptModel;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -20,16 +19,7 @@ class AdminConfirmBookingPromptModelTest {
         adminConfirmBookingPromptModel = new AdminConfirmBookingPromptModel();
     }
 
-    /**
-     * There is no need to test if employee id is wrong as this booking have to exist and done the check in the controller
-     */
-    @Test
-    void updateHasConfirmed_True_IfUpdateSuccess() {
-        assertAll(() -> assertEquals(true, adminConfirmBookingPromptModel.updateHasConfirmed(77777, "2056-06-13"),
-                "As employee id and date exist in booking, update success expected true."));
-    }
-
-    @AfterAll
+    @BeforeAll
     public static void updateHasConfirmedStatusBack() {
         Connection connection;
         connection = SQLConnection.connect();
@@ -48,5 +38,14 @@ class AdminConfirmBookingPromptModelTest {
             DBUtils.closePrepareStatement(prst);
             DBUtils.closeConnection(connection);
         }
+    }
+
+    /**
+     * There is no need to test if employee id is wrong as this booking have to exist and done the check in the controller
+     */
+    @Test
+    void updateHasConfirmed_True_IfUpdateSuccess() {
+        assertAll(() -> assertEquals(true, adminConfirmBookingPromptModel.updateHasConfirmed(77777, "2056-06-13"),
+                "As employee id and date exist in booking, update success expected true."));
     }
 }
