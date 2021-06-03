@@ -4,7 +4,7 @@
 - Student ID: s3843689
 - Course Name: Further Programming (2110) COSC2391
 
-#### All Functions required are completed and working.
+#### All Functions required are completed and working without bugs.
 
 ### Content of the project:
 
@@ -12,18 +12,31 @@
   also have an Admin role that can manage accounts, manage bookings, generate reports and manually change locked down
   seats. Each function also has other specific operations, you can discover them by yourself.
 
-#### Function Notes:
 ##### All functions are working.
-##### DO NOT MODIFY/DELETE EXISTING DATA FOR BOOKING,WHITELIST,EMPLOYEE!!
-- AS DATA USED FOR UNIT TEST, IF CHANGE WILL CAUSE FUNCTION/UNIT TEST PROBLEM.
-##### IF ADD NEW ACCOUNT/BOOKINGS MAY ALSO IMPACT UNIT TEST
-- For example a unit test to delete all seat 6 bookings, if you add extra seat 6 bookings
-it will not be added back as currently only 1 seat6 booking, so only this one will be added back.
-##### Current seat 2 and 5 is locked down, do not change them, keep them locked down, if changed them will impact unit test, also may cause problem for functions.
-##### TO TEST: REGISTER A NEW ACCOUNT TO TEST ALL FUNCTIONS.
+
+##### DO NOT MODIFY/DELETE EXISTING DATA FOR BOOKING,WHITELIST,EMPLOYEE TABLE!!
+
+- AS EXISTING DATA USED FOR UNIT TEST, IF CHANGED WILL CAUSE UNIT TEST PROBLEM.
+- Current seat 2 and 5 is locked down, If you unlock the table and make new bookings will cause some unit tests failed.
+
+##### Important! To run the unit tests first, then test the main functions, then unit tests will work fine.
+
+#### To Test main functions:
+
+- Register a new account and use that account to test employee functions.
+- Add a new Admin account using existing another admin account (see functions notes below)
+  to use "add functions" to add a new admin account, and you can test admin functions or just use the existing admin
+  account.
+
+#### Function Notes:
+
+- BE CAREFUL with lock down function, most of the bookings are booked seat 1, if lock down this seat most of the
+  bookings will be deleted as this seat is locked down AND WILL IMPACT UNIT TEST BADLY! (since most of the bookings are
+  been deleted.)
 - For Login: Depend on the employee's role, log in as employee or admin (To a different scene).
 - Register only for Employee, not Admin.
-- To test Employee function, use Username: test AND Password: test
+- To test Employee function, you can register a new account or login using admin username and password to add an
+  employee account. (Try not to modify/delete existing account and their bookings)
 - To test Admin function, use Username: admin AND Password: admin
 - Time validation framework for employee update and cancel function:
     - The employee can only update/cancel a specific booking 48 hours before the actual booking date, if the time from
@@ -65,16 +78,16 @@ it will not be added back as currently only 1 seat6 booking, so only this one wi
   Seats that is locked down) in the database instead of the Whitelist table in the database.
 
 #### Unit Tests Notes:
+
 - Try not to modify/delete existing data in the database.
 - Model Unit Test: Employee ID: 77777 & 77778 & 88888 & 11111 used for test
-    - DO NOT MODIFY THIS ACCOUNT RELATED BOOKING INFORMATION!!
+    - DO NOT MODIFY THIS ACCOUNT AND RELATED BOOKING INFORMATION!!
     - If changed, Tests will fail.
     - If changed some of Locked down seats, tests will also fail in some cases.
-- If Modify Seat Table, related tests will fail. (Like Test seat 6 is lock down if you unlock it, test will fail.)
-- Unlock seat 2,5 and lockdown seat 2,5 not impact other bookings as we don't have bookings for seat 2 and 5 but if lock
-  down seat 1,3,4,6 will delete all bookings & whitelist records related to these seats.
-- If you add something and run some tests, your new added record/account may be deleted as
-there are some tests about lock down which delete all records about a seat.
+- If Modify Seat Table, related tests will fail. (Like Test seat 5 is lock down originally, if you unlock it, test will
+  fail.)
+- Few model classes/methods is not tested either there are all void method, or it will actually impact the main function
+  in some cases.
 
 #### What steps need to be taken?
 
