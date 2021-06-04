@@ -12,14 +12,14 @@
   also have an Admin role that can manage accounts, manage bookings, generate reports and manually change locked down
   seats. Each function also has other specific operations, you can discover them by yourself.
 
-##### All functions are working.
+#### All functions are working.
 
-##### DO NOT MODIFY/DELETE EXISTING DATA FOR BOOKING,WHITELIST,EMPLOYEE TABLE!!
+#### DO NOT MODIFY/DELETE EXISTING DATA FOR BOOKING,WHITELIST,EMPLOYEE TABLE!!
 
 - AS EXISTING DATA USED FOR UNIT TEST, IF CHANGED WILL CAUSE UNIT TEST AND FUNCTION PROBLEM.
 - Current seat 2 and 5 is locked down, If you unlock the table and make new bookings will cause some unit tests failed.
 
-##### Important! To run the unit tests first, then test the main functions, then unit tests will work fine. If you modified/add/delete existing data for all tables, Do not run unit tests! For example: I have a test delete an account then @Afterall method will add this account back after deletion, but if you delete this account through the main function, then the test will fail but @Afterall method will still execute then will add this account back.
+#### Important! To run the unit tests first, then test the main functions, then unit tests will work fine. If you modified/add/delete existing data for all tables, Do not run unit tests! For example: I have a test delete an account then @Afterall method will add this account back after deletion, but if you delete this account through the main function, then the test will fail but @Afterall method will still execute then will add this account back.
 
 #### To Test main functions:
 
@@ -31,7 +31,7 @@
 #### Function Notes:
 
 - Use a new employee/admin account to test all corresponding functions.
-- BE CAREFUL with lock down function, most of the bookings are booked seat 1, if lock down this seat most of the
+- BE CAREFUL with lock down function, most of the bookings are booked seat 1,4,6 if lock down these seats, most of the
   bookings will be deleted as this seat is locked down AND WILL IMPACT UNIT TEST BADLY! (since most of the bookings are
   been deleted.) So, better to run the unit test before modify/add/delete the account/seats/bookings through the main
   application. And after modify/add/delete the account/seats/bookings, don't run any unit tests.
@@ -81,19 +81,22 @@
 
 #### Unit Tests Notes:
 
-- Run unit tests before modify/add/delete any accounts/bookings/seats And do not run unit tests after modify/add/delete
-  accounts/bookings/seats.
-- Try not to modify/delete existing data in the database.
+- Run unit tests before modify/add/delete any accounts/bookings/seats through the add/delete/update functions And do not
+  run unit tests after modify/add/delete accounts/bookings/seats through the add/delete/update functions.
+- DO NOT modify/delete existing data in the database.
 - Model Unit Test: Employee ID: 77777 & 77778 & 88888 & 11111 used for test
     - DO NOT MODIFY THIS ACCOUNT AND RELATED BOOKING INFORMATION!!
     - If changed, Tests will fail.
     - If changed some of Locked down seats, tests will also fail in some cases.
-- If Modify Seat Table, related tests will fail. (Like Test seat 5 is lock down originally, if you unlock it, test will
-  fail.)
+- If Modify Seat Table, related tests will fail. (Like Test seat 5 is lock down originally, if you unlock it, some tests
+  will fail.)
 - Few model classes/methods is not tested either there are all void method, or it will actually impact the main function
-  in some cases. (As I am not sure what sequence you going to check, if you do something with the lockdown seats then
-  run the unit test, will actually cause for example database Seat table expected is true which is locked down , but
-  become false which is not locked down.)
+  in some cases. (As I am not sure what sequence you going to check, just to make sure. So, if you do something with the
+  lockdown seats through the lock down function then run the unit test, will actually cause for example database Seat 2
+  originally is true which is locked down , but it becomes false when you unlock it which is not locked down now. but
+  one of the test is to unlock it and use @Afterall method to update the unlock status for seat 2 to true. What happened
+  is you unlock it and test set it to false but after all tests, it set back to true, but it is actually false as you
+  unlock it. That will cause problem.)
   But, originally the functions is all working well unless you lock down or modify/add/delete any exiting
   accounts/bookings/seats AND run the unit tests.
 
@@ -104,7 +107,9 @@
 - It is not saying you can not lockdown other seats, all seats can be locked down but to lock down other seats will
   impact unit tests, and the unit test will impact actual functions, will make confusion.
 - Just writ it again: Run unit tests before modify/add/delete any accounts/bookings/seats And do not run unit tests
-  after modify/add/delete accounts/bookings/seats.
+  after modify/add/delete accounts/bookings/seats. DO NOT modify/delete existing accounts/booking records/corresponding
+  whitelist records and be careful with the lock down functions, most of the bookings related to seat 1,4,6, if lock
+  down these tables all bookings with these seats will be deleted. Unit tests will be impacted badly.
 
 #### What steps need to be taken?
 
