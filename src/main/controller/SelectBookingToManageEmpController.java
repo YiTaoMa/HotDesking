@@ -41,6 +41,7 @@ public class SelectBookingToManageEmpController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+            // Every time to clear it to make sure we get updated information
             items.clear();
             items = selectBookingToManageEmpModel.getEmployeeBookingDetail(loginController.getEmployeeID());
             list.setItems(items);
@@ -55,6 +56,7 @@ public class SelectBookingToManageEmpController implements Initializable {
         if (selectedItem == null) { // if user not choose an item
             errorMessageListEmpty.setText("Error, you must choose an item!");
         } else {
+            // split the chose item to get necessary information for later use.
             String spl[] = selectedItem.split("---");
             dateForManage = spl[5];
             seatIDBookedByCurrentUserManage = Integer.parseInt(spl[7]);

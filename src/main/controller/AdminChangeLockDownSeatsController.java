@@ -60,6 +60,7 @@ public class AdminChangeLockDownSeatsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Get all data from the database at the start to set as the default.
         errorMessageChangeLockedDownSeats.setText("");
         seatsStatus.clear();
         try {

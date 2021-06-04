@@ -40,7 +40,7 @@ public class AdminGenerateReportModel {
                 fileWriter.newLine();
                 fileWriter.write(line);
             }
-            fileWriter.close();
+            fileWriter.close(); // make sure to close it
         } catch (SQLException | IOException e) {
             e.printStackTrace();
         } finally {

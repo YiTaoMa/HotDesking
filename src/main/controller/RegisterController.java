@@ -49,6 +49,7 @@ public class RegisterController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // set choice box value at the start.
         choiceRoleBox.setValue("Employee");
         choiceRoleBox.setItems(roles);
         choiceSQBox.setValue("What was your first pet?");
@@ -59,7 +60,7 @@ public class RegisterController implements Initializable {
     public void register(ActionEvent event) {
         // call model
         try {
-            String IdString = txtEmployeeID.getText();//must od it here
+            String IdString = txtEmployeeID.getText();//must do it here
             if (IdString.trim().equals("") || !IdString.matches("^\\d{5}$")) { //id cannot be empty or not int
                 errorMessageRegister.setText("Error, Employee ID can not be empty and must be a positive whole number with length 5!");
             } else if (!txtFirstName.getText().trim().matches("^[A-Za-z]+$") || !txtLastName.getText().trim().matches("^[A-Za-z]+$")) {
@@ -72,6 +73,7 @@ public class RegisterController implements Initializable {
                     errorMessageRegister.setText("Fields can not be empty! (input can not be a space or spaces)");
                 } else if (registerModel.isRegister(txtUserName.getText(), txtPassword.getText(), idInt, txtFirstName.getText(),
                         txtLastName.getText(), choiceRoleBox.getValue().toString(), choiceSQBox.getValue().toString(), txtAnswerForSecretQ.getText())) {
+                    // If everything is good we register this employee and switch scene to the login
                     try {
                         Scene scene = borderpaneRegister.getScene();
                         Window window = scene.getWindow();
@@ -96,7 +98,7 @@ public class RegisterController implements Initializable {
         }
     }
 
-    public void goBack(ActionEvent event) {
+    public void goBack(ActionEvent event) { // Go back to home page
         Scene scene = borderpaneRegister.getScene();
         Window window = scene.getWindow();
         Stage primaryStage = (Stage) window;

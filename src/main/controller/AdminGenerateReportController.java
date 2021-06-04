@@ -14,6 +14,9 @@ import main.model.AdminGenerateReportModel;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Let user to choose the location
+ */
 public class AdminGenerateReportController {
     AdminGenerateReportModel adminGenerateReportModel = new AdminGenerateReportModel();
     @FXML

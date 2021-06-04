@@ -35,7 +35,7 @@ public class ResetPassPopIDController implements Initializable {
 
     public void goToResetPassword(ActionEvent event) {
         try {
-            String IdString = txtID.getText();//must od it here
+            String IdString = txtID.getText();//must do it here
             if (IdString.trim().equals("") || !IdString.matches("^[1-9]\\d*|0$")) { //id cannot be empty or not int
                 errorMessage.setText("Error, Employee ID can not be empty and must be a positive whole number!");
             } else {

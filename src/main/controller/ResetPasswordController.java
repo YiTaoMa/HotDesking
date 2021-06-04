@@ -33,7 +33,7 @@ public class ResetPasswordController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //when you load a fxml so set scene it will first do the initialise, so sometimes failed because something in initialize wrong
+        // Get secret question for this user.
         secretQuestion.setText(resetPassPopIDController.getSQ());
         answerSQWrongError.setText("");
     }

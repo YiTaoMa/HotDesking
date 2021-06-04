@@ -37,6 +37,7 @@ public class AdminSelectBookingToManageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // set all booking details at the start
         try {
             items = adminSelectBookingToManageModel.getAllBookingDetail();
             adminListView.setItems(items);

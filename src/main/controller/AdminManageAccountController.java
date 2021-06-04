@@ -23,7 +23,6 @@ import java.util.ResourceBundle;
 public class AdminManageAccountController implements Initializable {
     ObservableList<String> accounts = FXCollections.observableArrayList();
     AdminManageAccountModel adminManageAccountModel = new AdminManageAccountModel();
-    //private String role;
     protected static int employeeIDFromAccountManageList;
     protected static String employeeFNFromAccountManageList;
     protected static String employeeLNFromAccountManageList;
@@ -143,7 +142,6 @@ public class AdminManageAccountController implements Initializable {
             employeePWFromAccountManageList = spl[11];
             employeeSQFromAccountManageList = spl[13];
             employeeASQFromAccountManageList = spl[15];
-
             switchToAdminUpdateAccount();
         }
     }

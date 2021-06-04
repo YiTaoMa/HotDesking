@@ -112,7 +112,6 @@ public class EmpBookManageChooseOptionController implements Initializable {
 
     public boolean checkDateLimit(LocalDate date) {
         // convert Date into Java 8 LocalDate
-        //LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate today = LocalDate.now();
         // count number of days between the given date and today
         long days = ChronoUnit.DAYS.between(today, date); //11-14
