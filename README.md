@@ -33,8 +33,9 @@
 - Use a new employee/admin account to test all corresponding functions.
 - BE CAREFUL with lock down function, most of the bookings are booked seat 1,4,6 if lock down these seats, most of the
   bookings will be deleted as this seat is locked down AND WILL IMPACT UNIT TEST BADLY! (since most of the bookings are
-  been deleted.) So, better to run the unit test before modify/add/delete the account/seats/bookings through the main
-  application. And after modify/add/delete the account/seats/bookings, don't run any unit tests.
+  been deleted.) So, better to run the unit test before modify/add/delete the existing account/seats/bookings through
+  the main application. And after modify/add/delete the existing account/seats/bookings, don't run any unit tests. (
+  especially if lock down a seat deleted some existing bookings)
 - For Login: Depend on the employee's role, log in as employee or admin (To a different scene).
 - Register only for Employee, not Admin.
 - To test Employee function, you can register a new account or login using admin username and password to add an
@@ -81,9 +82,12 @@
 
 #### Unit Tests Notes:
 
-- Run unit tests before modify/add/delete any accounts/bookings/seats through the add/delete/update functions And do not
-  run unit tests after modify/add/delete accounts/bookings/seats through the add/delete/update functions.
+- Run unit tests before modify/add/delete any existing accounts/bookings/seats through the add/delete/update functions
+  And do not run unit tests after modify/add/delete existing accounts/bookings/seats through the add/delete/update
+  functions.
 - DO NOT modify/delete existing data in the database.
+- You can do what ever you want with new created account, and their bookings (note: but lock down a seat will delete all
+  booking records & whitelist records related to this seat)
 - Model Unit Test: Employee ID: 77777 & 77778 & 88888 & 11111 used for test
     - DO NOT MODIFY THIS ACCOUNT AND RELATED BOOKING INFORMATION!!
     - If changed, Tests will fail.
@@ -106,10 +110,11 @@
   booking records related to seat 3.
 - It is not saying you can not lockdown other seats, all seats can be locked down but to lock down other seats will
   impact unit tests, and the unit test will impact actual functions, will make confusion.
-- Just writ it again: Run unit tests before modify/add/delete any accounts/bookings/seats And do not run unit tests
-  after modify/add/delete accounts/bookings/seats. DO NOT modify/delete existing accounts/booking records/corresponding
-  whitelist records and be careful with the lock down functions, most of the bookings related to seat 1,4,6, if lock
-  down these tables all bookings with these seats will be deleted. Unit tests will be impacted badly.
+- Just writ it again: Run unit tests before modify/add/delete any existing accounts/bookings/seats And do not run unit
+  tests after modify/add/delete any existing accounts/bookings/seats. DO NOT modify/delete existing accounts/booking
+  records/corresponding whitelist records and be careful with the lock down functions, most of the bookings related to
+  seat 1,4,6, if lock down these seats, all bookings with these seats will be deleted. Unit tests will be impacted
+  badly.
 
 #### What steps need to be taken?
 
