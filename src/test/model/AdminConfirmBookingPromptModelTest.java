@@ -20,7 +20,7 @@ class AdminConfirmBookingPromptModelTest {
     }
 
     @BeforeAll
-    public static void updateHasConfirmedStatusBack() {
+    public static void updateHasConfirmedStatusFirst() {
         Connection connection;
         connection = SQLConnection.connect();
         int empID = 77777;

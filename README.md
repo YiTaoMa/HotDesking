@@ -16,10 +16,10 @@
 
 ##### DO NOT MODIFY/DELETE EXISTING DATA FOR BOOKING,WHITELIST,EMPLOYEE TABLE!!
 
-- AS EXISTING DATA USED FOR UNIT TEST, IF CHANGED WILL CAUSE UNIT TEST PROBLEM.
+- AS EXISTING DATA USED FOR UNIT TEST, IF CHANGED WILL CAUSE UNIT TEST AND FUNCTION PROBLEM.
 - Current seat 2 and 5 is locked down, If you unlock the table and make new bookings will cause some unit tests failed.
 
-##### Important! To run the unit tests first, then test the main functions, then unit tests will work fine.
+##### Important! To run the unit tests first, then test the main functions, then unit tests will work fine. If you modified/add/delete existing data for all tables, Do not run unit tests! For example: I have a test delete an account then @Afterall method will add this account back after deletion, but if you delete this account through the main function, then the test will fail but @Afterall method will still execute then will add this account back.
 
 #### To Test main functions:
 
@@ -30,9 +30,11 @@
 
 #### Function Notes:
 
+- Use a new employee/admin account to test all corresponding functions.
 - BE CAREFUL with lock down function, most of the bookings are booked seat 1, if lock down this seat most of the
   bookings will be deleted as this seat is locked down AND WILL IMPACT UNIT TEST BADLY! (since most of the bookings are
-  been deleted.)
+  been deleted.) So, better to run the unit test before modify/add/delete the account/seats/bookings through the main
+  application. And after modify/add/delete the account/seats/bookings, don't run any unit tests.
 - For Login: Depend on the employee's role, log in as employee or admin (To a different scene).
 - Register only for Employee, not Admin.
 - To test Employee function, you can register a new account or login using admin username and password to add an
@@ -79,6 +81,8 @@
 
 #### Unit Tests Notes:
 
+- Run unit tests before modify/add/delete any accounts/bookings/seats And do not run unit tests after modify/add/delete
+  accounts/bookings/seats.
 - Try not to modify/delete existing data in the database.
 - Model Unit Test: Employee ID: 77777 & 77778 & 88888 & 11111 used for test
     - DO NOT MODIFY THIS ACCOUNT AND RELATED BOOKING INFORMATION!!
@@ -87,7 +91,20 @@
 - If Modify Seat Table, related tests will fail. (Like Test seat 5 is lock down originally, if you unlock it, test will
   fail.)
 - Few model classes/methods is not tested either there are all void method, or it will actually impact the main function
-  in some cases.
+  in some cases. (As I am not sure what sequence you going to check, if you do something with the lockdown seats then
+  run the unit test, will actually cause for example database Seat table expected is true which is locked down , but
+  become false which is not locked down.)
+  But, originally the functions is all working well unless you lock down or modify/add/delete any exiting
+  accounts/bookings/seats AND run the unit tests.
+
+#### Lock down notes:
+
+- Currently, if you want to test lock down function, to lock down seat 3 will not impact unit tests and currently have 2
+  booking records related to seat 3.
+- It is not saying you can not lockdown other seats, all seats can be locked down but to lock down other seats will
+  impact unit tests, and the unit test will impact actual functions, will make confusion.
+- Just writ it again: Run unit tests before modify/add/delete any accounts/bookings/seats And do not run unit tests
+  after modify/add/delete accounts/bookings/seats.
 
 #### What steps need to be taken?
 
@@ -141,6 +158,36 @@ Login info:
 Username: test
 
 Password: test
+
+## Execution examples:
+
+Home Page:
+
+![](ExecutionExamples/Home.png)
+
+Login Page:
+
+![](ExecutionExamples/Login.png)
+
+Register Page:
+
+![](ExecutionExamples/Register.png)
+
+Employee Booking Page:
+
+![](ExecutionExamples/Employee-Booking.png)
+
+Employee Manage Booking Page:
+
+![](ExecutionExamples/Employee-BookingManagement.png)
+
+Admin Manage Booking Page:
+
+![](ExecutionExamples/Admin-BookingManagement.png)
+
+Admin Manage Accounts Page:
+
+![](ExecutionExamples/Admin-ManageAccounts.png)
 
 ## Prepare other content
 
