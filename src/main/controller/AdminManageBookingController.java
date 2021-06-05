@@ -141,7 +141,7 @@ public class AdminManageBookingController implements Initializable {
         }
     }
 
-    public void ClickSeat1(ActionEvent event) {
+    public void clickSeat1(ActionEvent event) {
         setSeatIdCurrentClicked(seatID1);// every time set the current seat to current button number which represent
         //current clicked seat
         if (seat1.getStyle().equals("-fx-background-color: green;") || seat1.getStyle().equals("-fx-background-color: red;")) {
@@ -168,7 +168,7 @@ public class AdminManageBookingController implements Initializable {
         }
     }
 
-    public void ClickSeat2(ActionEvent event) {
+    public void clickSeat2(ActionEvent event) {
         setSeatIdCurrentClicked(seatID2);
         if (seat2.getStyle().equals("-fx-background-color: green;") || seat2.getStyle().equals("-fx-background-color: red;")) {
             isSeatRedOrGreen = true;
@@ -185,7 +185,7 @@ public class AdminManageBookingController implements Initializable {
         }
     }
 
-    public void ClickSeat3(ActionEvent event) {
+    public void clickSeat3(ActionEvent event) {
         setSeatIdCurrentClicked(seatID3);
         if (seat3.getStyle().equals("-fx-background-color: green;") || seat3.getStyle().equals("-fx-background-color: red;")) {
             isSeatRedOrGreen = true;
@@ -202,7 +202,7 @@ public class AdminManageBookingController implements Initializable {
         }
     }
 
-    public void ClickSeat4(ActionEvent event) {
+    public void clickSeat4(ActionEvent event) {
         setSeatIdCurrentClicked(seatID4);
         if (seat4.getStyle().equals("-fx-background-color: green;") || seat4.getStyle().equals("-fx-background-color: red;")) {
             isSeatRedOrGreen = true;
@@ -219,7 +219,7 @@ public class AdminManageBookingController implements Initializable {
         }
     }
 
-    public void ClickSeat5(ActionEvent event) {
+    public void clickSeat5(ActionEvent event) {
         setSeatIdCurrentClicked(seatID5);
         if (seat5.getStyle().equals("-fx-background-color: green;") || seat5.getStyle().equals("-fx-background-color: red;")) {
             isSeatRedOrGreen = true;
@@ -236,7 +236,7 @@ public class AdminManageBookingController implements Initializable {
         }
     }
 
-    public void ClickSeat6(ActionEvent event) {
+    public void clickSeat6(ActionEvent event) {
         setSeatIdCurrentClicked(seatID6);
         if (seat6.getStyle().equals("-fx-background-color: green;") || seat6.getStyle().equals("-fx-background-color: red;")) {
             isSeatRedOrGreen = true;

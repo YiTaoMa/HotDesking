@@ -44,7 +44,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#gotoBooking" text="Continue" textFill="GREEN" HBox.hgrow="ALWAYS">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goToBooking" text="Continue" textFill="GREEN" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets right="200.0" top="30.0" />
                      </HBox.margin>

@@ -44,7 +44,7 @@ public class LoginController implements Initializable {//implements Initialize
        check if user input is the same as database.
      */
     //This is the method link to the login button, if button clicked, it will call this method
-    public void Login(ActionEvent event) {
+    public void login(ActionEvent event) {
         try {
             if (loginModel.isLogin(txtUsername.getText(), txtPassword.getText())) { // if login success
                 employeeID = loginModel.getEmployeeId(txtUsername.getText(), txtPassword.getText());

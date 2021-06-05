@@ -80,7 +80,7 @@ public class ChooseDateController implements Initializable {
         bookingDatePicker.setValue(bookingDatePicker.getValue().plusDays(1));
     }
 
-    public void gotoBooking(ActionEvent event) {
+    public void goToBooking(ActionEvent event) {
         // if it is normal booking we first set management booking to false
         //so when you go to booking controller it will perform the initialise as booking management
         selectBookingToManageEmpController.setIsBookingManagementEmp(false);
