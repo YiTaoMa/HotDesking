@@ -1,9 +1,5 @@
 # Readme
 
-- Name: Yitao Ma
-- Student ID: s3843689
-- Course Name: Further Programming (2110) COSC2391
-
 #### All Functions required are completed and working without bugs.
 
 ### Content of the project:
